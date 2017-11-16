@@ -28,9 +28,26 @@ class PaplaUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testMailTextField() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let eMailTextField = XCUIApplication().textFields["E-Mail"]
+        XCTAssertTrue(eMailTextField.exists, "Text field doesn't exist")
+        eMailTextField.tap()
+        eMailTextField.typeText("testValue")
+        XCTAssertEqual(eMailTextField.description, "\"testValue\" TextField")
+        
     }
+    func testPasswortTextField() {
+        
+        let passwortTextField = XCUIApplication().textFields["Passwort"]
+        XCTAssertEqual(passwortTextField.placeholderValue, "Passwort")
+        XCTAssertTrue(passwortTextField.exists, "Text field doesn't exist")
+        passwortTextField.tap()
+        passwortTextField.typeText("testValue")
+        XCTAssertEqual(passwortTextField.description, "\"testValue\" TextField")
+        
+    }
+    
     
 }
