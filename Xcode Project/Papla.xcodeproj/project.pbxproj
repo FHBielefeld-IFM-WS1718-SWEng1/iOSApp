@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		394CFA9E1FBEEA8100FA5519 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394CFA9D1FBEEA8100FA5519 /* DashboardViewController.swift */; };
 		3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397080991FBB4A21009C5D1D /* AppDelegate.swift */; };
 		3970809C1FBB4A21009C5D1D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3970809B1FBB4A21009C5D1D /* RegisterViewController.swift */; };
 		3970809F1FBB4A21009C5D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3970809D1FBB4A21009C5D1D /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		394CFA9D1FBEEA8100FA5519 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ../DashboardViewController.swift; sourceTree = "<group>"; };
 		397080961FBB4A21009C5D1D /* Papla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Papla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		397080991FBB4A21009C5D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3970809B1FBB4A21009C5D1D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		397080981FBB4A21009C5D1D /* Papla */ = {
 			isa = PBXGroup;
 			children = (
+				394CFA9D1FBEEA8100FA5519 /* DashboardViewController.swift */,
 				397080991FBB4A21009C5D1D /* AppDelegate.swift */,
 				3970809B1FBB4A21009C5D1D /* RegisterViewController.swift */,
 				3970809D1FBB4A21009C5D1D /* Main.storyboard */,
@@ -267,6 +270,7 @@
 			files = (
 				3970809C1FBB4A21009C5D1D /* RegisterViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
+				394CFA9E1FBEEA8100FA5519 /* DashboardViewController.swift in Sources */,
 				397080A21FBB4A21009C5D1D /* Papla.xcdatamodeld in Sources */,
 				3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */,
 			);
