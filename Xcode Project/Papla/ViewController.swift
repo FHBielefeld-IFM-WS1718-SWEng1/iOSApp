@@ -9,27 +9,80 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var leadingContraint: NSLayoutConstraint!
+    
+    var menuShowing = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        setMenuProperties()
+        
+        setCustomBackground()
+        setCustomShadow()
+        setCustomBackImage()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Aktion beim Klick auf den Dashboard Button
+    @IBAction func showDashboard(_ sender: Any) {
+        closeMenu()
     }
-    */
-
+    
+    // Aktion beim Klick auf den Menubutton
+    @IBAction func MenuButton(_ sender: Any) {
+        if(menuShowing) {
+            closeMenu()
+        }else {
+            openMenu()
+        }
+    }
+    
+    // MARK: - Menu
+    
+    // Oeffnet das Menue mit einer Animation
+    func openMenu() {
+        leadingContraint.constant = 0
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        menuShowing = !menuShowing
+    }
+    
+    // Schliesst das Menue mit einer Animation
+    func closeMenu() {
+        leadingContraint.constant = -340
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        menuShowing = !menuShowing
+    }
+    
+    // Schatten des Menues
+    func setMenuProperties() {
+        menuView.layer.shadowOpacity = 0.5
+        menuView.layer.shadowRadius = 6
+    }
+    
+    // MARK: - Navigation
+    
+    // Veraendert den Text bei zurueck Button auf "", somit wird nur der Pfeil angezeigt.
+    func setCustomBackImage() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    func setCustomBackground() {
+        // Hintergrundbild der Navigation.
+        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navbar_background.png"), for: .default)
+    }
+    
+    func setCustomShadow() {
+        // Schatten unter der Navigation durch leeres Bild ersetzten, somit wird kein Schatten angezeigt.
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
 }
