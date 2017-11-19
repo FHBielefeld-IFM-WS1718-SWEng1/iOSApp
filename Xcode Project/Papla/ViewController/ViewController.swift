@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         closeMenu()
     }
     
+    
     // Aktion beim Klick auf den Menubutton
     @IBAction func MenuButton(_ sender: Any) {
         if(menuShowing) {
@@ -71,7 +72,7 @@ class ViewController: UIViewController {
     
     // MARK: - Navigation
     
-    // Veraendert den Text bei zurueck Button auf "", somit wird nur der Pfeil angezeigt.
+    // Veraendert den Text bei zurueck Button auf "", damit nur der Pfeil angezeigt wird.
     func setCustomBackImage() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
@@ -80,6 +81,7 @@ class ViewController: UIViewController {
         // Hintergrundbild der Navigation.
         navigationController?.navigationBar.setBackgroundImage(UIImage(named: "navbar_background.png"), for: .default)
     }
+    
     
     func setCustomShadow() {
         // Schatten unter der Navigation durch leeres Bild ersetzten, somit wird kein Schatten angezeigt.

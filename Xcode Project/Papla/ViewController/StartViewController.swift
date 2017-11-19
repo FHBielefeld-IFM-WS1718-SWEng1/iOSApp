@@ -18,7 +18,7 @@ class StartViewController: UIViewController {
         * Verhindert, NavigationBar nachdem man sich ausgeloggt hat und wieder zur
         * StartView zurueck kommt.
         */
-        self.navigationController?.isNavigationBarHidden = true;
+        self.navigationController?.isNavigationBarHidden = true
 
         signInButton.setGradientBackground(colorOne: Colors.blue, colorTwo: Colors.purple)
     }

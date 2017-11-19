@@ -1,14 +1,14 @@
 //
-//  DashboardViewController.swift
+//  RegisterViewController.swift
 //  Papla
 //
-//  Created by Dario Leunig on 17.11.17.
+//  Created by Dario Leunig on 19.11.17.
 //  Copyright © 2017 Papla. All rights reserved.
 //
 
 import UIKit
 
-class DashboardViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
