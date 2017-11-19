@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391355ED1FC211F2003BA59D /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391355EC1FC211F2003BA59D /* BorderedButton.swift */; };
 		3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397080991FBB4A21009C5D1D /* AppDelegate.swift */; };
 		3970809F1FBB4A21009C5D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3970809D1FBB4A21009C5D1D /* Main.storyboard */; };
 		397080A21FBB4A21009C5D1D /* Papla.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 397080A01FBB4A21009C5D1D /* Papla.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 		39922BE31FC0A82200140615 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39922BE21FC0A82200140615 /* UIViewExtension.swift */; };
 		39922BE51FC0AA2200140615 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39922BE41FC0AA2200140615 /* Contents.swift */; };
 		39922BEA1FC1A09400140615 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39922BE91FC1A09400140615 /* RegisterViewController.swift */; };
+		3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997BF281FC217EB007FDDD2 /* MenuView.swift */; };
 		39ABC38A1FBF21FF0079715C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ABC3891FBF21FF0079715C /* ViewController.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		391355EC1FC211F2003BA59D /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		397080961FBB4A21009C5D1D /* Papla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Papla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		397080991FBB4A21009C5D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3970809E1FBB4A21009C5D1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		39922BE21FC0A82200140615 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		39922BE41FC0AA2200140615 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		39922BE91FC1A09400140615 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3997BF281FC217EB007FDDD2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		39ABC3891FBF21FF0079715C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +118,8 @@
 				3970809D1FBB4A21009C5D1D /* Main.storyboard */,
 				39922BE41FC0AA2200140615 /* Contents.swift */,
 				39922BE21FC0A82200140615 /* UIViewExtension.swift */,
+				391355EC1FC211F2003BA59D /* BorderedButton.swift */,
+				3997BF281FC217EB007FDDD2 /* MenuView.swift */,
 				397080991FBB4A21009C5D1D /* AppDelegate.swift */,
 				39922BE61FC19F1400140615 /* ViewController */,
 				397080A31FBB4A21009C5D1D /* Assets.xcassets */,
@@ -289,11 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3989D3D11FBF49550012081B /* ProfileViewController.swift in Sources */,
+				391355ED1FC211F2003BA59D /* BorderedButton.swift in Sources */,
 				39922BEA1FC1A09400140615 /* RegisterViewController.swift in Sources */,
 				39922BE51FC0AA2200140615 /* Contents.swift in Sources */,
 				39ABC38A1FBF21FF0079715C /* ViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
 				3989D3D31FBF49C40012081B /* TasksViewController.swift in Sources */,
+				3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */,
 				397080A21FBB4A21009C5D1D /* Papla.xcdatamodeld in Sources */,
 				39922BE31FC0A82200140615 /* UIViewExtension.swift in Sources */,
 				3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */,

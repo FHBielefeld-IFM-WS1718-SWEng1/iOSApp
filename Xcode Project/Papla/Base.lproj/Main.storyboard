@@ -62,11 +62,11 @@
                                     <segue destination="BkE-Nd-m5H" kind="show" id="Clk-Xt-Kdq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuS-ZZ-f1a">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuS-ZZ-f1a" customClass="BorderedButton" customModule="Papla" customModuleProvider="target">
                                 <rect key="frame" x="27" y="577" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="REGISTRIEREN" backgroundImage="register_button">
+                                <state key="normal" title="REGISTRIEREN">
                                     <color key="titleColor" red="0.33221542835235596" green="0.39553093910217285" blue="0.60788732767105103" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -141,11 +141,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnQ-ae-yO8">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnQ-ae-yO8" customClass="BorderedButton" customModule="Papla" customModuleProvider="target">
                                 <rect key="frame" x="23" y="439" width="328" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="REGISTRIERUNG ABSCHLIESSEN" backgroundImage="register_button">
+                                <state key="normal" title="REGISTRIERUNG ABSCHLIESSEN">
                                     <color key="titleColor" red="0.33221542840000001" green="0.39553093909999998" blue="0.60788732769999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -176,10 +176,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khR-4m-7z6">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khR-4m-7z6" customClass="MenuView" customModule="Papla" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="320" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu_background" translatesAutoresizingMaskIntoConstraints="NO" id="pKk-dh-yBI">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKk-dh-yBI">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="603"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -399,13 +399,11 @@
         <image name="Password" width="328" height="27"/>
         <image name="Username" width="328" height="27"/>
         <image name="menu_avatar" width="140" height="140"/>
-        <image name="menu_background" width="300" height="602"/>
         <image name="menu_contact_icon" width="16" height="18"/>
         <image name="menu_home_icon" width="20" height="19"/>
         <image name="menu_profile_icon" width="18" height="18"/>
         <image name="menu_tasks_icon" width="20" height="18"/>
         <image name="navbar_menu_icon" width="20" height="18"/>
-        <image name="register_button" width="328" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Clk-Xt-Kdq"/>
