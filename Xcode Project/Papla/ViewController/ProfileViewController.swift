@@ -1,25 +1,23 @@
 //
-//  ViewController.swift
+//  ProfileViewController.swift
 //  Papla
 //
-//  Created by Dario Leunig on 14.11.17.
+//  Created by Dario Leunig on 17.11.17.
 //  Copyright © 2017 Papla. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-
