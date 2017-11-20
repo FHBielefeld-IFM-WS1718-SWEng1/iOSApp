@@ -32,6 +32,7 @@ class PaplaUITests: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let eMailTextField = XCUIApplication().textFields["E-Mail"]
+        XCTAssertEqual(eMailTextField.placeholderValue, "E-Mail")
         XCTAssertTrue(eMailTextField.exists, "Text field doesn't exist")
         eMailTextField.tap()
         eMailTextField.typeText("testValue")
@@ -47,6 +48,53 @@ class PaplaUITests: XCTestCase {
         passwortTextField.typeText("testValue")
         XCTAssertEqual(passwortTextField.description, "\"testValue\" TextField")
         
+    }
+    
+    func testRegisterMailTextField() {
+        
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        let eMailTextField = XCUIApplication().textFields["E-Mail"]
+        XCTAssertEqual(eMailTextField.placeholderValue, "E-Mail")
+        XCTAssertTrue(eMailTextField.exists, "Text field doesn't exist")
+        eMailTextField.tap()
+        eMailTextField.typeText("testValue")
+        XCTAssertEqual(eMailTextField.description, "\"testValue\" TextField")
+        
+        
+    }
+    
+    func testRegisterBenutzernameTextField() {
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        let benutzernameTextField = XCUIApplication().textFields["Benutzername"]
+        XCTAssertEqual(benutzernameTextField.placeholderValue, "Benutzername")
+        XCTAssertTrue(benutzernameTextField.exists, "Text field doesn't exist")
+        benutzernameTextField.tap()
+        benutzernameTextField.typeText("testValue")
+        XCTAssertEqual(benutzernameTextField.description, "\"testValue\" TextField")
+    }
+    
+    func testRegisterPasswortTextField(){
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        let passwortTextField = XCUIApplication().textFields["Passwort"]
+        XCTAssertEqual(passwortTextField.placeholderValue, "Passwort")
+        XCTAssertTrue(passwortTextField.exists, "Text field doesn't exist")
+        passwortTextField.tap()
+        passwortTextField.typeText("testValue")
+        XCTAssertEqual(passwortTextField.description, "\"testValue\" TextField")
+    }
+    
+    func testRegisterPasswortWiederholenTextField() {
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        let passwortWiederholenTextField = XCUIApplication().textFields["Passwort wiederholen"]
+        XCTAssertEqual(passwortWiederholenTextField.placeholderValue, "Passwort wiederholen")
+        XCTAssertTrue(passwortWiederholenTextField.exists, "Text field doesn't exist")
+        passwortWiederholenTextField.tap()
+        passwortWiederholenTextField.typeText("testValue")
+        XCTAssertEqual(passwortWiederholenTextField.description, "\"testValue\" TextField")
     }
     
     
