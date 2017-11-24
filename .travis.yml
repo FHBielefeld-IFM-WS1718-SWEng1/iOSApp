@@ -1,5 +1,4 @@
 osx_image: xcode9.1
 language: objective-c
-xcode_project: 'Xcode Projekt/Papla.xcodeproj'
-xcode_scheme: 'Xcode Projekt/Papla'
-xcode_sdk: iphonesimulator8.4
+
+script: xcodebuild clean && xcodebuild build -project Xcode\ Projekt/Papla.xcodeproj -scheme Xcode\ Projekt/Papla
