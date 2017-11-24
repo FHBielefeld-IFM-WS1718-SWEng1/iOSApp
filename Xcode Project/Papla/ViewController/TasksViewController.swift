@@ -17,7 +17,7 @@ class TasksViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceisydfgveMemoryWarning()
+        super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
