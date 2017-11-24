@@ -9,10 +9,36 @@
 import UIKit
 
 class StartViewController: UIViewController {
+    @IBOutlet weak var registryView: MenuView!
+    
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var registerFinishButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var emailTextFieldRegistryView: UITextField!
+    @IBOutlet weak var usernameTextFieldRegistryView: UITextField!
+    @IBOutlet weak var passwordTextFieldRegistryView: UITextField!
+    @IBOutlet weak var repeatPasswordTextFieldRegistryView: UITextField!
+    
+    
+    var registryFormShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailTextField.setBottomBorder()
+        passwordTextfield.setBottomBorder()
+        
+        emailTextFieldRegistryView.setWhite()
+        usernameTextFieldRegistryView.setWhite()
+        passwordTextFieldRegistryView.setWhite()
+        repeatPasswordTextFieldRegistryView.setWhite()
         
         /*
         * Verhindert, NavigationBar nachdem man sich ausgeloggt hat und wieder zur
@@ -20,11 +46,51 @@ class StartViewController: UIViewController {
         */
         self.navigationController?.isNavigationBarHidden = true
 
+        // Aussehen vom signInButton
         signInButton.setGradientBackground(colorOne: Colors.blue, colorTwo: Colors.purple)
+        
+        // Aussehen vom registerFinishButton
+        registerFinishButton.setWhiteBorder()
+        
+        // Aussehen vom registerButton
+        registerButton.setPurpleBorder()
+        
+        setRegistryFormProperties()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func pressRegisterButton(_ sender: Any) {
+        openMenuRegistryForm()
     }
+    
+    @IBAction func pressArrowDownButton(_ sender: Any) {
+        closeRegistryForm()
+    }
+    
+    
+    func openMenuRegistryForm() {
+        leadingConstraint.constant = 0
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        registryFormShowing = !registryFormShowing
+    }
+    
+    func closeRegistryForm() {
+        leadingConstraint.constant = 400
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        registryFormShowing = !registryFormShowing
+    }
+    
+    // Schatten der RegistrierenView
+    func setRegistryFormProperties() {
+        registryView.layer.shadowOpacity = 0.2
+        registryView.layer.shadowRadius = 8
+    }
+    
 }
