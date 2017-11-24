@@ -1,5 +1,5 @@
 os: osx
 osx_image: xcode9.1
 language: swift
-xcode_project: 'Xcode Projekt/Papla.xcodeproj'
+xcode_workspace: 'Xcode Projekt/Papla.xcodeproj'
 xcode_scheme: 'Xcode Projekt/PaplaUITests'
