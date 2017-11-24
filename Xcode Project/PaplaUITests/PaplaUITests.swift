@@ -42,7 +42,7 @@ class PaplaUITests: XCTestCase {
     func testPasswortTextField() {
         
         let passwortTextField = XCUIApplication().textFields["Passwort"]
-        XCTAssertEqual(passwortTextField.placeholderValue, "Pasort")
+        XCTAssertEqual(passwortTextField.placeholderValue, "Passwort")
         XCTAssertTrue(passwortTextField.exists, "Text field doesn't exist")
         passwortTextField.tap()
         passwortTextField.typeText("testValue")
