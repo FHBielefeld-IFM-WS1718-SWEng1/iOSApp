@@ -1,5 +1,5 @@
-os: osx
 osx_image: xcode9.1
 language: objective-c
-xcode_workspace: 'Xcode Projekt/Papla.xcodeproj'
-xcode_scheme: 'Xcode Projekt/PaplaUITests'
+xcode_project: 'Xcode Projekt/Papla.xcodeproj'
+xcode_scheme: 'Xcode Projekt/Papla'
+xcode_sdk: iphonesimulator8.4
