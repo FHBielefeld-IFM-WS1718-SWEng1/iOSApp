@@ -1,4 +1,5 @@
 osx_image: xcode9.1
 language: objective-c
 
-script: xcodebuild clean && xcodebuild build -project Xcode\ Projekt/Papla.xcodeproj -scheme Xcode\ Projekt/Papla
+xcode_project: 'Xcode Project/Papla.xcodeproj'
+xcode_scheme: 'Xcode Project/PaplaTests'
