@@ -8,7 +8,10 @@
 
 import UIKit
 
+var name = ""
+
 class StartViewController: UIViewController {
+    
     @IBOutlet weak var registryView: MenuView!
     
     @IBOutlet weak var signInButton: UIButton!
@@ -56,6 +59,13 @@ class StartViewController: UIViewController {
         registerButton.setPurpleBorder()
         
         setRegistryFormProperties()
+    }
+    
+    @IBAction func pressSignInButton(_ sender: Any) {
+        if(emailTextField.text == "Dario" && passwordTextfield.text == "test"){
+            name = emailTextField.text!
+            performSegue(withIdentifier: "signIn", sender: self)
+        }
     }
     
     @IBAction func pressRegisterButton(_ sender: Any) {

@@ -37,7 +37,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="ANMELDEN"/>
                                 <connections>
-                                    <segue destination="BkE-Nd-m5H" kind="show" id="e8W-6W-x5T"/>
+                                    <action selector="pressSignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HTx-VE-naL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuS-ZZ-f1a">
@@ -63,7 +63,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1y7-PK-JKZ" customClass="MenuView" customModule="Papla" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="267" width="375" height="400"/>
@@ -146,6 +146,7 @@
                         <outlet property="repeatPasswordTextFieldRegistryView" destination="YVS-5P-YUB" id="Q7F-cj-HsN"/>
                         <outlet property="signInButton" destination="cQV-XH-06r" id="L6l-OF-8xM"/>
                         <outlet property="usernameTextFieldRegistryView" destination="hOh-GH-V2c" id="9s0-Ei-CeS"/>
+                        <segue destination="BkE-Nd-m5H" kind="show" identifier="signIn" id="u7r-Ge-NRx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -279,6 +280,7 @@
                     <connections>
                         <outlet property="leadingContraint" destination="Qzn-Wi-Le0" id="We6-eZ-x9m"/>
                         <outlet property="menuView" destination="khR-4m-7z6" id="x1X-bT-7IP"/>
+                        <outlet property="userNameLabel" destination="g8c-N9-n3B" id="gGj-vG-Mu1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykr-o0-Bar" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,6 +448,6 @@
         <image name="navbar_menu_icon" width="20" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e8W-6W-x5T"/>
+        <segue reference="u7r-Ge-NRx"/>
     </inferredMetricsTieBreakers>
 </document>
