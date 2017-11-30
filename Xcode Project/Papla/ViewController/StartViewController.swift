@@ -10,7 +10,7 @@ import UIKit
 
 var name = ""
 
-class StartViewController: UIViewController {
+class StartViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var registryView: MenuView!
     
@@ -34,6 +34,14 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailTextField.delegate = self
+        passwordTextfield.delegate = self
+        
+        emailTextFieldRegistryView.delegate = self
+        usernameTextFieldRegistryView.delegate = self
+        passwordTextFieldRegistryView.delegate = self
+        repeatPasswordTextFieldRegistryView.delegate = self
         
         emailTextField.setBottomBorder()
         passwordTextfield.setBottomBorder()
@@ -60,6 +68,18 @@ class StartViewController: UIViewController {
         
         setRegistryFormProperties()
     }
+    
+    override func touchesBegan(_: Set<UITouch>, with: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextfield.resignFirstResponder()
+        
+        emailTextFieldRegistryView.resignFirstResponder()
+        usernameTextFieldRegistryView.resignFirstResponder()
+        passwordTextFieldRegistryView.resignFirstResponder()
+        repeatPasswordTextFieldRegistryView.resignFirstResponder()
+        self.view.endEditing(true)
+    }
+
     
     @IBAction func pressSignInButton(_ sender: Any) {
         if(emailTextField.text == "Dario" && passwordTextfield.text == "test"){
