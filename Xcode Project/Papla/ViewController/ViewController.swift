@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var leadingContraint: NSLayoutConstraint!
     
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     var menuShowing = false
     
     override func viewDidLoad() {
@@ -23,6 +25,10 @@ class ViewController: UIViewController {
         setCustomBackground()
         setCustomShadow()
         setCustomBackImage()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        userNameLabel.text = name
     }
     
     // Aktion beim Klick auf den Dashboard Button

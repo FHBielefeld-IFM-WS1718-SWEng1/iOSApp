@@ -9,27 +9,58 @@
 import UIKit
 
 class TasksViewController: UIViewController {
-
+    @IBOutlet var passwordForgottenView: UIView!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var passwordForgottenButton: UIButton!
+    
+    var effect:UIVisualEffect!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        effect = visualEffectView.effect
+        visualEffectView.effect = nil
+        
+        passwordForgottenView.layer.cornerRadius = 5
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func animateIn() {
+        self.view.addSubview(passwordForgottenView)
+        passwordForgottenView.center = self.view.center
+        
+        passwordForgottenView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        passwordForgottenView.alpha = 0
+        
+        
+        passwordForgottenButton.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.visualEffectView.effect = self.effect
+            self.passwordForgottenView.alpha = 1
+            self.passwordForgottenView.transform = CGAffineTransform.identity
+        }
     }
-    */
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.passwordForgottenView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.passwordForgottenView.alpha = 0
+            
+            self.visualEffectView.effect = nil
+         
+            self.passwordForgottenButton.alpha = 1
+            
+        }) {(success:Bool) in
+            self.passwordForgottenView.removeFromSuperview()
+        }
+    }
 
+    @IBAction func resetPassword(_ sender: Any) {
+        animateIn()
+    }
+    
+    @IBAction func closePopUp(_ sender: Any) {
+        animateOut()
+    }
+    
 }
