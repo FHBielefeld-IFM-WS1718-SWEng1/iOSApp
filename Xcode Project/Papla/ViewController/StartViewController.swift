@@ -11,6 +11,8 @@ import UIKit
 var name = ""
 
 class StartViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    
     
     @IBOutlet weak var registryView: MenuView!
     
@@ -29,11 +31,15 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextFieldRegistryView: UITextField!
     @IBOutlet weak var repeatPasswordTextFieldRegistryView: UITextField!
     
+    var effect:UIVisualEffect!
     
     var registryFormShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        effect = visualEffectView.effect
+        visualEffectView.effect = nil
         
         emailTextField.delegate = self
         passwordTextfield.delegate = self
@@ -107,6 +113,10 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     
     func openMenuRegistryForm() {
+        UIView.animate(withDuration: 0.4) {
+            self.visualEffectView.effect = self.effect
+        }
+        
         leadingConstraint.constant = 0
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -117,6 +127,11 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     func closeRegistryForm() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.visualEffectView.effect = nil
+            
+        })
+        
         leadingConstraint.constant = 400
         
         UIView.animate(withDuration: 0.3, animations: {
