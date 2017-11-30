@@ -65,6 +65,15 @@ class StartViewController: UIViewController {
         if(emailTextField.text == "Dario" && passwordTextfield.text == "test"){
             name = emailTextField.text!
             performSegue(withIdentifier: "signIn", sender: self)
+        }else {
+            passwordTextfield.text = ""
+        }
+    }
+    
+    @IBAction func pressRegisterFinishButton(_ sender: Any) {
+        if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
+            name = usernameTextFieldRegistryView.text!
+            performSegue(withIdentifier: "signIn", sender: self)
         }
     }
     
