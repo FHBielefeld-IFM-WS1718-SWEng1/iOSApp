@@ -5,17 +5,13 @@
 //  Created by Dario Leunig on 01.12.17.
 //  Copyright © 2017 Papla. All rights reserved.
 //
+// Tutorial: https://www.youtube.com/watch?v=YY3bTxgxWss
 
 import UIKit
 
-struct Party {
+struct Party: Decodable{
     let name: String
     let values: Array<String>
-    
-    init(json: [String: Any]) {
-        name = json["name"] as? String ?? ""
-        values = json["values"] as? Array<String> ?? Array<String>()
-    }
 }
 
 
@@ -25,39 +21,44 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let jsonUrlString = "http://api.dleunig.de/parties"
-        guard let url = URL(string: jsonUrlString) else
-        {return}
+        
+        /* "guard" ist wie eine if-Abfrage, ist die Bedingung nicht erfuellt, wird die Funktion vorzeitig beendet.
+         * Beispiel:
+         *
+         * guard x < 150 else {
+         * return
+         * }
+         *
+         * Quelle: https://codingtutor.de/swift-2-0-guard-statements-so-validierst-du-variablen/
+         */
+        
+        guard let url = URL(string: jsonUrlString) else {
+            return
+        }
+        
+        /* URLSession -> Bietet zahlreiche Möglichkeiten mit Netzwerkprotokollen zu kommunizieren
+         * shared -> Lädt den Inhalt einer URL in den Speicher
+         * dataTask -> Ruft den Inhalt der URL auf
+         */
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
-            //pass
-            guard let data = data else {return}
+            guard let data = data else {
+                return
+            }
             
             /*
-            let dataAsString = String(data: data, encoding: .utf8)
-            print(dataAsString)
-            */
- 
+             * JSONDecoder -> Decodiert Instanzen aus JSON-Objekten
+             * decode -> Gibt gewuenschten Wert aus JSON-Objekt zurueck
+             */
+            
             do {
-                guard let json = try
-                    JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
-                        return}
-                
-                let party = Party(json: json)
-                
+                let party = try
+                    JSONDecoder().decode(Party.self, from: data)
                 print(party.name)
-                
             } catch let jsonERR {
                 print("Error serializing json: ", jsonERR)
             }
-            
         }.resume()
-        
-        /*
-        let myParty = Party(name: "Darios Party")
-        print(myParty)
-        */
     }
-
-
 }
 
