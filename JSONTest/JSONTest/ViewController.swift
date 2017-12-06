@@ -9,14 +9,21 @@
 
 import UIKit
 
-struct Party: Decodable{
+struct Partylist: Decodable {
     let name: String
-    let values: Array<String>
+    let values: [Course]
+}
+
+// ? macht die Variablen optional, wenn sie also nicht uebergeben werden, koennen sie nil sein.
+struct Course: Decodable{
+    let id: Int?
+    let name: String?
+    let description: String?
 }
 
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,13 +59,19 @@ class ViewController: UIViewController {
              */
             
             do {
-                let party = try
-                    JSONDecoder().decode(Party.self, from: data)
-                print(party.name)
+                let partylist = try
+                    JSONDecoder().decode(Partylist.self, from: data)
+                for element in partylist.values {
+                    print(element)
+                }
+                // print("ID:", partylist.values[0].id, "Name:",  partylist.values[0].name, "Beschreibung:", partylist.values[0].description)
+                
+                //let courses = try
+                //    JSONDecoder().decode([Course].self, from: data)
+                //print(courses)
             } catch let jsonERR {
                 print("Error serializing json: ", jsonERR)
             }
-        }.resume()
+            }.resume()
     }
 }
-
