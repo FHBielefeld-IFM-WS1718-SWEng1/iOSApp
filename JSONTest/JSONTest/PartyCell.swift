@@ -10,13 +10,16 @@ import UIKit
 
 class PartyCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var descLbl: UILabel!
+    @IBOutlet weak var whoLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var imgImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

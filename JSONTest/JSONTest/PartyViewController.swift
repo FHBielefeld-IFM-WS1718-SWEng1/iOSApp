@@ -70,8 +70,22 @@ class PartyViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PartyCell") as? PartyCell else {return UITableViewCell()}
         
-        cell.nameLbl.text = "name: " + parties[indexPath.row].name
-        cell.descLbl.text = "Beschreibung: " + parties[indexPath.row].description
+        cell.nameLbl.text = parties[indexPath.row].name
+        cell.whoLbl.text = parties[indexPath.row].who
+        cell.dateLbl.text = parties[indexPath.row].date
+        cell.descTextView.text = parties[indexPath.row].description
+        
+        if let imageURL = URL(string: parties[indexPath.row].img) {
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: imageURL)
+                if let data = data {
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        cell.imgImageView.image = image
+                    }
+                }
+            }
+        }
         
         return cell
     }

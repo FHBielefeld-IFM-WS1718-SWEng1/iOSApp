@@ -21,11 +21,17 @@ class Parties: Codable {
 class Party: Codable {
     let id: Int
     let name: String
+    let who: String
+    let date: String
     let description: String
+    let img: String
     
-    init(id: Int, name: String, description: String) {
+    init(id: Int, name: String, who: String, date: String, description: String, img: String) {
         self.id = id
         self.name = name
+        self.who = who
+        self.date = date
         self.description = description
+        self.img = img
     }
 }
