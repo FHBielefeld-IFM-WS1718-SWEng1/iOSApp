@@ -14,7 +14,7 @@ class PartyCell: UITableViewCell {
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var descTextView: UITextView!
     @IBOutlet weak var imgImageView: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

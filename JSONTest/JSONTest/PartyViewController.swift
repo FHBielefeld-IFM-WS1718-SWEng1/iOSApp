@@ -10,18 +10,59 @@
 
 import UIKit
 
-class PartyViewController: UIViewController, UITableViewDataSource {
+class PartyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    final let url = URL(string: "file:///Users/dleunig/Desktop/test.json")
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        self.description.setContentOffset(CGPoint.zero, animated: false)
+//    }
+    
+    final let url = URL(string: "https://api.myjson.com/bins/10gasv")
     private var parties = [Party]()
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Initialisiert ein Aktualisieren des TableView Inhalts
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    lazy var refreshControl: UIRefreshControl = {
+        
+        let refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action:
+            #selector(PartyViewController.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        
+        refreshControl.tintColor = UIColor.darkGray
+        
+        return refreshControl
+    }()
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Wird durch refreshControl aufgerufen. Downloaded JSON erneut und lädt
+    // den Inhalt der TableView neu
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        downloadJSON()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+        refreshControl.endRefreshing()
+    }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.addSubview(self.refreshControl)
         downloadJSON()
     }
-    
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Laedt JSON herrunter und parsed den Inhalt in Objekte
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     func downloadJSON() {
         /* "guard" ist wie eine if-Abfrage, ist die Bedingung nicht erfuellt, wird die Funktion vorzeitig beendet.
          * Beispiel:
@@ -60,13 +101,19 @@ class PartyViewController: UIViewController, UITableViewDataSource {
             }
             }.resume()
     }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
-    
-    // Diese beiden Methoden werden benoetigt, um UITableViewDataSource verwenden zu koennen.
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Zaehlt die Anzahlt der durch den Parser erstelle Parties im Array
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parties.count
     }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // Fuellt die TableView Zellen mit Inhalt
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PartyCell") as? PartyCell else {return UITableViewCell()}
         
@@ -74,6 +121,7 @@ class PartyViewController: UIViewController, UITableViewDataSource {
         cell.whoLbl.text = parties[indexPath.row].who
         cell.dateLbl.text = parties[indexPath.row].date
         cell.descTextView.text = parties[indexPath.row].description
+        
         
         if let imageURL = URL(string: parties[indexPath.row].img) {
             DispatchQueue.global().async {
@@ -86,7 +134,7 @@ class PartyViewController: UIViewController, UITableViewDataSource {
                 }
             }
         }
-        
         return cell
     }
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 }
