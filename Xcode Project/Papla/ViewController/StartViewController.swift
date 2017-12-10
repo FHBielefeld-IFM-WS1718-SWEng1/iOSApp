@@ -8,6 +8,7 @@
 
 import UIKit
 
+var name: String = ""
 
 class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
@@ -95,9 +96,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doLogin(eMail: String, password: String) {
-        let url = URL(string: "http://www.kaleidosblog.com/tutorial/login/api/login")
-        let session = URLSession.shared
-        
+        let url = URL(string: "http//api.dleunig.de")
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "POST"
         
@@ -106,39 +105,26 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         request.httpBody = paramToSend.data(using: String.Encoding.utf8)
         
         
-        let task = session.dataTask(with: request as URLRequest, completionHandler: {
-            (data, response, error) in
-            
-            guard let _:Data = data else { return }
-            
-            let json:Any?
-            
-            do {
-                json = try JSONSerialization.jsonObject(with: data!, options: [])
-            }
-            catch
-            {
+        let task = URLSession.shared.dataTask(with: url!){
+            data, response, error in
+            guard let data = data, error == nil, response != nil else {
+                print("something is wrong")
                 return
             }
             
-            
-            guard let server_response = json as? NSDictionary else {
-                return
-            }
-            
-            if let data_block = server_response["data"] as? NSDictionary
+            do
             {
-                if let session_data = data_block["session"] as? String
-                {
-                    let preferences = UserDefaults.standard
-                    preferences.set(session_data, forKey: "session")
-                    
-                    DispatchQueue.main.async(execute: { () -> Void in
-                        self.performSegue(withIdentifier: "segue", sender: self)
-                    })
+                let decoder = JSONDecoder()
+                let downloadedUser = try decoder.decode(User.self, from: data)
+                name = downloadedUser.name
+                
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "signIn", sender: self)
                 }
+            } catch {
+                print("something wrong after downloaded")
             }
-        })
+        }
         task.resume()
     }
     

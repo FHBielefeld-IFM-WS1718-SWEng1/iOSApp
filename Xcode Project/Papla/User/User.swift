@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class User: Codable {
     let id: Int
     let name: String

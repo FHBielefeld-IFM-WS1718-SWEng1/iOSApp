@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        userNameLabel.text = name
+        userNameLabel.text = "Dario"
     }
     
     // Aktion beim Klick auf den Dashboard Button
