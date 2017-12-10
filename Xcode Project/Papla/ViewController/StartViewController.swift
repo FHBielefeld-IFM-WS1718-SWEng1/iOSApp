@@ -8,7 +8,6 @@
 
 import UIKit
 
-var name = ""
 
 class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
@@ -88,17 +87,63 @@ class StartViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func pressSignInButton(_ sender: Any) {
-        if(emailTextField.text == "Dario" && passwordTextfield.text == "test"){
-            name = emailTextField.text!
-            performSegue(withIdentifier: "signIn", sender: self)
+        if(emailTextField.text != "" && passwordTextfield.text != ""){
+            doLogin(eMail: emailTextField.text!, password: passwordTextfield.text!)
         }else {
             passwordTextfield.text = ""
         }
     }
     
+    func doLogin(eMail: String, password: String) {
+        let url = URL(string: "http://www.kaleidosblog.com/tutorial/login/api/login")
+        let session = URLSession.shared
+        
+        let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = "POST"
+        
+        let paramToSend = "username=" + eMail + "&password=" + password
+        
+        request.httpBody = paramToSend.data(using: String.Encoding.utf8)
+        
+        
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {
+            (data, response, error) in
+            
+            guard let _:Data = data else { return }
+            
+            let json:Any?
+            
+            do {
+                json = try JSONSerialization.jsonObject(with: data!, options: [])
+            }
+            catch
+            {
+                return
+            }
+            
+            
+            guard let server_response = json as? NSDictionary else {
+                return
+            }
+            
+            if let data_block = server_response["data"] as? NSDictionary
+            {
+                if let session_data = data_block["session"] as? String
+                {
+                    let preferences = UserDefaults.standard
+                    preferences.set(session_data, forKey: "session")
+                    
+                    DispatchQueue.main.async(execute: { () -> Void in
+                        self.performSegue(withIdentifier: "segue", sender: self)
+                    })
+                }
+            }
+        })
+        task.resume()
+    }
+    
     @IBAction func pressRegisterFinishButton(_ sender: Any) {
         if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
-            name = usernameTextFieldRegistryView.text!
             performSegue(withIdentifier: "signIn", sender: self)
         }
     }
