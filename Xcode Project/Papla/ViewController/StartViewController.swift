@@ -8,7 +8,7 @@
 
 import UIKit
 
-var name: String = ""
+var userName: String = ""
 
 class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
@@ -96,35 +96,53 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doLogin(eMail: String, password: String) {
-        let json = ["password":password, "email":eMail]
-        var request = URLRequest(url: URL(string: "http//api.dleunig.de/")!)
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "9a2273e0-e96a-f83c-2f46-3539007e2025"
+        ]
+        let parameters = [
+            "password": password,
+            "email": eMail
+            ] as [String : Any]
         do {
-            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-            request.httpMethod = "POST"
-            request.httpBody = jsonData
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        }catch {return}
-        let task = URLSession.shared.dataTask(with: request){
-            data, response, error in
+        let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://api.dleunig.de/login")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             guard let data = data, error == nil, response != nil else {
                 print("something is wrong")
                 return
             }
             
-            do
-            {
-                let decoder = JSONDecoder()
-                let downloadedUser = try decoder.decode(User.self, from: data)
-                name = downloadedUser.name
-                
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "signIn", sender: self)
-                }
-            } catch {
-                print("something wrong after downloaded")
+            print("downloaded")
+            
+            let dataAsString = String(data: data, encoding: .utf8)
+            print(dataAsString)
+            
+            do {
+                let dowloadedUser = try JSONDecoder().decode(User.self, from: data)
+                print(dowloadedUser.name)
+            }catch {
+                print("JSON Error")
+                return
             }
-        }
-        task.resume()
+            
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "signIn", sender: self)
+            }
+            
+            
+        })
+        dataTask.resume()
+        } catch {return}
     }
     
     @IBAction func pressRegisterFinishButton(_ sender: Any) {

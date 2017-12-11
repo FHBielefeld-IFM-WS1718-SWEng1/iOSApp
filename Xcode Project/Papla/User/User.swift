@@ -9,22 +9,32 @@
 import Foundation
 
 
-class User: Codable {
+struct User: Decodable {
     let id: Int
-    let name: String
     let email: String
-    let birthday: String
+    let name: String
+    let birthdate: String
     let gender: Int
+    let profilepicture: String
     let loginAt: String
-    
-    init(id: Int, name: String, email: String, birthday: String, gender: Int, loginAt: String) {
+    let createdAt: String
+    let updatedAt: String
+    let deletedAt: String
+    let key: String
+    /*
+    init(id: Int, email: String, name: String, birthdate: String, gender: Int,profilepicture: String, loginAt: String, createdAt: String, updatedAt:String, deletedAt: String, key: String) {
         
         self.id = id
-        self.name = name
         self.email = email
-        self.birthday = birthday
+        self.name = name
+        self.birthdate = birthdate
         self.gender = gender
+        self.profilepicture = profilepicture
         self.loginAt = loginAt
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.deletedAt = deletedAt
+        self.key = key
     }
-    
+    */
 }
