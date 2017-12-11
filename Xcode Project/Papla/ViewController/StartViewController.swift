@@ -96,16 +96,15 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     }
     
     func doLogin(eMail: String, password: String) {
-        let url = URL(string: "http//api.dleunig.de")
-        let request = NSMutableURLRequest(url: url!)
-        request.httpMethod = "POST"
-        
-        let paramToSend = "username=" + eMail + "&password=" + password
-        
-        request.httpBody = paramToSend.data(using: String.Encoding.utf8)
-        
-        
-        let task = URLSession.shared.dataTask(with: url!){
+        let json = ["password":password, "email":eMail]
+        var request = URLRequest(url: URL(string: "http//api.dleunig.de/")!)
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        }catch {return}
+        let task = URLSession.shared.dataTask(with: request){
             data, response, error in
             guard let data = data, error == nil, response != nil else {
                 print("something is wrong")
