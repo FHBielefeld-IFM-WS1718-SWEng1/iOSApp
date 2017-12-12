@@ -9,19 +9,19 @@
 import Foundation
 
 
-struct User: Decodable {
-    let id: Int
-    let email: String
-    let name: String
-    let birthdate: String
-    let gender: Int
-    let profilepicture: String
-    let loginAt: String
-    let createdAt: String
-    let updatedAt: String
-    let deletedAt: String
-    let key: String
-    /*
+class User {
+    var id: Int
+    var email: String
+    var name: String
+    var birthdate: String
+    var gender: Int
+    var profilepicture: String
+    var loginAt: String
+    var createdAt: String
+    var updatedAt: String
+    var deletedAt: String
+    var key: String
+    
     init(id: Int, email: String, name: String, birthdate: String, gender: Int,profilepicture: String, loginAt: String, createdAt: String, updatedAt:String, deletedAt: String, key: String) {
         
         self.id = id
@@ -36,5 +36,5 @@ struct User: Decodable {
         self.deletedAt = deletedAt
         self.key = key
     }
-    */
+    
 }
