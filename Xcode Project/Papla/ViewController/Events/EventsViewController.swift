@@ -84,8 +84,8 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             do
             {
                 let decoder = JSONDecoder()
-                let downloadedParties = try decoder.decode(Events.self, from: data)
-                self.events = downloadedParties.values
+                let downloadedEvents = try decoder.decode(Events.self, from: data)
+                self.events = downloadedEvents.values
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -97,7 +97,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Zaehlt die Anzahlt der durch den Parser erstelle Parties im Array
+    // Zaehlt die Anzahlt der durch den Parser erstelle Events im Array
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
