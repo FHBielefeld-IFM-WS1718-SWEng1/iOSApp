@@ -64,7 +64,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.isNavigationBarHidden = true
 
         // Aussehen vom signInButton
-        signInButton.setGradientBackground(colorOne: Colors.blue, colorTwo: Colors.purple)
+        //signInButton.setGradientBackgroundDiagonal(colorOne: Colors.blue, colorTwo: Colors.purple)
         
         // Aussehen vom registerFinishButton
         registerFinishButton.setWhiteBorder()

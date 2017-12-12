@@ -13,6 +13,7 @@ class MenuView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        /*
         // Erstellt ein CAGradientLayer() Objekt
         let gradientLayer = CAGradientLayer()
         // bounds = gleiche Groesse wie das Objekt (Button, View ect.)
@@ -27,5 +28,6 @@ class MenuView: UIView {
         
         // Setzt den erzeugten Layer auf Index 0, damit er ganz oben liegt
         layer.insertSublayer(gradientLayer, at: 0)
+        */
     }
 }

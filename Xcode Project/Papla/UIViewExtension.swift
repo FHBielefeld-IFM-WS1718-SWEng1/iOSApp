@@ -10,9 +10,8 @@ import Foundation
 import UIKit
 
 extension UIView {
-    
-    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
-        
+    /*
+    func setGradientBackgroundDiagonal(colorOne: UIColor, colorTwo: UIColor) {
         // Erstellt ein CAGradientLayer() Objekt
         let gradientLayer = CAGradientLayer()
         // bounds = gleiche Groesse wie das Objekt (Button, View ect.)
@@ -29,8 +28,7 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    func setGradientBackgroundDiagonal(colorOne: UIColor, colorTwo: UIColor) {
-        
+    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
         // Erstellt ein CAGradientLayer() Objekt
         let gradientLayer = CAGradientLayer()
         // bounds = gleiche Groesse wie das Objekt (Button, View ect.)
@@ -46,4 +44,5 @@ extension UIView {
         // Setzt den erzeugten Layer auf Index 0, damit er ganz oben liegt
         layer.insertSublayer(gradientLayer, at: 0)
     }
+ */
 }
