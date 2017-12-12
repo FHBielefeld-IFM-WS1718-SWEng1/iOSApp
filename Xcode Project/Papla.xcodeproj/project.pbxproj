@@ -22,6 +22,7 @@
 		3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997BF281FC217EB007FDDD2 /* MenuView.swift */; };
 		39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A27D841FC618EA001B064C /* UIButtonExtension.swift */; };
 		39ABC38A1FBF21FF0079715C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ABC3891FBF21FF0079715C /* ViewController.swift */; };
+		9524C5AD1FDD417E00E76DF3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524C5AC1FDD417E00E76DF3 /* User.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		3997BF281FC217EB007FDDD2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		39A27D841FC618EA001B064C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		39ABC3891FBF21FF0079715C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9524C5AC1FDD417E00E76DF3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 		397080981FBB4A21009C5D1D /* Papla */ = {
 			isa = PBXGroup;
 			children = (
+				9524C5AB1FDD416100E76DF3 /* User */,
 				3970809D1FBB4A21009C5D1D /* Main.storyboard */,
 				39922BE41FC0AA2200140615 /* Contents.swift */,
 				39922BE21FC0A82200140615 /* UIViewExtension.swift */,
@@ -158,6 +161,14 @@
 				95A137321FBEE57F00451954 /* StartViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9524C5AB1FDD416100E76DF3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9524C5AC1FDD417E00E76DF3 /* User.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +313,7 @@
 				3989D3D31FBF49C40012081B /* TasksViewController.swift in Sources */,
 				39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */,
 				3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */,
+				9524C5AD1FDD417E00E76DF3 /* User.swift in Sources */,
 				397080A21FBB4A21009C5D1D /* Papla.xcdatamodeld in Sources */,
 				39922BE31FC0A82200140615 /* UIViewExtension.swift in Sources */,
 				3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */,

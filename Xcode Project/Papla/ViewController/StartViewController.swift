@@ -8,7 +8,7 @@
 
 import UIKit
 
-var name = ""
+var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilepicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
 
 class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
@@ -88,17 +88,106 @@ class StartViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBAction func pressSignInButton(_ sender: Any) {
-        if(emailTextField.text == "Dario" && passwordTextfield.text == "test"){
-            name = emailTextField.text!
-            performSegue(withIdentifier: "signIn", sender: self)
+        if(emailTextField.text != "" && passwordTextfield.text != ""){
+            doLogin(eMail: emailTextField.text!, password: passwordTextfield.text!)
         }else {
             passwordTextfield.text = ""
         }
     }
     
+    func doLogin(eMail: String, password: String) {
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "9a2273e0-e96a-f83c-2f46-3539007e2025"
+        ]
+        let parameters = [
+            "password": password,
+            "email": eMail
+            ] as [String : Any]
+        do {
+        let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://api.dleunig.de/login")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            guard let data = data, error == nil, response != nil else {
+                print("something is wrong")
+                return
+            }
+            
+            print("downloaded")
+            
+            let dataAsString = String(data: data, encoding: .utf8)
+            print(dataAsString)
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
+                if let parseJSON = json {
+                    // Access value of username, name, and email by its key
+                    let idValue = parseJSON["id"] as? Int
+                    let emailValue = parseJSON["email"] as? String
+                    let nameValue = parseJSON["name"] as? String
+                    let birthdateValue = parseJSON["birthdate"] as? String
+                    let genderValue = parseJSON["gender"] as? Int
+                    let profilepictureValue = parseJSON["profilepicture"] as? String
+                    let loginAtValue = parseJSON["loginAt"] as? String
+                    let createdAtValue = parseJSON["createdAt"] as? String
+                    let updatedAtValue = parseJSON["updatedAt"] as? String
+                    let deletedAtValue = parseJSON["deletedAt"] as? String
+                    let keyValue = parseJSON["key"] as? String
+                    
+                    if(idValue == nil){
+                        return
+                    }
+                    
+                    myUser.id = idValue!
+                    myUser.email = emailValue!
+                    myUser.name = nameValue!
+                    myUser.createdAt = createdAtValue!
+                    myUser.updatedAt = updatedAtValue!
+                    myUser.key = keyValue!
+                    
+                    if(birthdateValue != nil) {
+                        myUser.birthdate = birthdateValue!
+                    }
+                    if(genderValue != nil) {
+                        myUser.gender = genderValue!
+                    }
+                    if(profilepictureValue != nil) {
+                        myUser.profilepicture = profilepictureValue!
+                    }
+                    if(loginAtValue != nil) {
+                        myUser.loginAt = loginAtValue!
+                    }
+                    if(deletedAtValue != nil) {
+                        myUser.deletedAt = deletedAtValue!
+                    }
+                }
+                
+            }catch {
+                print("JSON Error")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "signIn", sender: self)
+            }
+            
+            
+        })
+        dataTask.resume()
+        } catch {return}
+    }
+    
     @IBAction func pressRegisterFinishButton(_ sender: Any) {
         if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
-            name = usernameTextFieldRegistryView.text!
             performSegue(withIdentifier: "signIn", sender: self)
         }
     }
