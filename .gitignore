@@ -22,6 +22,8 @@ DerivedData/
 !default.perspectivev3
 xcuserdata/
 
+project.xcworkspace/
+
 ## Other
 *.moved-aside
 *.xccheckout
@@ -36,6 +38,10 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+
+# Generated files
+*.o
+*.pyc
 
 # Swift Package Manager
 #
