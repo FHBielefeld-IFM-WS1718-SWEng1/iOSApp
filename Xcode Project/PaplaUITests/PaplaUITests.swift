@@ -28,6 +28,7 @@ class PaplaUITests: XCTestCase {
         super.tearDown()
     }
     
+    
     func testMailTextField() {
         
         let app = XCUIApplication()
@@ -110,15 +111,15 @@ class PaplaUITests: XCTestCase {
         let logoElementsQuery = app.otherElements.containing(.image, identifier:"Logo")
         let eMailTextField = logoElementsQuery.children(matching: .textField)["E-Mail"]
         eMailTextField.tap()
-        eMailTextField.typeText("Dario")
+        eMailTextField.typeText("fisch@fisch.de")
         
         let passwortSecureTextField = logoElementsQuery.children(matching: .secureTextField)["Passwort"]
         passwortSecureTextField.tap()
         passwortSecureTextField.tap()
         passwortSecureTextField.typeText("test")
         app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Dashboard"].buttons["Item"].tap()
         XCTAssertTrue(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
-        
     }
     
     func testLoginWithWrongData() {
@@ -224,7 +225,7 @@ class PaplaUITests: XCTestCase {
         let passwortWiederholenSecureTextField = app.secureTextFields["Passwort wiederholen"]
         passwortWiederholenSecureTextField.tap()
         passwortWiederholenSecureTextField.tap()
-        passwortWiederholenSecureTextField.typeText("false")
+        passwortWiederholenSecureTextField.typeText("falsevh")
         app.buttons["REGISTRIERUNG ABSCHLIESSEN"].tap()
         XCTAssertFalse(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
         
