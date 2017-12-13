@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "start.png",
+      "filename" : "image photo picture photography memories.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "start@2x.png",
+      "filename" : "image photo picture photography memories@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "start@3x.png",
+      "filename" : "image photo picture photography memories@3x.png",
       "scale" : "3x"
     }
   ],
