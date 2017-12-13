@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+ # EventsViewController
+ Steuert den TableView mit der Liste an Events
+ */
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     

@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ View, der das Dashboard beinhaltet
+ */
 class ViewController: UIViewController {
     
     @IBOutlet weak var menuView: UIView!

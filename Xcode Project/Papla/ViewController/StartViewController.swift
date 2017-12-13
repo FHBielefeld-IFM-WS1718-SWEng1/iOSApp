@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
+///Representiert einen User, der von der API zurück gegeben wird
 var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilepicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
+
 
 class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
@@ -35,6 +36,12 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     var registryFormShowing = false
     
+    /**
+     - Wird nach dem Laden des Views ausgeführt
+     - setzt den Delegenten für die Textfelder
+     - setzt den Rand der Textfelder
+     - setzt die Effekte
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +82,9 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         setRegistryFormProperties()
     }
     
+    /**
+     Sorgt dafür, dass die Tastatur eingefahren wird, wenn irgendwo hingedrückt wird
+    */
     override func touchesBegan(_: Set<UITouch>, with: UIEvent?) {
         emailTextField.resignFirstResponder()
         passwordTextfield.resignFirstResponder()
@@ -86,7 +96,11 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
-    
+    /**
+     Wird ausgeführt, wenn der Anmelden Button betätigt wird
+     - Überprüft ob Textfelder ausgefüllt wurden
+     - Ruft bei ausgefüllten Textfelder die Methode doLogin auf
+   */
     @IBAction func pressSignInButton(_ sender: Any) {
         if(emailTextField.text != "" && passwordTextfield.text != ""){
             doLogin(eMail: emailTextField.text!, password: passwordTextfield.text!)
@@ -95,6 +109,15 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**     Schickt einen Post Request an die API und wertet das Zurückgegebene JSON aus
+     
+     Todo:
+     - suchen nach einer möglichkeit JSON nach Swift 4 standart zu parsen trotz null Werten
+     
+     
+     - Parameter eMail: eMail, die der Nutzer eingegeben hat
+     - Parameter password: password, das der Nutzer eingegeben hat
+    */
     func doLogin(eMail: String, password: String) {
         let headers = [
             "Content-Type": "application/json",
@@ -186,21 +209,35 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         } catch {return}
     }
     
+    /**
+     Wird aufgerufen, wenn der Button zum Abschließen einer  Regestriereung betätigt wird
+     Wertet die Textfelder aus und führt gegebenenfalls einen viewwechsel durch
+     Todo:
+     - Senden eines Requests an die API
+    */
     @IBAction func pressRegisterFinishButton(_ sender: Any) {
         if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
             performSegue(withIdentifier: "signIn", sender: self)
         }
     }
     
+    /**
+     Wird ausgeführt, wenn der Button zum öffnen des Registrieren Menüs geöffnet wird
+    */
     @IBAction func pressRegisterButton(_ sender: Any) {
         openMenuRegistryForm()
     }
     
+    /**
+     Wird ausgeführt, wenn der Button zum schließen des Registrieren Menüs geöffnet wird
+     */
     @IBAction func pressArrowDownButton(_ sender: Any) {
         closeRegistryForm()
     }
     
-    
+    /**
+     öffnet den view zum Registrieren
+    */
     func openMenuRegistryForm() {
         UIView.animate(withDuration: 0.4) {
             self.visualEffectView.effect = self.effect
@@ -215,6 +252,9 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         registryFormShowing = !registryFormShowing
     }
     
+    /**
+     schließt den view zum Registrieren
+     */
     func closeRegistryForm() {
         UIView.animate(withDuration: 0.3, animations: {
             self.visualEffectView.effect = nil
@@ -230,7 +270,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         registryFormShowing = !registryFormShowing
     }
     
-    // Schatten der RegistrierenView
+    /// Schatten der RegistrierenView
     func setRegistryFormProperties() {
         registryView.layer.shadowOpacity = 0.2
         registryView.layer.shadowRadius = 8

@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+/**
+ # Events
+ stellt das Array von Party, dass von der API zurückgegeben wird dar
+ */
 class Events: Codable {
     let name: String
     let values: [Event]
@@ -17,7 +20,10 @@ class Events: Codable {
         self.values = values
     }
 }
-
+/**
+ # Event
+ stellt eine einzelne Party in der Liste dar
+ */
 class Event: Codable {
     let id: Int
     let name: String

@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+/**
+ # EventCell
+ Stellt eine Zeile im Table View dar
+*/
 class EventCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var whoLbl: UILabel!

@@ -8,7 +8,10 @@
 
 import Foundation
 
-
+/**
+ # User
+ Klasse, die einen Nutzer, der von der API zurückgegeben wird modelliert
+ */
 class User {
     var id: Int
     var email: String

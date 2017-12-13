@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+/**
+ extension eines UIButton um den Border-Style anzupassen
+ */
 extension UIButton {
     func setPurpleBorder() {
         // Button hat auf jeder Geraetegroesse genau einen Pixel Breite

@@ -11,7 +11,7 @@ import UIKit
 
 extension UITextField {
     
-    /* Style für Textfield bei dem nur ein Bottom Border besteht. (z.B. auf der Anmelde- oder Registrationsseite)
+    /** Style für Textfield bei dem nur ein Bottom Border besteht. (z.B. auf der Anmelde- oder Registrationsseite)
      * Um das zu erreichen, wird der Border auf .none gesetzt, der eigentliche Border ist ein Schatten mit Höhe 1.
      */
     func setBottomBorder() {
