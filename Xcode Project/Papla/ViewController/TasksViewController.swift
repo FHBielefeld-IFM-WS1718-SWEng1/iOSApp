@@ -11,7 +11,7 @@ import UIKit
 class TasksViewController: UIViewController {
     @IBOutlet var passwordForgottenView: UIView!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
-    @et weak var passwordForgottenButton: UIButton!
+    @IBOutlet weak var passwordForgottenButton: UIButton!
     
     var effect:UIVisualEffect!
     
