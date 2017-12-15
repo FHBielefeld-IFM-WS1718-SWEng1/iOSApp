@@ -151,6 +151,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
                 let decoder = JSONDecoder()
                 let downloadedUser = try decoder.decode(User.self, from: data)
                 myUser = downloadedUser
+                print(myUser.key)
                 
             }catch {
                 print("JSON Error")

@@ -14,8 +14,11 @@ import UIKit
  */
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    //https://api.myjson.com/bins/10gasv
-    final let url = URL(string: "https://api.myjson.com/bins/crulv")
+    
+    final let url = URL(string: "http://api.dleunig.de/party?api=YidBPmtKE82RWu7GJS-nzltJ9NGP2NTMgWp1lDO0QHw")
+    
+    // Wenn API diese Route eingerichtet hat, funktioniert folgender Code:
+    //final let url = URL(string: "http://api.dleunig.de/party?api=\(String(describing: myUser.key!))")
     private var events = [Event]()
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -55,6 +58,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.tableView.addSubview(self.refreshControl)
         downloadJSON()
+        print(url)
     }
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -89,7 +93,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             {
                 let decoder = JSONDecoder()
                 let downloadedEvents = try decoder.decode(Events.self, from: data)
-                self.events = downloadedEvents.values
+                self.events = downloadedEvents.parties
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -115,22 +119,22 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as? EventCell else {return UITableViewCell()}
         
         cell.nameLbl.text = events[indexPath.row].name
-        cell.whoLbl.text = events[indexPath.row].who
-        cell.dateLbl.text = events[indexPath.row].date
+        cell.whoLbl.text = events[indexPath.row].location
+        cell.dateLbl.text = events[indexPath.row].startDate
         cell.descTextView.text = events[indexPath.row].description
         
         
-        if let imageURL = URL(string: events[indexPath.row].img) {
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: imageURL)
-                if let data = data {
-                    let image = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        cell.imgImageView.image = image
-                    }
-                }
-            }
-        }
+//        if let imageURL = URL(string: events[indexPath.row].img) {
+//            DispatchQueue.global().async {
+//                let data = try? Data(contentsOf: imageURL)
+//                if let data = data {
+//                    let image = UIImage(data: data)
+//                    DispatchQueue.main.async {
+//                        cell.imgImageView.image = image
+//                    }
+//                }
+//            }
+//        }
         return cell
     }
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

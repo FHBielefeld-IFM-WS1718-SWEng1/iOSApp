@@ -12,12 +12,12 @@ import UIKit
  stellt das Array von Party, dass von der API zurückgegeben wird dar
  */
 class Events: Codable {
-    let name: String?
-    let values: [Event]
+    let count: Int
+    let parties: [Event]
     
-    init(name: String, values: [Event]) {
-        self.name = name
-        self.values = values
+    init(count: Int, parties: [Event]) {
+        self.count = count
+        self.parties = parties
     }
 }
 /**
@@ -27,17 +27,26 @@ class Events: Codable {
 class Event: Codable {
     let id: Int
     let name: String?
-    let who: String?
-    let date: String?
     let description: String?
-    let img: String
+    let startDate: String?
+    let endDate: String?
+    let location: String?
+    let createdAt: String?
+    let updatedAt: String?
+    let deletedAt: String?
+    let user_id: Int
     
-    init(id: Int, name: String, who: String, date: String, description: String, img: String) {
+    
+    init(id: Int, name: String, description: String, startDate: String, endDate: String, location: String, createdAt: String, updatedAt: String, deletedAt: String, user_id: Int) {
         self.id = id
         self.name = name
-        self.who = who
-        self.date = date
-        self.description = description
-        self.img = img
+        self.description = name
+        self.startDate = startDate
+        self.endDate = endDate
+        self.location = location
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
+        self.deletedAt = deletedAt
+        self.user_id = user_id
     }
 }

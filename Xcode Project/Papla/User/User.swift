@@ -13,9 +13,9 @@ import Foundation
  Klasse, die einen Nutzer, der von der API zurückgegeben wird modelliert
  */
 class User: Codable {
-    var id: Int?
-    var email: String?
-    var name: String?
+    var id: Int
+    var email: String
+    var name: String
     var birthdate: String?
     var gender: Int?
     var profilepicture: String?
