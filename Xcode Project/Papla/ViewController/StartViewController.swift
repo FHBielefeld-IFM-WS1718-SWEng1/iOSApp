@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 ///Representiert einen User, der von der API zurück gegeben wird
 var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilepicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
 
@@ -168,13 +169,73 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     /**
      Wird aufgerufen, wenn der Button zum Abschließen einer  Regestriereung betätigt wird
      Wertet die Textfelder aus und führt gegebenenfalls einen viewwechsel durch
-     Todo:
-     - Senden eines Requests an die API
     */
     @IBAction func pressRegisterFinishButton(_ sender: Any) {
-        if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
-            performSegue(withIdentifier: "signIn", sender: self)
+        if(registerTextfieldsValidate()) {
+            doRegister(username: usernameTextFieldRegistryView.text!, eMail: emailTextFieldRegistryView.text!, password: passwordTextFieldRegistryView.text!)
         }
+    }
+    
+    func registerTextfieldsValidate() -> Bool {
+        if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
+            let pat = "\\b([a-z])\\.([a-z]{2,})@([a-z]+)\\.ac\\.uk\\b"
+            
+            let regex = try! NSRegularExpression(pattern: pat, options: [])
+            // (4):
+            let matches = regex.matches(in: emailTextFieldRegistryView.text!, options: [], range: NSRange(location: 0, length: emailTextFieldRegistryView.text!.characters.count))
+            print(matches.description)
+            return true
+        }
+        return false
+    }
+    
+    func doRegister(username: String, eMail: String, password: String) {
+        let headers = [
+            "content-type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "ec9f0cd5-2ca9-f0da-f9cd-f5f5d782fdc8"
+        ]
+        
+        let parameters = [
+            "password": password,
+            "name": username,
+            "email": eMail
+            ] as [String : Any]
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        
+    
+    let request = NSMutableURLRequest(url: NSURL(string: "http://api.dleunig.de/register")! as URL,
+                                      cachePolicy: .useProtocolCachePolicy,
+                                      timeoutInterval: 10.0)
+    request.httpMethod = "POST"
+    request.allHTTPHeaderFields = headers
+    request.httpBody = postData as Data
+    
+    let session = URLSession.shared
+    let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+        guard let data = data, error == nil, response != nil else {
+            print("something is wrong")
+            return
+        }
+        
+        print("downloaded")
+        
+        
+        do {
+            let decoder = JSONDecoder()
+            let downloadedUser = try decoder.decode(RegisterUser.self, from: data)
+            print(downloadedUser.email)
+            
+        }catch {
+            print("JSON Error")
+            return
+        }
+    })
+    dataTask.resume()
+    }
+    catch{return}
+    closeRegistryForm()
     }
     
     /**
