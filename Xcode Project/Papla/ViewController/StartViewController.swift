@@ -146,52 +146,11 @@ class StartViewController: UIViewController, UITextFieldDelegate {
             
             print("downloaded")
             
-            let dataAsString = String(data: data, encoding: .utf8)
-            print(dataAsString)
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
-                if let parseJSON = json {
-                    // Access value of username, name, and email by its key
-                    let idValue = parseJSON["id"] as? Int
-                    let emailValue = parseJSON["email"] as? String
-                    let nameValue = parseJSON["name"] as? String
-                    let birthdateValue = parseJSON["birthdate"] as? String
-                    let genderValue = parseJSON["gender"] as? Int
-                    let profilepictureValue = parseJSON["profilepicture"] as? String
-                    let loginAtValue = parseJSON["loginAt"] as? String
-                    let createdAtValue = parseJSON["createdAt"] as? String
-                    let updatedAtValue = parseJSON["updatedAt"] as? String
-                    let deletedAtValue = parseJSON["deletedAt"] as? String
-                    let keyValue = parseJSON["key"] as? String
-                    
-                    if(idValue == nil){
-                        return
-                    }
-                    
-                    myUser.id = idValue!
-                    myUser.email = emailValue!
-                    myUser.name = nameValue!
-                    myUser.createdAt = createdAtValue!
-                    myUser.updatedAt = updatedAtValue!
-                    myUser.key = keyValue!
-                    
-                    if(birthdateValue != nil) {
-                        myUser.birthdate = birthdateValue!
-                    }
-                    if(genderValue != nil) {
-                        myUser.gender = genderValue!
-                    }
-                    if(profilepictureValue != nil) {
-                        myUser.profilepicture = profilepictureValue!
-                    }
-                    if(loginAtValue != nil) {
-                        myUser.loginAt = loginAtValue!
-                    }
-                    if(deletedAtValue != nil) {
-                        myUser.deletedAt = deletedAtValue!
-                    }
-                }
+                let decoder = JSONDecoder()
+                let downloadedUser = try decoder.decode(User.self, from: data)
+                myUser = downloadedUser
                 
             }catch {
                 print("JSON Error")
