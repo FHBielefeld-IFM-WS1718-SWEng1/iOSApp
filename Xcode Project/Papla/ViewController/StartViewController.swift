@@ -110,9 +110,6 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     /**     Schickt einen Post Request an die API und wertet das Zurückgegebene JSON aus
      
-     Todo:
-     - suchen nach einer möglichkeit JSON nach Swift 4 standart zu parsen trotz null Werten
-     
      
      - Parameter eMail: eMail, die der Nutzer eingegeben hat
      - Parameter password: password, das der Nutzer eingegeben hat
