@@ -11,7 +11,7 @@ import UIKit
 /**
  View, der das Dashboard beinhaltet
  */
-class ViewController: UIViewController {
+class OverviewViewController: UIViewController {
     
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var leadingContraint: NSLayoutConstraint!

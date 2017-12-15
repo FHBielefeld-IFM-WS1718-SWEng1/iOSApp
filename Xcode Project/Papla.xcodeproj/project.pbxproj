@@ -19,9 +19,9 @@
 		3989D3D31FBF49C40012081B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3989D3D21FBF49C40012081B /* EventsViewController.swift */; };
 		39922BE31FC0A82200140615 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39922BE21FC0A82200140615 /* UIViewExtension.swift */; };
 		39922BE51FC0AA2200140615 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39922BE41FC0AA2200140615 /* Contents.swift */; };
-		3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997BF281FC217EB007FDDD2 /* MenuView.swift */; };
+		3997BF291FC217EB007FDDD2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997BF281FC217EB007FDDD2 /* MenuViewController.swift */; };
 		39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A27D841FC618EA001B064C /* UIButtonExtension.swift */; };
-		39ABC38A1FBF21FF0079715C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ABC3891FBF21FF0079715C /* ViewController.swift */; };
+		39ABC38A1FBF21FF0079715C /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ABC3891FBF21FF0079715C /* OverviewViewController.swift */; };
 		39B3C25F1FDB35600015EE63 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3C25E1FDB35600015EE63 /* EventCell.swift */; };
 		39B3C2611FDB39090015EE63 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3C2601FDB39090015EE63 /* Event.swift */; };
 		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
@@ -64,9 +64,9 @@
 		3989D3D21FBF49C40012081B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		39922BE21FC0A82200140615 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		39922BE41FC0AA2200140615 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
-		3997BF281FC217EB007FDDD2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		3997BF281FC217EB007FDDD2 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		39A27D841FC618EA001B064C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
-		39ABC3891FBF21FF0079715C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		39ABC3891FBF21FF0079715C /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		39B3C25E1FDB35600015EE63 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		39B3C2601FDB39090015EE63 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/User/User.swift; sourceTree = SOURCE_ROOT; };
@@ -121,15 +121,12 @@
 		397080981FBB4A21009C5D1D /* Papla */ = {
 			isa = PBXGroup;
 			children = (
+				FAE76D6C1FE41327006274F2 /* Extentions */,
+				39922BE61FC19F1400140615 /* ViewController */,
+				FAE76D6B1FE41311006274F2 /* Objects */,
 				3970809D1FBB4A21009C5D1D /* Main.storyboard */,
 				39922BE41FC0AA2200140615 /* Contents.swift */,
-				9561DE701FDFE1FF007FDBAE /* User */,
-				39922BE21FC0A82200140615 /* UIViewExtension.swift */,
-				39A27D841FC618EA001B064C /* UIButtonExtension.swift */,
-				390643581FC60C9900F24B92 /* UITextFieldExtension.swift */,
-				3997BF281FC217EB007FDDD2 /* MenuView.swift */,
 				397080991FBB4A21009C5D1D /* AppDelegate.swift */,
-				39922BE61FC19F1400140615 /* ViewController */,
 				397080A31FBB4A21009C5D1D /* Assets.xcassets */,
 				397080A51FBB4A21009C5D1D /* LaunchScreen.storyboard */,
 				397080A81FBB4A21009C5D1D /* Info.plist */,
@@ -159,9 +156,10 @@
 		39922BE61FC19F1400140615 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				39B3C25D1FDB34AC0015EE63 /* Events */,
+				3997BF281FC217EB007FDDD2 /* MenuViewController.swift */,
+				3989D3D21FBF49C40012081B /* EventsViewController.swift */,
 				3989D3D01FBF49550012081B /* ProfileViewController.swift */,
-				39ABC3891FBF21FF0079715C /* ViewController.swift */,
+				39ABC3891FBF21FF0079715C /* OverviewViewController.swift */,
 				95A137321FBEE57F00451954 /* StartViewController.swift */,
 			);
 			path = ViewController;
@@ -170,7 +168,6 @@
 		39B3C25D1FDB34AC0015EE63 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				3989D3D21FBF49C40012081B /* EventsViewController.swift */,
 				39B3C25E1FDB35600015EE63 /* EventCell.swift */,
 				39B3C2601FDB39090015EE63 /* Event.swift */,
 			);
@@ -183,6 +180,26 @@
 				9561DE711FDFE21C007FDBAE /* User.swift */,
 			);
 			name = User;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		FAE76D6B1FE41311006274F2 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9561DE701FDFE1FF007FDBAE /* User */,
+				39B3C25D1FDB34AC0015EE63 /* Events */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		FAE76D6C1FE41327006274F2 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				39922BE21FC0A82200140615 /* UIViewExtension.swift */,
+				39A27D841FC618EA001B064C /* UIButtonExtension.swift */,
+				390643581FC60C9900F24B92 /* UITextFieldExtension.swift */,
+			);
+			name = Extentions;
 			path = "New Group";
 			sourceTree = "<group>";
 		};
@@ -324,12 +341,12 @@
 				390643591FC60C9900F24B92 /* UITextFieldExtension.swift in Sources */,
 				39B3C25F1FDB35600015EE63 /* EventCell.swift in Sources */,
 				39922BE51FC0AA2200140615 /* Contents.swift in Sources */,
-				39ABC38A1FBF21FF0079715C /* ViewController.swift in Sources */,
+				39ABC38A1FBF21FF0079715C /* OverviewViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
 				9561DE721FDFE21C007FDBAE /* User.swift in Sources */,
 				3989D3D31FBF49C40012081B /* EventsViewController.swift in Sources */,
 				39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */,
-				3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */,
+				3997BF291FC217EB007FDDD2 /* MenuViewController.swift in Sources */,
 				397080A21FBB4A21009C5D1D /* Papla.xcdatamodeld in Sources */,
 				39922BE31FC0A82200140615 /* UIViewExtension.swift in Sources */,
 				3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */,
