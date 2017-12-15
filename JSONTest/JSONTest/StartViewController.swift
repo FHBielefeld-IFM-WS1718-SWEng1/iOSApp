@@ -10,6 +10,7 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -20,6 +21,9 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let image = imageView.image!
+        let data = UIImageJPEGRepresentation(image, 1.0)
+        print(data?.base64EncodedString())
     }
     
     
