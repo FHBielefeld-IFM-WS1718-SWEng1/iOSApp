@@ -178,13 +178,14 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     func registerTextfieldsValidate() -> Bool {
         if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
-            let pat = "\\b([a-z])\\.([a-z]{2,})@([a-z]+)\\.ac\\.uk\\b"
+            let pat = "\\w*\\.?w*@([a-z]+).([a-z]+)"
             
             let regex = try! NSRegularExpression(pattern: pat, options: [])
             // (4):
             let matches = regex.matches(in: emailTextFieldRegistryView.text!, options: [], range: NSRange(location: 0, length: emailTextFieldRegistryView.text!.characters.count))
-            print(matches.description)
-            return true
+            if(matches.count == 1) {
+                return true
+            }
         }
         return false
     }
