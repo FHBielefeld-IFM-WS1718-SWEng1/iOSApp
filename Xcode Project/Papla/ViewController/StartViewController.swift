@@ -15,7 +15,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     
     
-    @IBOutlet weak var registryView: MenuView!
+    @IBOutlet weak var registryView: MenuViewController!
     
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var registerFinishButton: UIButton!
@@ -148,7 +148,6 @@ class StartViewController: UIViewController, UITextFieldDelegate {
                 let decoder = JSONDecoder()
                 let downloadedUser = try decoder.decode(User.self, from: data)
                 myUser = downloadedUser
-                print(myUser.key)
                 
             }catch {
                 print("JSON Error")

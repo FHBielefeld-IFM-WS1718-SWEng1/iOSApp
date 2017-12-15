@@ -58,7 +58,6 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.tableView.addSubview(self.refreshControl)
         downloadJSON()
-        print(url)
     }
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
