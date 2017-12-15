@@ -14,8 +14,8 @@ import UIKit
  */
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
-    
-    final let url = URL(string: "https://api.myjson.com/bins/10gasv")
+    //https://api.myjson.com/bins/10gasv
+    final let url = URL(string: "https://api.myjson.com/bins/crulv")
     private var events = [Event]()
     
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

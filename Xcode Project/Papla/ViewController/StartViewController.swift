@@ -104,9 +104,8 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pressSignInButton(_ sender: Any) {
         if(emailTextField.text != "" && passwordTextfield.text != ""){
             doLogin(eMail: emailTextField.text!, password: passwordTextfield.text!)
-        }else {
-            passwordTextfield.text = ""
         }
+        
     }
     
     /**     Schickt einen Post Request an die API und wertet das Zurückgegebene JSON aus

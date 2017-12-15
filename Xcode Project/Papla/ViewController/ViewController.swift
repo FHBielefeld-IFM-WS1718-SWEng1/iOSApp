@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         
         setMenuProperties()
         
-        setCustomBackground()
+        //setCustomBackground()
         setCustomShadow()
         setCustomBackImage()
     }
