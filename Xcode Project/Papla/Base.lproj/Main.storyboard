@@ -57,7 +57,7 @@
                                     <action selector="pressRegisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gq8-Bo-Kqn"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="E-Mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2i-Fl-gZS">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="fisch@fisch.de" borderStyle="line" placeholder="E-Mail" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2i-Fl-gZS">
                                 <rect key="frame" x="30" y="291" width="354" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ace-6i-7yu"/>
@@ -66,7 +66,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Passwort" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rmm-6f-UtL">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" borderStyle="line" placeholder="Passwort" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rmm-6f-UtL">
                                 <rect key="frame" x="30" y="351" width="354" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="wdo-Du-4Dc"/>
@@ -254,8 +254,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khR-4m-7z6" customClass="MenuView" customModule="Papla" customModuleProvider="target">
-                                <rect key="frame" x="-340" y="64" width="320" height="672"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khR-4m-7z6" customClass="MenuView" customModule="Papla" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="320" height="672"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_home_icon" translatesAutoresizingMaskIntoConstraints="NO" id="T3J-Pd-Kcv">
                                         <rect key="frame" x="40" y="261" width="20" height="19"/>
@@ -331,10 +331,20 @@
                                         <rect key="frame" x="40" y="613" width="69" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Ausloggen">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="ApA-ls-VRb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40S-rR-aTk">
+                                        <rect key="frame" x="40" y="584" width="72" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Impressum">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="qpk-ob-pbZ" kind="show" id="cIx-sa-EX6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -353,6 +363,7 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kde-GN-r4w" secondAttribute="trailing" constant="20" symbolic="YES" id="C6N-m1-nHx"/>
                                     <constraint firstItem="Kde-GN-r4w" firstAttribute="leading" secondItem="3eu-PD-zTP" secondAttribute="trailing" constant="20" id="Cag-qw-fJ8"/>
                                     <constraint firstItem="Kde-GN-r4w" firstAttribute="top" secondItem="khR-4m-7z6" secondAttribute="top" constant="334" id="Fxe-jk-38N"/>
+                                    <constraint firstItem="ihC-Wh-6Qo" firstAttribute="top" secondItem="40S-rR-aTk" secondAttribute="bottom" id="IeC-O7-H1g"/>
                                     <constraint firstItem="Wwl-XW-d68" firstAttribute="leading" secondItem="ksJ-6T-aWl" secondAttribute="trailing" constant="20" id="Ko0-Ls-DA6"/>
                                     <constraint firstItem="QPQ-uA-qJO" firstAttribute="leading" secondItem="Kde-GN-r4w" secondAttribute="leading" id="P29-L1-6Lt"/>
                                     <constraint firstItem="Xbr-Qo-iS8" firstAttribute="leading" secondItem="khR-4m-7z6" secondAttribute="leading" constant="40" id="RPU-PL-Ztf"/>
@@ -365,6 +376,7 @@
                                     <constraint firstItem="QPQ-uA-qJO" firstAttribute="leading" secondItem="Wwl-XW-d68" secondAttribute="leading" id="eZY-Jd-ne5"/>
                                     <constraint firstItem="g8c-N9-n3B" firstAttribute="top" secondItem="69d-Gd-Rwo" secondAttribute="bottom" constant="15" id="h2a-cU-cxM"/>
                                     <constraint firstItem="ihC-Wh-6Qo" firstAttribute="leading" secondItem="khR-4m-7z6" secondAttribute="leading" constant="40" id="iUu-e3-fV0"/>
+                                    <constraint firstItem="40S-rR-aTk" firstAttribute="leading" secondItem="khR-4m-7z6" secondAttribute="leading" constant="40" id="oWh-Kr-jFh"/>
                                     <constraint firstItem="QPQ-uA-qJO" firstAttribute="leading" secondItem="T3J-Pd-Kcv" secondAttribute="trailing" constant="20" id="pEB-k6-So1"/>
                                     <constraint firstItem="9bg-bw-bKg" firstAttribute="leading" secondItem="Xbr-Qo-iS8" secondAttribute="trailing" constant="20" id="rnk-Kg-ujR"/>
                                     <constraint firstItem="QPQ-uA-qJO" firstAttribute="leading" secondItem="9bg-bw-bKg" secondAttribute="leading" id="rqv-NH-OAJ"/>
@@ -403,6 +415,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykr-o0-Bar" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="950" y="269"/>
+        </scene>
+        <!--Impressum-->
+        <scene sceneID="GeH-uQ-zJi">
+            <objects>
+                <viewController title="Impressum" id="qpk-ob-pbZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0hs-1E-TPE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BwJ-0a-BjI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3p-aE-lEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-87" y="1037"/>
         </scene>
         <!--Eigene Veranstaltungen-->
         <scene sceneID="Efk-pT-vDo">
@@ -511,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yn-dJ-ljm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597.10144927536237" y="1036.9565217391305"/>
+            <point key="canvasLocation" x="600" y="1037"/>
         </scene>
         <!--Profil-->
         <scene sceneID="jJP-me-mBu">
