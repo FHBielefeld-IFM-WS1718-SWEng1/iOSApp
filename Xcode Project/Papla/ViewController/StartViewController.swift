@@ -157,6 +157,10 @@ class StartViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
+            if(myUser.id == nil){
+                return
+            }
+            
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "signIn", sender: self)
             }
