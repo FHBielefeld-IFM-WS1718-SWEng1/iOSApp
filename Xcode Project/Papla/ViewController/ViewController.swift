@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ View, der das Dashboard beinhaltet
+ */
 class ViewController: UIViewController {
     
     @IBOutlet weak var menuView: UIView!
@@ -22,7 +25,7 @@ class ViewController: UIViewController {
         
         setMenuProperties()
         
-        setCustomBackground()
+        //setCustomBackground()
         setCustomShadow()
         setCustomBackImage()
     }

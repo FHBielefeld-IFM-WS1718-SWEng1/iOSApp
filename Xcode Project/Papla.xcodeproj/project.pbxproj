@@ -16,13 +16,15 @@
 		397080B21FBB4A21009C5D1D /* PaplaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397080B11FBB4A21009C5D1D /* PaplaTests.swift */; };
 		397080BD1FBB4A21009C5D1D /* PaplaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397080BC1FBB4A21009C5D1D /* PaplaUITests.swift */; };
 		3989D3D11FBF49550012081B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3989D3D01FBF49550012081B /* ProfileViewController.swift */; };
-		3989D3D31FBF49C40012081B /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3989D3D21FBF49C40012081B /* TasksViewController.swift */; };
+		3989D3D31FBF49C40012081B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3989D3D21FBF49C40012081B /* EventsViewController.swift */; };
 		39922BE31FC0A82200140615 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39922BE21FC0A82200140615 /* UIViewExtension.swift */; };
 		39922BE51FC0AA2200140615 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39922BE41FC0AA2200140615 /* Contents.swift */; };
 		3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997BF281FC217EB007FDDD2 /* MenuView.swift */; };
 		39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A27D841FC618EA001B064C /* UIButtonExtension.swift */; };
 		39ABC38A1FBF21FF0079715C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ABC3891FBF21FF0079715C /* ViewController.swift */; };
-		9524C5AD1FDD417E00E76DF3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9524C5AC1FDD417E00E76DF3 /* User.swift */; };
+		39B3C25F1FDB35600015EE63 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3C25E1FDB35600015EE63 /* EventCell.swift */; };
+		39B3C2611FDB39090015EE63 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3C2601FDB39090015EE63 /* Event.swift */; };
+		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,13 +61,15 @@
 		397080BC1FBB4A21009C5D1D /* PaplaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaplaUITests.swift; sourceTree = "<group>"; };
 		397080BE1FBB4A21009C5D1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3989D3D01FBF49550012081B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		3989D3D21FBF49C40012081B /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		3989D3D21FBF49C40012081B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		39922BE21FC0A82200140615 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		39922BE41FC0AA2200140615 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		3997BF281FC217EB007FDDD2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		39A27D841FC618EA001B064C /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		39ABC3891FBF21FF0079715C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9524C5AC1FDD417E00E76DF3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		39B3C25E1FDB35600015EE63 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		39B3C2601FDB39090015EE63 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/User/User.swift; sourceTree = SOURCE_ROOT; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,9 +121,9 @@
 		397080981FBB4A21009C5D1D /* Papla */ = {
 			isa = PBXGroup;
 			children = (
-				9524C5AB1FDD416100E76DF3 /* User */,
 				3970809D1FBB4A21009C5D1D /* Main.storyboard */,
 				39922BE41FC0AA2200140615 /* Contents.swift */,
+				9561DE701FDFE1FF007FDBAE /* User */,
 				39922BE21FC0A82200140615 /* UIViewExtension.swift */,
 				39A27D841FC618EA001B064C /* UIButtonExtension.swift */,
 				390643581FC60C9900F24B92 /* UITextFieldExtension.swift */,
@@ -155,7 +159,7 @@
 		39922BE61FC19F1400140615 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3989D3D21FBF49C40012081B /* TasksViewController.swift */,
+				39B3C25D1FDB34AC0015EE63 /* Events */,
 				3989D3D01FBF49550012081B /* ProfileViewController.swift */,
 				39ABC3891FBF21FF0079715C /* ViewController.swift */,
 				95A137321FBEE57F00451954 /* StartViewController.swift */,
@@ -163,12 +167,23 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		9524C5AB1FDD416100E76DF3 /* User */ = {
+		39B3C25D1FDB34AC0015EE63 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				9524C5AC1FDD417E00E76DF3 /* User.swift */,
+				3989D3D21FBF49C40012081B /* EventsViewController.swift */,
+				39B3C25E1FDB35600015EE63 /* EventCell.swift */,
+				39B3C2601FDB39090015EE63 /* Event.swift */,
 			);
-			path = User;
+			path = Events;
+			sourceTree = "<group>";
+		};
+		9561DE701FDFE1FF007FDBAE /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9561DE711FDFE21C007FDBAE /* User.swift */,
+			);
+			name = User;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,16 +322,18 @@
 			files = (
 				3989D3D11FBF49550012081B /* ProfileViewController.swift in Sources */,
 				390643591FC60C9900F24B92 /* UITextFieldExtension.swift in Sources */,
+				39B3C25F1FDB35600015EE63 /* EventCell.swift in Sources */,
 				39922BE51FC0AA2200140615 /* Contents.swift in Sources */,
 				39ABC38A1FBF21FF0079715C /* ViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
-				3989D3D31FBF49C40012081B /* TasksViewController.swift in Sources */,
+				9561DE721FDFE21C007FDBAE /* User.swift in Sources */,
+				3989D3D31FBF49C40012081B /* EventsViewController.swift in Sources */,
 				39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */,
 				3997BF291FC217EB007FDDD2 /* MenuView.swift in Sources */,
-				9524C5AD1FDD417E00E76DF3 /* User.swift in Sources */,
 				397080A21FBB4A21009C5D1D /* Papla.xcdatamodeld in Sources */,
 				39922BE31FC0A82200140615 /* UIViewExtension.swift in Sources */,
 				3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */,
+				39B3C2611FDB39090015EE63 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +501,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FS47XE65TA;
+				DEVELOPMENT_TEAM = 8P54B97A6Z;
 				INFOPLIST_FILE = Papla/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dleunig.devPapla;
@@ -501,7 +518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FS47XE65TA;
+				DEVELOPMENT_TEAM = 8P54B97A6Z;
 				INFOPLIST_FILE = Papla/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = de.dleunig.devPapla;
