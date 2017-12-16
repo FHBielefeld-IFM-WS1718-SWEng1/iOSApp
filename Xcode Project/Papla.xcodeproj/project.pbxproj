@@ -104,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390ECF8D1FE5481F00C90248 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				39922BE21FC0A82200140615 /* UIViewExtension.swift */,
+				39A27D841FC618EA001B064C /* UIButtonExtension.swift */,
+				390643581FC60C9900F24B92 /* UITextFieldExtension.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		3970808D1FBB4A21009C5D1D = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				3970809D1FBB4A21009C5D1D /* Main.storyboard */,
-				FAE76D6C1FE41327006274F2 /* Extentions */,
+				390ECF8D1FE5481F00C90248 /* Extentions */,
+				39922BE61FC19F1400140615 /* ViewController */,
 				FAE76D6B1FE41311006274F2 /* Objects */,
 				39922BE41FC0AA2200140615 /* Contents.swift */,
 				397080991FBB4A21009C5D1D /* AppDelegate.swift */,
@@ -205,18 +216,6 @@
 				39B3C25D1FDB34AC0015EE63 /* Events */,
 			);
 			path = Objects;
-			sourceTree = "<group>";
-		};
-		FAE76D6C1FE41327006274F2 /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-				39922BE21FC0A82200140615 /* UIViewExtension.swift */,
-				39A27D841FC618EA001B064C /* UIButtonExtension.swift */,
-				390643581FC60C9900F24B92 /* UITextFieldExtension.swift */,
-				39922BE61FC19F1400140615 /* ViewController */,
-			);
-			name = Extentions;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

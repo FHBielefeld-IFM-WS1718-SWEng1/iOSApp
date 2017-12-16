@@ -8,16 +8,25 @@
 
 import UIKit
 
+/**
+    # ContactsViewController
+    Steuert den TableView mit der Liste an Kontakten
+ */
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     final let url = URL(string: "https://api.myjson.com/bins/d85sr")
+    
+    /// Verkettet die URL mit dem Token welcher beim Anmelden zurückgegeben wird.
+    //final let url = URL(string: "http://api.dleunig.de/party?api=\(String(describing: myUser.key!))")
+    
     private var contacts = [Contact]()
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Initialisiert ein Aktualisieren des TableView Inhalts
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        # refreshControl
+        Initialisiert ein Aktualisieren des TableView Inhalts
+     */
     lazy var refreshControl: UIRefreshControl = {
         
         let refreshControl = UIRefreshControl()
@@ -30,12 +39,11 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return refreshControl
     }()
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Wird durch refreshControl aufgerufen. Downloaded JSON erneut und lädt
-    // den Inhalt der TableView neu
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        # handleRefresh
+        Wird durch refreshControl aufgerufen. Downloaded JSON erneut und lädt den Inhalt der TableView neu
+     */
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         downloadJSON()
         
@@ -45,23 +53,23 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         refreshControl.endRefreshing()
     }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.addSubview(self.refreshControl)
         downloadJSON()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Laedt JSON herrunter und parsed den Inhalt in Objekte
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        # downloadJSON
+        Laedt JSON herrunter und parsed den Inhalt in Objekte
+     */
     func downloadJSON() {
         /* "guard" ist wie eine if-Abfrage, ist die Bedingung nicht erfuellt, wird die Funktion vorzeitig beendet.
          * Beispiel:
@@ -73,7 +81,6 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
          * Quelle: https://codingtutor.de/swift-2-0-guard-statements-so-validierst-du-variablen/
          */
         
-        //guard let url = URL(string: jsonUrlString) else { return }
         guard let downloadURL = url else { return }
         
         /* URLSession -> Bietet zahlreiche Möglichkeiten mit Netzwerkprotokollen zu kommunizieren
@@ -100,19 +107,17 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             }.resume()
     }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Zaehlt die Anzahlt der durch den Parser erstelle Kontakte im Array
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        Zaehlt die Anzahlt der durch den Parser erstelle Events im Array
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Fuellt die TableView Zellen mit Inhalt
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        Fuellt die TableView Zellen mit Inhalt
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as? ContactCell else {return UITableViewCell()}
         
