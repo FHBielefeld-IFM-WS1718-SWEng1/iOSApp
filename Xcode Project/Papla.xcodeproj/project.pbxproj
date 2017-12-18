@@ -29,6 +29,7 @@
 		39B8B5381FE430A8003DB485 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B8B5371FE430A8003DB485 /* Contact.swift */; };
 		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
+		95A43D1F1FE43821008BB3F4 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		39B8B5371FE430A8003DB485 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/Objects/User/User.swift; sourceTree = SOURCE_ROOT; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		39B8B52F1FE42D15003DB485 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */,
 				9561DE711FDFE21C007FDBAE /* User.swift */,
 			);
 			path = User;
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3989D3D11FBF49550012081B /* ProfileViewController.swift in Sources */,
+				95A43D1F1FE43821008BB3F4 /* RegisterUser.swift in Sources */,
 				390643591FC60C9900F24B92 /* UITextFieldExtension.swift in Sources */,
 				39B8B5381FE430A8003DB485 /* Contact.swift in Sources */,
 				39B3C25F1FDB35600015EE63 /* EventCell.swift in Sources */,

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import QuartzCore
+
 ///Representiert einen User, der von der API zurück gegeben wird
 var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilepicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
 
@@ -141,6 +143,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
+            
             print("downloaded")
             
             
@@ -168,13 +171,116 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     /**
      Wird aufgerufen, wenn der Button zum Abschließen einer  Regestriereung betätigt wird
      Wertet die Textfelder aus und führt gegebenenfalls einen viewwechsel durch
-     Todo:
-     - Senden eines Requests an die API
     */
     @IBAction func pressRegisterFinishButton(_ sender: Any) {
-        if(emailTextFieldRegistryView.text != "" && usernameTextFieldRegistryView.text != "" && passwordTextFieldRegistryView.text != "" && repeatPasswordTextFieldRegistryView.text == passwordTextFieldRegistryView.text) {
-            performSegue(withIdentifier: "signIn", sender: self)
+        if(registerTextfieldsValidate()) {
+            doRegister(username: usernameTextFieldRegistryView.text!, eMail: emailTextFieldRegistryView.text!, password: passwordTextFieldRegistryView.text!)
+            sleep(1)
+            doLogin(eMail: emailTextFieldRegistryView.text!, password: passwordTextFieldRegistryView.text!)
         }
+    }
+    
+    /**
+     Überprüft ob die Textfelder tum Registrieren Korrekt ausgefüllt wurden.
+     Bei ungültigen eingaben wird der Rand des erstel ungültigen Textfeldes Rot umrandet
+     - Returns: gibt true zurück, wenn alle Eingaben gültig sind, sonst false.
+    */
+    func registerTextfieldsValidate() -> Bool {
+        let myColor = UIColor.red
+        emailTextFieldRegistryView.layer.borderWidth = 0
+        usernameTextFieldRegistryView.layer.borderWidth = 0
+        passwordTextFieldRegistryView.layer.borderWidth = 0
+        repeatPasswordTextFieldRegistryView.layer.borderWidth = 0
+        if(emailTextFieldRegistryView.text != "") {
+            let pat = "\\w*\\.?w*@([a-z]+)-?([a-z]+).([a-z]+)"
+            let regex = try! NSRegularExpression(pattern: pat, options: [])
+            
+            let matches = regex.matches(in: emailTextFieldRegistryView.text!, options: [], range: NSRange(location: 0, length: emailTextFieldRegistryView.text!.characters.count))
+            if(matches.count != 1) {
+                emailTextFieldRegistryView.layer.borderColor = myColor.cgColor
+                emailTextFieldRegistryView.layer.borderWidth = 1.0
+                return false
+            }
+            
+        }else {
+                emailTextFieldRegistryView.layer.borderColor = myColor.cgColor
+                emailTextFieldRegistryView.layer.borderWidth = 1.0
+                return false;
+        }
+        if(usernameTextFieldRegistryView.text == "") {
+            usernameTextFieldRegistryView.layer.borderColor = myColor.cgColor
+            usernameTextFieldRegistryView.layer.borderWidth = 1.0
+            return false
+        }
+        if(passwordTextFieldRegistryView.text == "") {
+            passwordTextFieldRegistryView.layer.borderColor = myColor.cgColor
+            passwordTextFieldRegistryView.layer.borderWidth = 1.0
+            return false
+        }
+        
+        if(repeatPasswordTextFieldRegistryView.text != passwordTextFieldRegistryView.text) {
+            repeatPasswordTextFieldRegistryView.layer.borderColor = myColor.cgColor
+            repeatPasswordTextFieldRegistryView.layer.borderWidth = 1.0
+            return false
+        }
+        
+        return true
+    }
+    
+    /**
+     Sendet einen POST-Request an die API, mit den übergeben Werten, zum Registrieren eines Nutzers
+     
+     - Parameter username: Nutzername des zu Registrierenden Nutzers
+     - Parameter eMail: e-Mail des neuen Nutzers
+     - Parameter password: Passwort des neuen Nutzers
+    */
+    func doRegister(username: String, eMail: String, password: String) {
+        let headers = [
+            "content-type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "ec9f0cd5-2ca9-f0da-f9cd-f5f5d782fdc8"
+        ]
+        
+        let parameters = [
+            "password": password,
+            "name": username,
+            "email": eMail
+            ] as [String : Any]
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        
+    
+    let request = NSMutableURLRequest(url: NSURL(string: "http://api.dleunig.de/register")! as URL,
+                                      cachePolicy: .useProtocolCachePolicy,
+                                      timeoutInterval: 10.0)
+    request.httpMethod = "POST"
+    request.allHTTPHeaderFields = headers
+    request.httpBody = postData as Data
+    
+    let session = URLSession.shared
+    let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+        guard let data = data, error == nil, response != nil else {
+            print("something is wrong")
+            return
+        }
+        
+        print("downloaded")
+        
+        
+        do {
+            let decoder = JSONDecoder()
+            let downloadedUser = try decoder.decode(RegisterUser.self, from: data)
+            print(downloadedUser.email)
+            
+        }catch {
+            print("JSON Error")
+            return
+        }
+    })
+    dataTask.resume()
+    }
+    catch{return}
+    closeRegistryForm()
     }
     
     /**
