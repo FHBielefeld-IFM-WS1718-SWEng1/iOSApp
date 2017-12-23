@@ -192,7 +192,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         passwordTextFieldRegistryView.layer.borderWidth = 0
         repeatPasswordTextFieldRegistryView.layer.borderWidth = 0
         if(emailTextFieldRegistryView.text != "") {
-            let pat = "\\w*\\.?w*@([a-z]+)-?([a-z]+).([a-z]+)"
+            let pat = "\\w*\\.?w*@([a-z]+)-?([a-z]+)\\.([a-z]+)"
             let regex = try! NSRegularExpression(pattern: pat, options: [])
             
             let matches = regex.matches(in: emailTextFieldRegistryView.text!, options: [], range: NSRange(location: 0, length: emailTextFieldRegistryView.text!.characters.count))
