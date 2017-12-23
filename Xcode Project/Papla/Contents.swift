@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/**
+ # Farben
+ structur, die RGB_Werte bestimmter Farben angibt
+ */
 struct Colors {
     // Hex #: 59318F
     static let purple    = UIColor(red:0.33, green:0.29, blue:0.58, alpha:1.0)

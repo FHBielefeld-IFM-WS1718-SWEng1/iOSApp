@@ -8,15 +8,25 @@
 
 import UIKit
 
+/**
+    # EventsViewController
+    Steuert den TableView mit der Liste an Events
+ */
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var tableView: UITableView!
     
-    final let url = URL(string: "https://api.myjson.com/bins/10gasv")
+    final let url = URL(string: "http://api.dleunig.de/party?api=YidBPmtKE82RWu7GJS-nzltJ9NGP2NTMgWp1lDO0QHw")
+    
+    /// Verkettet die URL mit dem Token welcher beim Anmelden zurückgegeben wird.
+    //final let url = URL(string: "http://api.dleunig.de/party?api=\(String(describing: myUser.key!))")
+
     private var events = [Event]()
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Initialisiert ein Aktualisieren des TableView Inhalts
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        # refreshControl
+        Initialisiert ein Aktualisieren des TableView Inhalts
+     */
     lazy var refreshControl: UIRefreshControl = {
         
         let refreshControl = UIRefreshControl()
@@ -29,12 +39,11 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         return refreshControl
     }()
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Wird durch refreshControl aufgerufen. Downloaded JSON erneut und lädt
-    // den Inhalt der TableView neu
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        # handleRefresh
+        Wird durch refreshControl aufgerufen. Downloaded JSON erneut und lädt den Inhalt der TableView neu
+     */
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         downloadJSON()
         
@@ -44,7 +53,6 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         
         refreshControl.endRefreshing()
     }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +61,10 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
         downloadJSON()
     }
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Laedt JSON herrunter und parsed den Inhalt in Objekte
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        # downloadJSON
+        Laedt JSON herrunter und parsed den Inhalt in Objekte
+     */
     func downloadJSON() {
         /* "guard" ist wie eine if-Abfrage, ist die Bedingung nicht erfuellt, wird die Funktion vorzeitig beendet.
          * Beispiel:
@@ -67,7 +76,6 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
          * Quelle: https://codingtutor.de/swift-2-0-guard-statements-so-validierst-du-variablen/
          */
         
-        //guard let url = URL(string: jsonUrlString) else { return }
         guard let downloadURL = url else { return }
         
         /* URLSession -> Bietet zahlreiche Möglichkeiten mit Netzwerkprotokollen zu kommunizieren
@@ -85,7 +93,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             {
                 let decoder = JSONDecoder()
                 let downloadedEvents = try decoder.decode(Events.self, from: data)
-                self.events = downloadedEvents.values
+                self.events = downloadedEvents.parties
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -94,28 +102,27 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
             }
             }.resume()
     }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Zaehlt die Anzahlt der durch den Parser erstelle Events im Array
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        Zaehlt die Anzahlt der durch den Parser erstelle Events im Array
+     */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    // Fuellt die TableView Zellen mit Inhalt
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    /**
+        Fuellt die TableView Zellen mit Inhalt
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as? EventCell else {return UITableViewCell()}
         
         cell.nameLbl.text = events[indexPath.row].name
-        cell.whoLbl.text = events[indexPath.row].who
-        cell.dateLbl.text = events[indexPath.row].date
+        cell.whoLbl.text = events[indexPath.row].location
+        cell.dateLbl.text = events[indexPath.row].startDate
         cell.descTextView.text = events[indexPath.row].description
         
-        
+    /// Code zum Laden Bilder mit einer URL
+    /*
         if let imageURL = URL(string: events[indexPath.row].img) {
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imageURL)
@@ -127,7 +134,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
                 }
             }
         }
+    */
         return cell
     }
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 }
