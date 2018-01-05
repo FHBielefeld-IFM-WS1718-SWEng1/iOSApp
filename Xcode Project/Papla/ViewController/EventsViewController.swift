@@ -16,10 +16,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    final let url = URL(string: "http://api.dleunig.de/party?api=YidBPmtKE82RWu7GJS-nzltJ9NGP2NTMgWp1lDO0QHw")
-    
-    /// Verkettet die URL mit dem Token welcher beim Anmelden zurückgegeben wird.
-    //final let url = URL(string: "http://api.dleunig.de/party?api=\(String(describing: myUser.key!))")
+    final let url = URL(string: "http://api.dleunig.de/party?api=\(String(describing: myUser.key!))")
 
     private var events = [Event]()
     
