@@ -25,7 +25,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     
@@ -50,16 +50,18 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         effect = visualEffectView.effect
         visualEffectView.effect = nil
         
+        // Login
         emailTextField.delegate = self
-        passwordTextfield.delegate = self
+        passwordTextField.delegate = self
         
+        emailTextField.setBottomBorder()
+        passwordTextField.setBottomBorder()
+        
+        // Register
         emailTextFieldRegistryView.delegate = self
         usernameTextFieldRegistryView.delegate = self
         passwordTextFieldRegistryView.delegate = self
         repeatPasswordTextFieldRegistryView.delegate = self
-        
-        emailTextField.setBottomBorder()
-        passwordTextfield.setBottomBorder()
         
         emailTextFieldRegistryView.setWhite()
         usernameTextFieldRegistryView.setWhite()
@@ -89,7 +91,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
     */
     override func touchesBegan(_: Set<UITouch>, with: UIEvent?) {
         emailTextField.resignFirstResponder()
-        passwordTextfield.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
         
         emailTextFieldRegistryView.resignFirstResponder()
         usernameTextFieldRegistryView.resignFirstResponder()
@@ -104,10 +106,44 @@ class StartViewController: UIViewController, UITextFieldDelegate {
      - Ruft bei ausgefüllten Textfelder die Methode doLogin auf
    */
     @IBAction func pressSignInButton(_ sender: Any) {
-        if(emailTextField.text != "" && passwordTextfield.text != ""){
-            doLogin(eMail: emailTextField.text!, password: passwordTextfield.text!)
+        if(loginTextfieldsValidate()){
+            doLogin(eMail: emailTextField.text!, password: passwordTextField.text!)
         }
         
+    }
+    
+    /**
+     Überprüft ob die Textfelder tum Registrieren Korrekt ausgefüllt wurden.
+     Bei ungültigen eingaben wird der Rand des erstel ungültigen Textfeldes Rot umrandet
+     - Returns: gibt true zurück, wenn alle Eingaben gültig sind, sonst false.
+     */
+    func loginTextfieldsValidate() -> Bool {
+        let myColor = UIColor.red
+        emailTextField.layer.borderWidth = 0
+        passwordTextField.layer.borderWidth = 0
+        if(emailTextField.text != "") {
+            let pat = "\\w*\\.?w*@([a-z]+)-?([a-z]+)\\.([a-z]+)"
+            let regex = try! NSRegularExpression(pattern: pat, options: [])
+            
+            let matches = regex.matches(in: emailTextField.text!, options: [], range: NSRange(location: 0, length: emailTextField.text!.characters.count))
+            if(matches.count != 1) {
+                emailTextField.layer.borderColor = myColor.cgColor
+                emailTextField.layer.borderWidth = 1.0
+                return false
+            }
+            
+        }else {
+            emailTextField.layer.borderColor = myColor.cgColor
+            emailTextField.layer.borderWidth = 1.0
+            return false;
+        }
+        if(passwordTextField.text == "") {
+            passwordTextField.layer.borderColor = myColor.cgColor
+            passwordTextField.layer.borderWidth = 1.0
+            return false
+        }
+        
+        return true
     }
     
     /**     Schickt einen Post Request an die API und wertet das Zurückgegebene JSON aus
