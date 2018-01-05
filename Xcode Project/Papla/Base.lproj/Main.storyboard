@@ -447,7 +447,7 @@
                                     <constraint firstAttribute="height" constant="628" id="96R-Gq-ezx"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="197" id="4ZQ-Oq-jDn" customClass="EventCell" customModule="Papla" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="197" id="4ZQ-Oq-jDn" customClass="EventCell" customModule="Papla" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ZQ-Oq-jDn" id="BEB-Qf-CYz">
@@ -653,6 +653,12 @@
                                 <color key="textColor" red="0.47451645139999998" green="0.47449773550000002" blue="0.47451049090000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6X-zG-KVl">
+                                <rect key="frame" x="158" y="674" width="98" height="30"/>
+                                <state key="normal" title="Konto löschen">
+                                    <color key="titleColor" red="1" green="0.11183061346261558" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -677,6 +683,7 @@
                             <constraint firstItem="Iv8-Qk-AjY" firstAttribute="bottom" secondItem="cR9-nO-Wxd" secondAttribute="bottom" constant="255" id="IV4-ho-ofu"/>
                             <constraint firstItem="Iv8-Qk-AjY" firstAttribute="trailing" secondItem="bfy-uu-7a3" secondAttribute="trailing" constant="20" id="J0V-6g-Fhz"/>
                             <constraint firstItem="EAq-UC-6Xu" firstAttribute="trailing" secondItem="cR9-nO-Wxd" secondAttribute="trailing" id="L3c-uu-Lfi"/>
+                            <constraint firstItem="Z6X-zG-KVl" firstAttribute="centerX" secondItem="pyV-qQ-4gs" secondAttribute="centerX" id="LNu-yU-0zj"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vyx-Yh-Pwk" secondAttribute="trailing" constant="20" symbolic="YES" id="MoO-ac-IDH"/>
                             <constraint firstItem="cR9-nO-Wxd" firstAttribute="leading" secondItem="Iv8-Qk-AjY" secondAttribute="leading" constant="20" id="N2L-kZ-KBY"/>
                             <constraint firstItem="e8e-hP-Arh" firstAttribute="top" secondItem="Iv8-Qk-AjY" secondAttribute="top" constant="25" id="Ogb-bX-wEK"/>
@@ -692,6 +699,7 @@
                             <constraint firstItem="TaW-N4-d06" firstAttribute="baseline" secondItem="vyx-Yh-Pwk" secondAttribute="baseline" id="d6e-wK-hfz"/>
                             <constraint firstItem="Df5-lk-2de" firstAttribute="top" secondItem="u90-qT-TFf" secondAttribute="bottom" constant="5" id="dtI-gd-YE1"/>
                             <constraint firstItem="ou4-kV-Osl" firstAttribute="top" secondItem="vyx-Yh-Pwk" secondAttribute="bottom" constant="18" id="gy4-Fa-djU"/>
+                            <constraint firstItem="Z6X-zG-KVl" firstAttribute="top" secondItem="EAq-UC-6Xu" secondAttribute="bottom" constant="28" id="h3u-NX-XUP"/>
                             <constraint firstItem="IzK-eh-08Q" firstAttribute="top" secondItem="Iv8-Qk-AjY" secondAttribute="top" constant="18" id="ieN-Va-9UV"/>
                             <constraint firstItem="Df5-lk-2de" firstAttribute="leading" secondItem="Iv8-Qk-AjY" secondAttribute="leading" constant="110" id="kA6-s5-cOg"/>
                             <constraint firstItem="bfy-uu-7a3" firstAttribute="top" secondItem="Iv8-Qk-AjY" secondAttribute="top" constant="18" id="kFr-zx-HDN"/>
@@ -728,7 +736,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="96" id="1yw-6M-mGz" customClass="ContactCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="96" id="1yw-6M-mGz" customClass="ContactCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1yw-6M-mGz" id="pKu-Mu-FlV">
