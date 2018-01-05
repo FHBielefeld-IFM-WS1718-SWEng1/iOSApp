@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -224,8 +223,8 @@
                         <outlet property="emailTextField" destination="r2i-Fl-gZS" id="702-18-VRD"/>
                         <outlet property="emailTextFieldRegistryView" destination="zFw-3Q-wfo" id="vpM-Vq-n23"/>
                         <outlet property="leadingConstraint" destination="VYV-OB-p4C" id="iy4-xm-UqW"/>
+                        <outlet property="passwordTextField" destination="Rmm-6f-UtL" id="F6d-3d-nxo"/>
                         <outlet property="passwordTextFieldRegistryView" destination="HRV-kg-saK" id="d3h-j7-9Gh"/>
-                        <outlet property="passwordTextfield" destination="Rmm-6f-UtL" id="Nby-Uh-gFR"/>
                         <outlet property="registerButton" destination="YuS-ZZ-f1a" id="4pB-7x-pxV"/>
                         <outlet property="registerFinishButton" destination="zFF-OF-Ysw" id="vDM-et-ULx"/>
                         <outlet property="registryView" destination="1y7-PK-JKZ" id="BOp-YB-RJj"/>
@@ -461,7 +460,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EIj-sf-tnf">
-                                                    <rect key="frame" x="15" y="38" width="50" height="50"/>
+                                                    <rect key="frame" x="8" y="38" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="KRm-dk-fkS"/>
                                                         <constraint firstAttribute="width" constant="50" id="SpD-1d-qby"/>
@@ -470,7 +469,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RBG-GT-Wbf">
-                                                    <rect key="frame" x="15" y="104" width="384" height="67"/>
+                                                    <rect key="frame" x="8" y="104" width="398" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="67" id="fHW-z5-MbZ"/>
@@ -736,14 +735,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ld-Ur-F15">
-                                                    <rect key="frame" x="30" y="21" width="50" height="50"/>
+                                                    <rect key="frame" x="23" y="21" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="PNd-Kg-siH"/>
                                                         <constraint firstAttribute="height" constant="50" id="hxt-g0-gIa"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZI-KW-7sm">
-                                                    <rect key="frame" x="110" y="36" width="45" height="21"/>
+                                                    <rect key="frame" x="103" y="36" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
