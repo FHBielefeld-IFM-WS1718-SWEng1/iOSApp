@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MenuView: UIView {
+class MenuViewController: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -21,7 +21,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
-
+project.pbxproj
 project.xcworkspace/
 
 ## Other
@@ -49,7 +49,7 @@ playground.xcworkspace
 # Packages/
 # Package.pins
 # Package.resolved
-.build/
+#.build/
 
 # CocoaPods
 #
@@ -77,3 +77,8 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+# Documentation
+
+docs
+*.pbxproj

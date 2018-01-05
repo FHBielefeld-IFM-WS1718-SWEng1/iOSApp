@@ -118,8 +118,8 @@ class PaplaUITests: XCTestCase {
         passwortSecureTextField.tap()
         passwortSecureTextField.typeText("test")
         app.buttons["ANMELDEN"].tap()
-        app.navigationBars["Dashboard"].buttons["Item"].tap()
-        XCTAssertTrue(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        XCTAssertTrue(app.navigationBars["Übersicht"].buttons["Item"].exists, "Text field doesn't exist")
     }
     
     func testLoginWithWrongData() {
@@ -129,6 +129,23 @@ class PaplaUITests: XCTestCase {
         let eMailTextField = logoElementsQuery.children(matching: .textField)["E-Mail"]
         eMailTextField.tap()
         eMailTextField.typeText("Dario")
+        
+        let passwortSecureTextField = logoElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("tefewst")
+        app.buttons["ANMELDEN"].tap()
+        XCTAssertFalse(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
+        
+    }
+    
+    func testLoginWithWrongPassword() {
+        
+        let app = XCUIApplication()
+        let logoElementsQuery = app.otherElements.containing(.image, identifier:"Logo")
+        let eMailTextField = logoElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch@fisch.de")
         
         let passwortSecureTextField = logoElementsQuery.children(matching: .secureTextField)["Passwort"]
         passwortSecureTextField.tap()
@@ -173,7 +190,7 @@ class PaplaUITests: XCTestCase {
         
     }
     
-    func testRegisterWithCorrectData() {
+    func testRegisterWithCorrectDataEmailWithoutPoint() {
         
         let app = XCUIApplication()
         app.buttons["REGISTRIEREN"].tap()
@@ -181,7 +198,7 @@ class PaplaUITests: XCTestCase {
         let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
         let eMailTextField = element.textFields["E-Mail"]
         eMailTextField.tap()
-        eMailTextField.typeText("fa")
+        eMailTextField.typeText("test@testklasse.de")
         
         let benutzernameTextField = app.textFields["Benutzername"]
         benutzernameTextField.tap()
@@ -198,7 +215,154 @@ class PaplaUITests: XCTestCase {
         passwortWiederholenSecureTextField.tap()
         passwortWiederholenSecureTextField.typeText("test")
         app.buttons["REGISTRIERUNG ABSCHLIESSEN"].tap()
-        XCTAssertTrue(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        XCTAssertTrue(app.navigationBars["Übersicht"].buttons["Item"].exists, "Text field doesn't exist")
+        
+    }
+    
+    func testRegisterWithCorrectDataEmailWithPoint() {
+        
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        
+        let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
+        let eMailTextField = element.textFields["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("te.st@testklasse.de")
+        
+        let benutzernameTextField = app.textFields["Benutzername"]
+        benutzernameTextField.tap()
+        benutzernameTextField.tap()
+        benutzernameTextField.typeText("fddf")
+        
+        let passwortSecureTextField = element.secureTextFields["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        
+        let passwortWiederholenSecureTextField = app.secureTextFields["Passwort wiederholen"]
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.typeText("test")
+        app.buttons["REGISTRIERUNG ABSCHLIESSEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        XCTAssertTrue(app.navigationBars["Übersicht"].buttons["Item"].exists, "Text field doesn't exist")
+        
+    }
+    
+    func testRegisterEmailWithoudAt() {
+        
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        
+        let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
+        let eMailTextField = element.textFields["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("test.testklasse.de")
+        
+        let benutzernameTextField = app.textFields["Benutzername"]
+        benutzernameTextField.tap()
+        benutzernameTextField.tap()
+        benutzernameTextField.typeText("fddf")
+        
+        let passwortSecureTextField = element.secureTextFields["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        
+        let passwortWiederholenSecureTextField = app.secureTextFields["Passwort wiederholen"]
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.typeText("test")
+        app.buttons["REGISTRIERUNG ABSCHLIESSEN"].tap()
+        XCTAssertFalse(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
+        
+    }
+    
+    func testRegisterEmailWithNothingBeforePoint() {
+        
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        
+        let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
+        let eMailTextField = element.textFields["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText(".test@klasse.de")
+        
+        let benutzernameTextField = app.textFields["Benutzername"]
+        benutzernameTextField.tap()
+        benutzernameTextField.tap()
+        benutzernameTextField.typeText("fddf")
+        
+        let passwortSecureTextField = element.secureTextFields["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        
+        let passwortWiederholenSecureTextField = app.secureTextFields["Passwort wiederholen"]
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.typeText("test")
+        app.buttons["REGISTRIERUNG ABSCHLIESSEN"].tap()
+        XCTAssertFalse(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
+        
+    }
+    
+    func testRegisterEmailWithoudEnding() {
+        
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        
+        let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
+        let eMailTextField = element.textFields["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("test.test@klasse")
+        
+        let benutzernameTextField = app.textFields["Benutzername"]
+        benutzernameTextField.tap()
+        benutzernameTextField.tap()
+        benutzernameTextField.typeText("fddf")
+        
+        let passwortSecureTextField = element.secureTextFields["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        
+        let passwortWiederholenSecureTextField = app.secureTextFields["Passwort wiederholen"]
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.typeText("test")
+        app.buttons["REGISTRIERUNG ABSCHLIESSEN"].tap()
+        XCTAssertFalse(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
+        
+    }
+    
+    func testRegisterEmailWithoudDomain() {
+        
+        let app = XCUIApplication()
+        app.buttons["REGISTRIEREN"].tap()
+        
+        let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
+        let eMailTextField = element.textFields["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("test.testklasse@.de")
+        
+        let benutzernameTextField = app.textFields["Benutzername"]
+        benutzernameTextField.tap()
+        benutzernameTextField.tap()
+        benutzernameTextField.typeText("fddf")
+        
+        let passwortSecureTextField = element.secureTextFields["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        
+        let passwortWiederholenSecureTextField = app.secureTextFields["Passwort wiederholen"]
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.tap()
+        passwortWiederholenSecureTextField.typeText("test")
+        app.buttons["REGISTRIERUNG ABSCHLIESSEN"].tap()
+        XCTAssertFalse(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
         
     }
     
@@ -210,7 +374,7 @@ class PaplaUITests: XCTestCase {
         let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
         let eMailTextField = element.textFields["E-Mail"]
         eMailTextField.tap()
-        eMailTextField.typeText("fa")
+        eMailTextField.typeText("test@testklasse.de")
         
         let benutzernameTextField = app.textFields["Benutzername"]
         benutzernameTextField.tap()
@@ -240,7 +404,7 @@ class PaplaUITests: XCTestCase {
         let element = app.otherElements.containing(.image, identifier:"Logo").children(matching: .other).element
         let eMailTextField = element.textFields["E-Mail"]
         eMailTextField.tap()
-        eMailTextField.typeText("fa")
+        eMailTextField.typeText("test@testklasse.de")
         
         let benutzernameTextField = app.textFields["Benutzername"]
         benutzernameTextField.tap()
