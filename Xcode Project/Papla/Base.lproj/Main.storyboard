@@ -659,6 +659,14 @@
                                     <action selector="deleteAccount:" destination="Rsy-8x-yed" eventType="touchUpInside" id="bpq-6Y-MoJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCZ-qL-2wT">
+                                <rect key="frame" x="319" y="194" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ändern"/>
+                                <connections>
+                                    <action selector="changeProfilePicture:" destination="Rsy-8x-yed" eventType="touchUpInside" id="zAD-qr-P5a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -721,7 +729,9 @@
                         <outlet property="createdAtTextField" destination="PrY-Ju-dh3" id="Cc3-eN-9qw"/>
                         <outlet property="emailTextField" destination="7ie-Ih-1SY" id="k6T-Vp-1JI"/>
                         <outlet property="genderTextField" destination="Df5-lk-2de" id="A02-La-abI"/>
+                        <outlet property="profilImage" destination="bfy-uu-7a3" id="jTO-st-lF5"/>
                         <outlet property="usernameTextField" destination="IzK-eh-08Q" id="BJp-Wl-7Sa"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="delete" id="GZ6-Bq-zzX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MOt-qm-g06" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -828,4 +838,7 @@
         <image name="menu_tasks_icon" width="20" height="18"/>
         <image name="navbar_menu_icon" width="20" height="18"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GZ6-Bq-zzX"/>
+    </inferredMetricsTieBreakers>
 </document>

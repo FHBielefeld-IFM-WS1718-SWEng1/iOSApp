@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var birthTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
     
+    @IBOutlet weak var profilImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +29,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.text = myUser.name
         emailTextField.text = myUser.email
         createdAtTextField.text = myUser.createdAt?.substring(to: indexCreated!)
-        
         if(myUser.birthdate != nil) {
-            let index = myUser.birthdate?.index(of: "T")
-            birthTextField.text = myUser.birthdate?.substring(to: index!)
+            birthTextField.text = myUser.birthdate
         }
         if(myUser.gender != nil) {
             print("hier")
@@ -46,6 +45,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             default:
                 break
             }
+        }
+        
+        if(myUser.profilepicture != nil) {
+            let dataDecoded : Data = Data(base64Encoded: myUser.profilepicture!, options: .ignoreUnknownCharacters)!
+            let decodedimage = UIImage(data: dataDecoded)
+            profilImage.image = decodedimage
         }
     }
     
@@ -85,7 +90,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                 break
             }
         }
-        
+        if(birthTextField.text != "") {
+            let pat = "\\d\\d\\d\\d-\\d\\d-\\d\\d"
+            let regex = try! NSRegularExpression(pattern: pat, options: [])
+            
+            let matches = regex.matches(in: birthTextField.text!, options: [], range: NSRange(location: 0, length: birthTextField.text!.characters.count))
+            if(matches.count == 1) {
+                putBirthdate(birthdate: birthTextField.text!)
+            }else {
+                birthTextField.layer.borderWidth = 1.0
+            }
+        }
         
     }
     
@@ -94,14 +109,45 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         let headers = [
             "content-type": "application/json",
             "Cache-Control": "no-cache",
-            "Postman-Token": "5a39887e-acec-2212-2e83-2ed127ebf9f6"
+            "Postman-Token": "38503a8b-f705-d9db-d953-794f81fcce15"
         ]
         
-        let myBodyString :String = "{\"gender\":" + gender + "}"
-        let postData = NSData(data: myBodyString.data(using: String.Encoding.utf8)!)
+        let postDataString = "{\"gender\":" + gender + "}"
+        let postData = NSData(data: postDataString.data(using: String.Encoding.utf8)!)
         
-        let myUrlString = "http://api.dleunig.de/user/" + String(myUser.id) + myUser.key!
-        let request = NSMutableURLRequest(url: NSURL(string: myUrlString)! as URL,
+        let myurlString = "http://api.dleunig.de/user/" + String(myUser.id) + "?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: myurlString)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "PUT"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
+    func putBirthdate(birthdate: String) {
+        let headers = [
+            "content-type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "38503a8b-f705-d9db-d953-794f81fcce15"
+        ]
+        
+        let postDataString = "{\"birthdate\":\"" + birthdate + "T00:00:00.000Z\"}"
+        let postData = NSData(data: postDataString.data(using: String.Encoding.utf8)!)
+        
+        let myurlString = "http://api.dleunig.de/user/" + String(myUser.id) + "?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: myurlString)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "PUT"
@@ -122,5 +168,85 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func deleteAccount(_ sender: Any) {
+        let headers = [
+            "Cache-Control": "no-cache",
+            "Postman-Token": "2a123482-a1c9-6001-ff18-e4f7337ad500"
+        ]
+        
+        let myurlString = "http://api.dleunig.de/user/" + String(myUser.id) + "?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: myurlString)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "DELETE"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "delete", sender: self)
+                }
+            }
+        })
+        
+        dataTask.resume()
     }
+    
+    @IBAction func changeProfilePicture(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        self.present(picker, animated: true, completion: nil)
+        
+        let data = UIImageJPEGRepresentation(profilImage.image!, 1.0)
+        let strBase64: String = (data?.base64EncodedString())!
+        
+        putProfilePicture(profilepicture: strBase64)
+
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        profilImage.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        picker.dismiss(animated: true, completion:nil)
+    }
+    
+    func putProfilePicture(profilepicture: String) {
+        let headers = [
+            "content-type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "38503a8b-f705-d9db-d953-794f81fcce15"
+        ]
+    
+        let postDataString = "{\"profilepicture\":\"" + profilepicture + "\"}"
+        let postData = NSData(data: postDataString.data(using: String.Encoding.utf8)!)
+    
+        let myurlString = "http://api.dleunig.de/user/" + String(myUser.id) + "?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: myurlString)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "PUT"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data
+    
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+            }
+        })
+    
+        dataTask.resume()
+    }
+    
 }
+
+
