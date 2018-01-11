@@ -27,6 +27,7 @@
 		39B8B5311FE42D93003DB485 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B8B5301FE42D93003DB485 /* ContactCell.swift */; };
 		39B8B5361FE42FBF003DB485 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B8B5351FE42FBF003DB485 /* ContactsViewController.swift */; };
 		39B8B5381FE430A8003DB485 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B8B5371FE430A8003DB485 /* Contact.swift */; };
+		950E626B200779F200B6411C /* NewPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E626A200779F200B6411C /* NewPartyViewController.swift */; };
 		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
 		95A43D1F1FE43821008BB3F4 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */; };
@@ -76,6 +77,7 @@
 		39B8B5301FE42D93003DB485 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Papla/Objects/Contacts/ContactCell.swift; sourceTree = SOURCE_ROOT; };
 		39B8B5351FE42FBF003DB485 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		39B8B5371FE430A8003DB485 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		950E626A200779F200B6411C /* NewPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPartyViewController.swift; sourceTree = "<group>"; };
 		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/Objects/User/User.swift; sourceTree = SOURCE_ROOT; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		39922BE61FC19F1400140615 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				950E626A200779F200B6411C /* NewPartyViewController.swift */,
 				39B8B5351FE42FBF003DB485 /* ContactsViewController.swift */,
 				3989D3D21FBF49C40012081B /* EventsViewController.swift */,
 				3997BF281FC217EB007FDDD2 /* MenuViewController.swift */,
@@ -364,6 +367,7 @@
 				39ABC38A1FBF21FF0079715C /* OverviewViewController.swift in Sources */,
 				39B8B5361FE42FBF003DB485 /* ContactsViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
+				950E626B200779F200B6411C /* NewPartyViewController.swift in Sources */,
 				9561DE721FDFE21C007FDBAE /* User.swift in Sources */,
 				3989D3D31FBF49C40012081B /* EventsViewController.swift in Sources */,
 				39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */,
