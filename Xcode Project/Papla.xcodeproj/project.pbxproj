@@ -35,6 +35,7 @@
 		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
 		95A43D1F1FE43821008BB3F4 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */; };
+		B4E95C192008F9D000F4CE03 /* ConfirmModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E95C182008F9D000F4CE03 /* ConfirmModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/Objects/User/User.swift; sourceTree = SOURCE_ROOT; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
+		B4E95C182008F9D000F4CE03 /* ConfirmModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				3989D3D01FBF49550012081B /* ProfileViewController.swift */,
 				39ABC3891FBF21FF0079715C /* OverviewViewController.swift */,
 				95A137321FBEE57F00451954 /* StartViewController.swift */,
+				B4E95C182008F9D000F4CE03 /* ConfirmModalViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				39B8B5381FE430A8003DB485 /* Contact.swift in Sources */,
 				39B3C25F1FDB35600015EE63 /* EventCell.swift in Sources */,
 				39922BE51FC0AA2200140615 /* Contents.swift in Sources */,
+				B4E95C192008F9D000F4CE03 /* ConfirmModalViewController.swift in Sources */,
 				39ABC38A1FBF21FF0079715C /* OverviewViewController.swift in Sources */,
 				39B8B5361FE42FBF003DB485 /* ContactsViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,

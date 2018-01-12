@@ -167,35 +167,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         dataTask.resume()
     }
     
-    @IBAction func deleteAccount(_ sender: Any) {
-        let headers = [
-            "Cache-Control": "no-cache",
-            "Postman-Token": "2a123482-a1c9-6001-ff18-e4f7337ad500"
-        ]
-        
-        let myurlString = "http://api.dleunig.de/user/" + String(myUser.id) + "?api=" + myUser.key!
-        let request = NSMutableURLRequest(url: NSURL(string: myurlString)! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        request.httpMethod = "DELETE"
-        request.allHTTPHeaderFields = headers
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "delete", sender: self)
-                }
-            }
-        })
-        
-        dataTask.resume()
-    }
-    
     @IBAction func changeProfilePicture(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
