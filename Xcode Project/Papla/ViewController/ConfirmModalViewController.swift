@@ -40,9 +40,7 @@ class ConfirmModalViewController: UIViewController {
             } else {
                 let httpResponse = response as? HTTPURLResponse
                 print(httpResponse)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "delete", sender: self)
-                }
+                self.dismiss(animated: true, completion: nil)
             }
         })
         dismiss(animated: true, completion: nil)

@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 
+
 ///Representiert einen User, der von der API zurück gegeben wird
 var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilepicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
 
@@ -85,6 +86,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         
         setRegistryFormProperties()
     }
+    
     
     /**
      Sorgt dafür, dass die Tastatur eingefahren wird, wenn irgendwo hingedrückt wird
