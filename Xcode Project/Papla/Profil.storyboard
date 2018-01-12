@@ -116,14 +116,6 @@
             </objects>
             <point key="canvasLocation" x="1277" y="1833"/>
         </scene>
-        <!--Main-->
-        <scene sceneID="d0K-PS-Bae">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="He9-HQ-gRd" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QZW-hR-mxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1758" y="1071"/>
-        </scene>
         <!--Profil-->
         <scene sceneID="cfD-ty-Bxg">
             <objects>
@@ -311,7 +303,6 @@
                         <outlet property="genderTextField" destination="klx-j9-gJF" id="Gsc-B3-v9E"/>
                         <outlet property="profilImage" destination="ENK-Kh-6F0" id="8ix-jO-K7H"/>
                         <outlet property="usernameTextField" destination="yG9-tA-4AN" id="y3c-5g-cjR"/>
-                        <segue destination="He9-HQ-gRd" kind="show" identifier="deleted" id="auc-Ci-eQI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tum-Tp-5qm" userLabel="First Responder" sceneMemberID="firstResponder"/>
