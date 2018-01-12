@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		390643591FC60C9900F24B92 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390643581FC60C9900F24B92 /* UITextFieldExtension.swift */; };
+		39465AC52008E3F30084AFE2 /* Profil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39465AC42008E3F30084AFE2 /* Profil.storyboard */; };
+		39465AC72008E8BC0084AFE2 /* Veranstaltungen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39465AC62008E8BC0084AFE2 /* Veranstaltungen.storyboard */; };
 		39701A1E2008DF1F00DDB204 /* Kontakte.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39701A1D2008DF1F00DDB204 /* Kontakte.storyboard */; };
 		39701A202008DF6200DDB204 /* ShowContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39701A1F2008DF6200DDB204 /* ShowContactsViewController.swift */; };
 		3970809A1FBB4A21009C5D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397080991FBB4A21009C5D1D /* AppDelegate.swift */; };
@@ -53,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		390643581FC60C9900F24B92 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		39465AC42008E3F30084AFE2 /* Profil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profil.storyboard; sourceTree = "<group>"; };
+		39465AC62008E8BC0084AFE2 /* Veranstaltungen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Veranstaltungen.storyboard; sourceTree = "<group>"; };
 		39701A1D2008DF1F00DDB204 /* Kontakte.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Kontakte.storyboard; sourceTree = "<group>"; };
 		39701A1F2008DF6200DDB204 /* ShowContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowContactsViewController.swift; sourceTree = "<group>"; };
 		397080961FBB4A21009C5D1D /* Papla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Papla.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,8 +147,10 @@
 		397080981FBB4A21009C5D1D /* Papla */ = {
 			isa = PBXGroup;
 			children = (
-				39701A1D2008DF1F00DDB204 /* Kontakte.storyboard */,
 				3970809D1FBB4A21009C5D1D /* Main.storyboard */,
+				39465AC62008E8BC0084AFE2 /* Veranstaltungen.storyboard */,
+				39465AC42008E3F30084AFE2 /* Profil.storyboard */,
+				39701A1D2008DF1F00DDB204 /* Kontakte.storyboard */,
 				390ECF8D1FE5481F00C90248 /* Extentions */,
 				39922BE61FC19F1400140615 /* ViewController */,
 				FAE76D6B1FE41311006274F2 /* Objects */,
@@ -336,7 +342,9 @@
 			files = (
 				397080A71FBB4A21009C5D1D /* LaunchScreen.storyboard in Resources */,
 				397080A41FBB4A21009C5D1D /* Assets.xcassets in Resources */,
+				39465AC52008E3F30084AFE2 /* Profil.storyboard in Resources */,
 				3970809F1FBB4A21009C5D1D /* Main.storyboard in Resources */,
+				39465AC72008E8BC0084AFE2 /* Veranstaltungen.storyboard in Resources */,
 				39701A1E2008DF1F00DDB204 /* Kontakte.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
