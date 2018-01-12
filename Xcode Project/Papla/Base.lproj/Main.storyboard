@@ -403,6 +403,7 @@
                                 <action selector="MenuButton:" destination="65A-Yk-Sfm" id="aRm-EA-dxr"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="TWq-qj-IhK"/>
                     </navigationItem>
                     <connections>
                         <outlet property="leadingContraint" destination="Qzn-Wi-Le0" id="We6-eZ-x9m"/>
@@ -442,7 +443,6 @@
         <!--Impressum-->
         <scene sceneID="GeH-uQ-zJi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V3p-aE-lEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Impressum" id="qpk-ob-pbZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0hs-1E-TPE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -451,6 +451,7 @@
                         <viewLayoutGuide key="safeArea" id="BwJ-0a-BjI"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3p-aE-lEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948" y="1097"/>
         </scene>
