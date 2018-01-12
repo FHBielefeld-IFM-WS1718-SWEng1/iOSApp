@@ -15,6 +15,7 @@ import UIKit
 class EventsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
     
     final let url = URL(string: "http://api.dleunig.de/party?api=\(String(describing: myUser.key!))")
 

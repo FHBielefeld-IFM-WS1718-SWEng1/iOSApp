@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 
+
 ///Representiert einen User, der von der API zurück gegeben wird
 var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilepicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
 
@@ -49,16 +50,18 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         effect = visualEffectView.effect
         visualEffectView.effect = nil
         
+        // Login
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        emailTextField.setBottomBorder()
+        passwordTextField.setBottomBorder()
+        
+        // Register
         emailTextFieldRegistryView.delegate = self
         usernameTextFieldRegistryView.delegate = self
         passwordTextFieldRegistryView.delegate = self
         repeatPasswordTextFieldRegistryView.delegate = self
-        
-        emailTextField.setBottomBorder()
-        passwordTextField.setBottomBorder()
         
         emailTextFieldRegistryView.setWhite()
         usernameTextFieldRegistryView.setWhite()
@@ -83,6 +86,7 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         setRegistryFormProperties()
     }
     
+    
     /**
      Sorgt dafür, dass die Tastatur eingefahren wird, wenn irgendwo hingedrückt wird
     */
@@ -103,8 +107,8 @@ class StartViewController: UIViewController, UITextFieldDelegate {
      - Ruft bei ausgefüllten Textfelder die Methode doLogin auf
    */
     @IBAction func pressSignInButton(_ sender: Any) {
-        if(loginTextfieldsValidate()) {
-            doLogin(eMail: emailTextFieldRegistryView.text!, password: passwordTextFieldRegistryView.text!)
+        if(loginTextfieldsValidate()){
+            doLogin(eMail: emailTextField.text!, password: passwordTextField.text!)
         }
     }
     /**
@@ -140,6 +144,41 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
+    
+    /**
+     Überprüft ob die Textfelder tum Registrieren Korrekt ausgefüllt wurden.
+     Bei ungültigen eingaben wird der Rand des erstel ungültigen Textfeldes Rot umrandet
+     - Returns: gibt true zurück, wenn alle Eingaben gültig sind, sonst false.
+     */
+    func loginTextfieldsValidate() -> Bool {
+        let myColor = UIColor.red
+        emailTextField.layer.borderWidth = 0
+        passwordTextField.layer.borderWidth = 0
+        if(emailTextField.text != "") {
+            let pat = "\\w*\\.?w*@([a-z]+)-?([a-z]+)\\.([a-z]+)"
+            let regex = try! NSRegularExpression(pattern: pat, options: [])
+            
+            let matches = regex.matches(in: emailTextField.text!, options: [], range: NSRange(location: 0, length: emailTextField.text!.characters.count))
+            if(matches.count != 1) {
+                emailTextField.layer.borderColor = myColor.cgColor
+                emailTextField.layer.borderWidth = 1.0
+                return false
+            }
+            
+        }else {
+            emailTextField.layer.borderColor = myColor.cgColor
+            emailTextField.layer.borderWidth = 1.0
+            return false;
+        }
+        if(passwordTextField.text == "") {
+            passwordTextField.layer.borderColor = myColor.cgColor
+            passwordTextField.layer.borderWidth = 1.0
+            return false
+        }
+        
+        return true
+    }
+    
     /**     Schickt einen Post Request an die API und wertet das Zurückgegebene JSON aus
      
      
