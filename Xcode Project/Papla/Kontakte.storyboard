@@ -48,6 +48,9 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Kontakte" id="nl2-Za-P5W">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2jW-Zx-JiZ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAk-MZ-jJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
