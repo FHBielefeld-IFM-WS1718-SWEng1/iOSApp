@@ -145,39 +145,6 @@ class StartViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    /**
-     Überprüft ob die Textfelder tum Registrieren Korrekt ausgefüllt wurden.
-     Bei ungültigen eingaben wird der Rand des erstel ungültigen Textfeldes Rot umrandet
-     - Returns: gibt true zurück, wenn alle Eingaben gültig sind, sonst false.
-     */
-    func loginTextfieldsValidate() -> Bool {
-        let myColor = UIColor.red
-        emailTextField.layer.borderWidth = 0
-        passwordTextField.layer.borderWidth = 0
-        if(emailTextField.text != "") {
-            let pat = "\\w*\\.?w*@([a-z]+)-?([a-z]+)\\.([a-z]+)"
-            let regex = try! NSRegularExpression(pattern: pat, options: [])
-            
-            let matches = regex.matches(in: emailTextField.text!, options: [], range: NSRange(location: 0, length: emailTextField.text!.characters.count))
-            if(matches.count != 1) {
-                emailTextField.layer.borderColor = myColor.cgColor
-                emailTextField.layer.borderWidth = 1.0
-                return false
-            }
-            
-        }else {
-            emailTextField.layer.borderColor = myColor.cgColor
-            emailTextField.layer.borderWidth = 1.0
-            return false;
-        }
-        if(passwordTextField.text == "") {
-            passwordTextField.layer.borderColor = myColor.cgColor
-            passwordTextField.layer.borderWidth = 1.0
-            return false
-        }
-        
-        return true
-    }
     
     /**     Schickt einen Post Request an die API und wertet das Zurückgegebene JSON aus
      
