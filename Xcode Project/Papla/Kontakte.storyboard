@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,6 +56,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAk-MZ-jJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="355.07246376811599" y="-270.6521739130435"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="6Qf-yr-VDU">
+            <objects>
+                <viewController id="WSl-yL-Nvs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Htr-dy-bXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6qc-E4-Uc8">
+                                <rect key="frame" x="107" y="56" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Hp0-aH-5s1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vorname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa2-UX-NcP">
+                                <rect key="frame" x="169" y="276" width="77" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nachname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxV-Ko-eTV">
+                                <rect key="frame" x="161" y="319" width="92" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qa2-UX-NcP" firstAttribute="centerX" secondItem="Htr-dy-bXZ" secondAttribute="centerX" id="N0B-UB-DFi"/>
+                            <constraint firstItem="6qc-E4-Uc8" firstAttribute="leading" secondItem="UH8-xR-nOF" secondAttribute="leading" constant="107" id="OTm-oC-UDW"/>
+                            <constraint firstItem="UH8-xR-nOF" firstAttribute="trailing" secondItem="6qc-E4-Uc8" secondAttribute="trailing" constant="107" id="VZv-EL-qST"/>
+                            <constraint firstItem="mxV-Ko-eTV" firstAttribute="top" secondItem="Qa2-UX-NcP" secondAttribute="bottom" constant="20" id="Vwq-9J-7aE"/>
+                            <constraint firstItem="Qa2-UX-NcP" firstAttribute="top" secondItem="6qc-E4-Uc8" secondAttribute="bottom" constant="20" id="esP-G9-k23"/>
+                            <constraint firstItem="6qc-E4-Uc8" firstAttribute="top" secondItem="UH8-xR-nOF" secondAttribute="top" constant="36" id="huk-Ha-gkS"/>
+                            <constraint firstItem="mxV-Ko-eTV" firstAttribute="centerX" secondItem="Htr-dy-bXZ" secondAttribute="centerX" id="mKz-lS-K6v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UH8-xR-nOF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="ohN-Fv-iih">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ngU-xo-n0H"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNd-RD-g8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="-271"/>
         </scene>
     </scenes>
 </document>
