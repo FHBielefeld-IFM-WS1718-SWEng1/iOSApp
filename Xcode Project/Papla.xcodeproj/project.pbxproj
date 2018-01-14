@@ -33,6 +33,8 @@
 		39B8B5381FE430A8003DB485 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B8B5371FE430A8003DB485 /* Contact.swift */; };
 		950E626B200779F200B6411C /* NewPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E626A200779F200B6411C /* NewPartyViewController.swift */; };
 		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
+		956F1CC3200B60290003B8C4 /* NewContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F1CC2200B60290003B8C4 /* NewContactViewController.swift */; };
+		956F1CC5200B621B0003B8C4 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F1CC4200B621B0003B8C4 /* UserList.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
 		95A43D1F1FE43821008BB3F4 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */; };
 		B4E95C192008F9D000F4CE03 /* ConfirmModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E95C182008F9D000F4CE03 /* ConfirmModalViewController.swift */; };
@@ -88,6 +90,8 @@
 		39B8B5371FE430A8003DB485 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		950E626A200779F200B6411C /* NewPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPartyViewController.swift; sourceTree = "<group>"; };
 		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/Objects/User/User.swift; sourceTree = SOURCE_ROOT; };
+		956F1CC2200B60290003B8C4 /* NewContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactViewController.swift; sourceTree = "<group>"; };
+		956F1CC4200B621B0003B8C4 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		B4E95C182008F9D000F4CE03 /* ConfirmModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmModalViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 		39922BE61FC19F1400140615 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				956F1CC2200B60290003B8C4 /* NewContactViewController.swift */,
 				950E626A200779F200B6411C /* NewPartyViewController.swift */,
 				39701A1F2008DF6200DDB204 /* ShowContactsViewController.swift */,
 				39B8B5351FE42FBF003DB485 /* ContactsViewController.swift */,
@@ -216,6 +221,7 @@
 			children = (
 				95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */,
 				9561DE711FDFE21C007FDBAE /* User.swift */,
+				956F1CC4200B621B0003B8C4 /* UserList.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -382,12 +388,14 @@
 				39B8B5381FE430A8003DB485 /* Contact.swift in Sources */,
 				39B3C25F1FDB35600015EE63 /* EventCell.swift in Sources */,
 				39922BE51FC0AA2200140615 /* Contents.swift in Sources */,
+				956F1CC5200B621B0003B8C4 /* UserList.swift in Sources */,
 				B4E95C192008F9D000F4CE03 /* ConfirmModalViewController.swift in Sources */,
 				39ABC38A1FBF21FF0079715C /* OverviewViewController.swift in Sources */,
 				39B8B5361FE42FBF003DB485 /* ContactsViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
 				950E626B200779F200B6411C /* NewPartyViewController.swift in Sources */,
 				9561DE721FDFE21C007FDBAE /* User.swift in Sources */,
+				956F1CC3200B60290003B8C4 /* NewContactViewController.swift in Sources */,
 				3989D3D31FBF49C40012081B /* EventsViewController.swift in Sources */,
 				39A27D851FC618EA001B064C /* UIButtonExtension.swift in Sources */,
 				3997BF291FC217EB007FDDD2 /* MenuViewController.swift in Sources */,

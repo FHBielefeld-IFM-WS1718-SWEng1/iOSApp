@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -49,12 +50,59 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Kontakte" id="nl2-Za-P5W">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2jW-Zx-JiZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2jW-Zx-JiZ">
+                            <connections>
+                                <segue destination="hAP-By-OTh" kind="show" id="lnt-CO-GrH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAk-MZ-jJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="355.07246376811599" y="-270.6521739130435"/>
+        </scene>
+        <!--Neuer Kontakt-->
+        <scene sceneID="xeh-FX-l3v">
+            <objects>
+                <viewController id="hAP-By-OTh" customClass="NewContactViewController" customModule="Papla" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Of2-bB-21I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Nv-SB-Hoa">
+                                <rect key="frame" x="20" y="93" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TV-TQ-Tj6">
+                                <rect key="frame" x="186" y="156" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99951750040054321" green="0.051543541252613068" blue="0.0049127419479191303" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="YZW-IR-mkj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Neuer Kontakt" id="kxG-o1-MJo">
+                        <barButtonItem key="rightBarButtonItem" title="Hinzufügen" id="5Lv-o5-XJU">
+                            <connections>
+                                <action selector="addContact:" destination="hAP-By-OTh" id="prp-10-Jir"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="6Nv-SB-Hoa" id="aX8-Ce-31L"/>
+                        <outlet property="errorLabel" destination="3TV-TQ-Tj6" id="eLj-6k-JGB"/>
+                        <segue destination="gUj-ng-iDw" kind="show" identifier="addedContact" id="Xwf-QL-edB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2h-mM-Bei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208.6956521739132" y="-181.79347826086959"/>
         </scene>
     </scenes>
 </document>
