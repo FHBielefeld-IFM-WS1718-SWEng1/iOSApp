@@ -109,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcQ-rx-MB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-455.07246376811599" y="8.9673913043478262"/>
+            <point key="canvasLocation" x="-452" y="20"/>
         </scene>
         <!--Eigene Veranstaltungen-->
         <scene sceneID="CFC-Zv-6ts">
@@ -203,25 +203,16 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-cm-YR1">
-                                <rect key="frame" x="119" y="369" width="176" height="30"/>
-                                <state key="normal" title="Veranstaltung hinzufügen"/>
-                                <connections>
-                                    <action selector="buttonAddParty:" destination="SCM-wR-mvm" eventType="touchUpInside" id="wtZ-6c-Yfm"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MjY-xj-KAJ" secondAttribute="trailing" constant="20" symbolic="YES" id="1oM-gv-Ncy"/>
-                            <constraint firstItem="cdb-cm-YR1" firstAttribute="centerX" secondItem="YeR-Z6-Qv5" secondAttribute="centerX" id="1zw-SQ-6Db"/>
                             <constraint firstItem="Bcb-bK-WnU" firstAttribute="leading" secondItem="b6V-tP-Ap6" secondAttribute="leading" constant="20" id="4WM-cB-hpg"/>
                             <constraint firstItem="b6V-tP-Ap6" firstAttribute="trailing" secondItem="FrD-m4-nR9" secondAttribute="trailing" constant="20" id="4kd-yQ-Tvm"/>
                             <constraint firstItem="NJp-JN-5VB" firstAttribute="top" secondItem="Bcb-bK-WnU" secondAttribute="bottom" constant="21" id="6Se-Fq-3Yh"/>
                             <constraint firstItem="9Tg-at-vjX" firstAttribute="top" secondItem="b6V-tP-Ap6" secondAttribute="top" constant="52" id="917-3T-1xO"/>
                             <constraint firstItem="9Tg-at-vjX" firstAttribute="leading" secondItem="b6V-tP-Ap6" secondAttribute="leading" constant="20" id="9AS-TA-jgZ"/>
                             <constraint firstItem="Bcb-bK-WnU" firstAttribute="top" secondItem="lhR-J5-a0m" secondAttribute="bottom" constant="22" id="9hy-Ty-OCy"/>
-                            <constraint firstItem="cdb-cm-YR1" firstAttribute="top" secondItem="YMc-y7-3zt" secondAttribute="bottom" constant="30" id="AUk-8h-QmE"/>
                             <constraint firstItem="YMc-y7-3zt" firstAttribute="top" secondItem="5QO-WS-dbi" secondAttribute="bottom" constant="10" id="BOb-uD-Lbk"/>
                             <constraint firstItem="ydc-8a-NqV" firstAttribute="top" secondItem="MjY-xj-KAJ" secondAttribute="bottom" constant="20" id="C5Q-dG-GYr"/>
                             <constraint firstItem="CCc-cc-hnh" firstAttribute="leading" secondItem="b6V-tP-Ap6" secondAttribute="leading" constant="154" id="Egg-tm-ZuV"/>
@@ -261,14 +252,13 @@
                         <viewLayoutGuide key="safeArea" id="b6V-tP-Ap6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Eigene Veranstaltungen" id="fLT-3p-9kd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8xU-Er-doL">
+                        <barButtonItem key="rightBarButtonItem" title="Hinzufügen" id="8xU-Er-doL">
                             <connections>
                                 <action selector="addParty:" destination="SCM-wR-mvm" id="pHd-aR-lk2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="buttonaddParty" destination="cdb-cm-YR1" id="dHF-D3-d3C"/>
                         <outlet property="descriptionTextField" destination="CCc-cc-hnh" id="Qr1-uj-H9H"/>
                         <outlet property="endDateTextField" destination="5QO-WS-dbi" id="t9H-f5-PvO"/>
                         <outlet property="endTimeTextField" destination="YMc-y7-3zt" id="wky-jD-gkc"/>
