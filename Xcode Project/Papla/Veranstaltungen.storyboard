@@ -206,6 +206,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-cm-YR1">
                                 <rect key="frame" x="119" y="369" width="176" height="30"/>
                                 <state key="normal" title="Veranstaltung hinzufügen"/>
+                                <connections>
+                                    <action selector="buttonAddParty:" destination="SCM-wR-mvm" eventType="touchUpInside" id="wtZ-6c-Yfm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -265,6 +268,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="buttonaddParty" destination="cdb-cm-YR1" id="dHF-D3-d3C"/>
                         <outlet property="descriptionTextField" destination="CCc-cc-hnh" id="Qr1-uj-H9H"/>
                         <outlet property="endDateTextField" destination="5QO-WS-dbi" id="t9H-f5-PvO"/>
                         <outlet property="endTimeTextField" destination="YMc-y7-3zt" id="wky-jD-gkc"/>

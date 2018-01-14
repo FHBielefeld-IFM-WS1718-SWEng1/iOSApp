@@ -144,6 +144,9 @@ class NewPartyViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
+    @IBAction func buttonAddParty(_ sender: Any) {
+    }
+    
     func postParty(name: String, description: String, startDate: String, startTime: String, endDate: String, endTime: String, location: String) {
         let headers = [
             "Content-Type": "application/json",

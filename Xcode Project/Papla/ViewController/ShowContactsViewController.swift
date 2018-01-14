@@ -47,6 +47,35 @@ class ShowContactsViewController: UIViewController {
     }
     
 
+    @IBAction func deleteKontakt(_ sender: Any) {
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "184c6030-5323-d9d1-39af-da3a26a1c841"
+        ]
+        let parameters = ["userid": 42] as [String : Any]
+        do{
+        let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        let urlString: String = "http://api.dleunig.de/user/contact?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "DELETE"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = postData as Data
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                let httpResponse = response as? HTTPURLResponse
+                print(httpResponse)
+                            }
+        })
+        dataTask.resume()
+        }catch{return}
+    }
     /*
     // MARK: - Navigation
 
