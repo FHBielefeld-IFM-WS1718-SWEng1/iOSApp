@@ -12,7 +12,7 @@
         <!--Kontakte-->
         <scene sceneID="3UJ-oU-yQE">
             <objects>
-                <viewController title="Kontakte" id="gUj-ng-iDw" customClass="ShowContactsViewController" customModule="Papla" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Kontakte" id="gUj-ng-iDw" customClass="ContactsViewController" customModule="Papla" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" id="TV8-Ku-fWN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -23,7 +23,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="88" id="GCc-aS-Jbi" customClass="EventCell" customModule="Papla" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="88" id="GCc-aS-Jbi" customClass="ContactCell" customModule="Papla" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="84" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GCc-aS-Jbi" id="Mv2-iG-SU0">
@@ -34,20 +34,25 @@
                                             <rect key="frame" x="15" y="11" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vor-Nachname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ier-gY-lxq">
-                                            <rect key="frame" x="110" y="26" width="97" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.47451645139999998" green="0.47449773550000002" blue="0.47451049090000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDt-a0-dQP">
+                                            <rect key="frame" x="106" y="21" width="157" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Name"/>
+                                            <connections>
+                                                <action selector="showContact:" destination="GCc-aS-Jbi" eventType="touchUpInside" id="1ON-dA-mzE"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Ier-gY-lxq" firstAttribute="leading" secondItem="Mv2-iG-SU0" secondAttribute="leading" constant="110" id="4vz-jK-2TR"/>
-                                        <constraint firstItem="Ier-gY-lxq" firstAttribute="top" secondItem="Mv2-iG-SU0" secondAttribute="top" constant="26" id="qjr-l2-KRH"/>
-                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameButton" destination="fDt-a0-dQP" id="pdB-NA-iGP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gUj-ng-iDw" id="hom-nh-xoX"/>
+                            <outlet property="delegate" destination="gUj-ng-iDw" id="9rM-gO-gca"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Kontakte" id="nl2-Za-P5W">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2jW-Zx-JiZ">
@@ -56,6 +61,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="TV8-Ku-fWN" id="hde-mk-iRL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAk-MZ-jJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

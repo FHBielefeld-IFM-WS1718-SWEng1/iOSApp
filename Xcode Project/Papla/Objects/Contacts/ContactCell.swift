@@ -9,8 +9,9 @@
 import UIKit
 
 class ContactCell: UITableViewCell {
-    @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var nameButton: UIButton!
+    var contactId: Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +24,7 @@ class ContactCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func showContact(_ sender: Any) {
+    }
+    
 }

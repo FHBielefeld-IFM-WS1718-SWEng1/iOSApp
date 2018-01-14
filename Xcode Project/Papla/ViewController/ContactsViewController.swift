@@ -16,7 +16,7 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
-    final let url = URL(string: "https://api.myjson.com/bins/d85sr")
+    final let url = URL(string: "http://api.dleunig.de/user/contact?api=\(String(describing: myUser.key!))")
     
     /// Verkettet die URL mit dem Token welcher beim Anmelden zurückgegeben wird.
     //final let url = URL(string: "http://api.dleunig.de/party?api=\(String(describing: myUser.key!))")
@@ -120,8 +120,8 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as? ContactCell else {return UITableViewCell()}
-        
-        cell.nameLbl.text = contacts[indexPath.row].name
+        cell.nameButton.setTitle(contacts[indexPath.row].name, for: .normal)
+        cell.contactId = contacts[indexPath.row].id
         return cell
     }
 }
