@@ -144,6 +144,7 @@ class NewPartyViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
+    
     func postParty(name: String, description: String, startDate: String, startTime: String, endDate: String, endTime: String, location: String) {
         let headers = [
             "Content-Type": "application/json",
@@ -163,7 +164,9 @@ class NewPartyViewController: UIViewController, UITextFieldDelegate{
         do {
         let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
         
-        let request = NSMutableURLRequest(url: NSURL(string: "http://api.dleunig.de/party?api=o7A4X8JQ5kfq5EMqqk-wHIXgMlfHkUe1hbJzQtr7Mas")! as URL,
+            let urlString: String = "http://api.dleunig.de/party?api=" + myUser.key!
+        
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "POST"

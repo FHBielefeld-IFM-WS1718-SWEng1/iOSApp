@@ -22,15 +22,17 @@ class Contact: Codable {
     let id: Int
     let email: String?
     let name: String?
-    let birthday: String?
+    let birthdate: String?
+    let gender: Int
     let profilepicture: String?
     let loginAt: String?
 
-    init(id: Int, email: String, name: String, birthday: String, profilepicture: String, loginAt:String) {
+    init(id: Int, email: String, name: String, birthdate: String,gender: Int, profilepicture: String, loginAt:String) {
         self.id = id
         self.email = email
         self.name = name
-        self.birthday = birthday
+        self.birthdate = birthdate
+        self.gender = gender
         self.profilepicture = profilepicture
         self.loginAt = loginAt
     }
