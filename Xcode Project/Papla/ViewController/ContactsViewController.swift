@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 /**
     # ContactsViewController
@@ -123,5 +124,34 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.nameButton.setTitle(contacts[indexPath.row].name, for: .normal)
         cell.contactId = contacts[indexPath.row].id
         return cell
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        case "addContact":
+            os_log("Adding a new contact.", log: OSLog.default, type: .debug)
+        case "showContact":
+            guard let ShowContactsViewController = segue.destination as? ShowContactsViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedcontactCell = sender as? ContactCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedcontactCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedContact = contacts[indexPath.row]
+            ShowContactsViewController.contact = selectedContact
+        default:
+            break
+        }
     }
 }
