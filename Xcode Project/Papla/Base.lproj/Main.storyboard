@@ -491,6 +491,7 @@
                     <connections>
                         <outlet property="leadingContraint" destination="Qzn-Wi-Le0" id="We6-eZ-x9m"/>
                         <outlet property="menuView" destination="khR-4m-7z6" id="x1X-bT-7IP"/>
+                        <outlet property="tableView" destination="jj2-E0-OGy" id="xX8-wY-1DV"/>
                         <outlet property="userNameLabel" destination="g8c-N9-n3B" id="gGj-vG-Mu1"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="logout" id="vr4-G9-vkt"/>
                     </connections>
