@@ -35,6 +35,8 @@
 		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
 		956F1CC3200B60290003B8C4 /* NewContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F1CC2200B60290003B8C4 /* NewContactViewController.swift */; };
 		956F1CC5200B621B0003B8C4 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F1CC4200B621B0003B8C4 /* UserList.swift */; };
+		959F5BC6200FB273006AB02F /* PartyOwnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959F5BC5200FB273006AB02F /* PartyOwnerViewController.swift */; };
+		959F5BC8200FB2B3006AB02F /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959F5BC7200FB2B3006AB02F /* Party.swift */; };
 		95A137331FBEE57F00451954 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A137321FBEE57F00451954 /* StartViewController.swift */; };
 		95A43D1F1FE43821008BB3F4 /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */; };
 		B4E95C192008F9D000F4CE03 /* ConfirmModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E95C182008F9D000F4CE03 /* ConfirmModalViewController.swift */; };
@@ -92,6 +94,8 @@
 		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/Objects/User/User.swift; sourceTree = SOURCE_ROOT; };
 		956F1CC2200B60290003B8C4 /* NewContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactViewController.swift; sourceTree = "<group>"; };
 		956F1CC4200B621B0003B8C4 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		959F5BC5200FB273006AB02F /* PartyOwnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyOwnerViewController.swift; sourceTree = "<group>"; };
+		959F5BC7200FB2B3006AB02F /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		95A137321FBEE57F00451954 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		95A43D1E1FE43821008BB3F4 /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		B4E95C182008F9D000F4CE03 /* ConfirmModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmModalViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		39922BE61FC19F1400140615 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				959F5BC5200FB273006AB02F /* PartyOwnerViewController.swift */,
 				956F1CC2200B60290003B8C4 /* NewContactViewController.swift */,
 				950E626A200779F200B6411C /* NewPartyViewController.swift */,
 				39701A1F2008DF6200DDB204 /* ShowContactsViewController.swift */,
@@ -212,6 +217,7 @@
 			children = (
 				39B3C25E1FDB35600015EE63 /* EventCell.swift */,
 				39B3C2601FDB39090015EE63 /* Event.swift */,
+				959F5BC7200FB2B3006AB02F /* Party.swift */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3989D3D11FBF49550012081B /* ProfileViewController.swift in Sources */,
+				959F5BC8200FB2B3006AB02F /* Party.swift in Sources */,
 				95A43D1F1FE43821008BB3F4 /* RegisterUser.swift in Sources */,
 				390643591FC60C9900F24B92 /* UITextFieldExtension.swift in Sources */,
 				39B8B5381FE430A8003DB485 /* Contact.swift in Sources */,
@@ -393,6 +400,7 @@
 				39ABC38A1FBF21FF0079715C /* OverviewViewController.swift in Sources */,
 				39B8B5361FE42FBF003DB485 /* ContactsViewController.swift in Sources */,
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
+				959F5BC6200FB273006AB02F /* PartyOwnerViewController.swift in Sources */,
 				950E626B200779F200B6411C /* NewPartyViewController.swift in Sources */,
 				9561DE721FDFE21C007FDBAE /* User.swift in Sources */,
 				956F1CC3200B60290003B8C4 /* NewContactViewController.swift in Sources */,
