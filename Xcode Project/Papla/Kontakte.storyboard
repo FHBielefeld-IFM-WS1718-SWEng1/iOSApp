@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GCc-aS-Jbi" id="Mv2-iG-SU0">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="87.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whs-Sw-SFE">
@@ -92,17 +92,19 @@
                                 <color key="textColor" red="0.99951750040054321" green="0.051543541252613068" blue="0.0049127419479191303" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB8-1v-qd2">
+                                <rect key="frame" x="140" y="201" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Kontakt hinzufügen"/>
+                                <connections>
+                                    <action selector="addContact:" destination="hAP-By-OTh" eventType="touchUpInside" id="hCS-dY-pXT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="YZW-IR-mkj"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Neuer Kontakt" id="kxG-o1-MJo">
-                        <barButtonItem key="rightBarButtonItem" title="Hinzufügen" id="5Lv-o5-XJU">
-                            <connections>
-                                <action selector="addContact:" destination="hAP-By-OTh" id="prp-10-Jir"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Neuer Kontakt" id="kxG-o1-MJo"/>
                     <connections>
                         <outlet property="emailTextField" destination="6Nv-SB-Hoa" id="aX8-Ce-31L"/>
                         <outlet property="errorLabel" destination="3TV-TQ-Tj6" id="eLj-6k-JGB"/>

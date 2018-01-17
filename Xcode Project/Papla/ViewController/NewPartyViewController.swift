@@ -180,9 +180,14 @@ class NewPartyViewController: UIViewController, UITextFieldDelegate{
             } else {
                 let httpResponse = response as? HTTPURLResponse
                 print(httpResponse)
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "addedParty", sender: self)
-                }
+                self.nameTextField.text = ""
+                self.startDateTextField.text = ""
+                self.startTimeTextField.text = ""
+                self.locationTextField.text = ""
+                self.endDateTextField.text = ""
+                self.endTimeTextField.text = ""
+                self.descriptionTextField.text = ""
+                
             }
         })
         

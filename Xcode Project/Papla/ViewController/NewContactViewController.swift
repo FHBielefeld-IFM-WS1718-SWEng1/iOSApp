@@ -87,9 +87,7 @@ class NewContactViewController: UIViewController {
                         } else {
                             let httpResponse = response as? HTTPURLResponse
                             print(httpResponse)
-                            DispatchQueue.main.async {
-                                self.performSegue(withIdentifier: "addedContact", sender: self)
-                            }
+                            self.emailTextField.text = ""
                         }
                     })
                     

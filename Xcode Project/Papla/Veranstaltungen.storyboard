@@ -203,6 +203,14 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woN-nd-tdC">
+                                <rect key="frame" x="149" y="382" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Party hinzufügen"/>
+                                <connections>
+                                    <action selector="addParty:" destination="SCM-wR-mvm" eventType="touchUpInside" id="6Kt-eY-LvD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -251,13 +259,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b6V-tP-Ap6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Eigene Veranstaltungen" id="fLT-3p-9kd">
-                        <barButtonItem key="rightBarButtonItem" title="Hinzufügen" id="8xU-Er-doL">
-                            <connections>
-                                <action selector="addParty:" destination="SCM-wR-mvm" id="pHd-aR-lk2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Eigene Veranstaltungen" id="fLT-3p-9kd"/>
                     <connections>
                         <outlet property="descriptionTextField" destination="CCc-cc-hnh" id="Qr1-uj-H9H"/>
                         <outlet property="endDateTextField" destination="5QO-WS-dbi" id="t9H-f5-PvO"/>
@@ -266,7 +268,6 @@
                         <outlet property="nameTextField" destination="FrD-m4-nR9" id="Iwt-z8-UrA"/>
                         <outlet property="startDateTextField" destination="233-BL-phh" id="suW-mc-2zB"/>
                         <outlet property="startTimeTextField" destination="eEp-JG-ZiE" id="7mO-MB-EMa"/>
-                        <segue destination="fPW-og-s8f" kind="show" identifier="addedParty" id="6Ug-fr-hbx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zNA-vj-VuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
