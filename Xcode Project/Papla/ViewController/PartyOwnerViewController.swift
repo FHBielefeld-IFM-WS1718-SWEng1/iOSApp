@@ -23,19 +23,18 @@ class PartyOwnerViewController: UIViewController {
         super.viewDidLoad()
         
         downloadParty()
-        
-        if(party != nil) {
-            partyNameLabel.text = party.name
-            ownerlabel.text = party.ersteller.name
-            locationLabel.text = party.location
-            timeLabel.text = party.startDate
-            if(party.description != nil) {
-                descriptionText.text = party.description
-            } else {
-                descriptionText.text = ""
-            }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        partyNameLabel.text = party.name
+        ownerlabel.text = party.ersteller.name
+        locationLabel.text = party.location
+        timeLabel.text = party.startDate
+        if(party.description != nil) {
+            descriptionText.text = party.description
+        } else {
+            descriptionText.text = ""
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,8 +75,8 @@ class PartyOwnerViewController: UIViewController {
                 {
                     let decoder = JSONDecoder()
                     let downloadedParty = try decoder.decode(Party.self, from: data)
-                    print(downloadedParty.name)
                     self.party = downloadedParty
+                    print(self.party.name)
                     
                 } catch {
                     print("something wrong after downloaded")
