@@ -131,8 +131,34 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
                     }
                 }
             }
-        }
+        }showMyParty
     */
         return cell
+    }
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        case "showMyParty":
+            guard let PartyOwnerViewController = segue.destination as? PartyOwnerViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            guard let selectedEventCell = sender as? EventCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            guard let indexPath = tableView.indexPath(for: selectedEventCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedEvent = events[indexPath.row]
+            PartyOwnerViewController.event = selectedEvent
+            
+            
+        default:
+            break
+        }
     }
 }
