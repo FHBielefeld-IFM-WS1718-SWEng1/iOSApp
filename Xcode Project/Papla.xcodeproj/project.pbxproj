@@ -32,6 +32,7 @@
 		39B8B5361FE42FBF003DB485 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B8B5351FE42FBF003DB485 /* ContactsViewController.swift */; };
 		39B8B5381FE430A8003DB485 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B8B5371FE430A8003DB485 /* Contact.swift */; };
 		9508B2D82010F84400F94D89 /* GuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9508B2D72010F84400F94D89 /* GuestCell.swift */; };
+		9508B2DA201103B400F94D89 /* AddGuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9508B2D9201103B400F94D89 /* AddGuestViewController.swift */; };
 		950E626B200779F200B6411C /* NewPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950E626A200779F200B6411C /* NewPartyViewController.swift */; };
 		9561DE721FDFE21C007FDBAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9561DE711FDFE21C007FDBAE /* User.swift */; };
 		956F1CC3200B60290003B8C4 /* NewContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F1CC2200B60290003B8C4 /* NewContactViewController.swift */; };
@@ -92,6 +93,7 @@
 		39B8B5351FE42FBF003DB485 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		39B8B5371FE430A8003DB485 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		9508B2D72010F84400F94D89 /* GuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestCell.swift; sourceTree = "<group>"; };
+		9508B2D9201103B400F94D89 /* AddGuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGuestViewController.swift; sourceTree = "<group>"; };
 		950E626A200779F200B6411C /* NewPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPartyViewController.swift; sourceTree = "<group>"; };
 		9561DE711FDFE21C007FDBAE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Papla/Objects/User/User.swift; sourceTree = SOURCE_ROOT; };
 		956F1CC2200B60290003B8C4 /* NewContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewContactViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 		39922BE61FC19F1400140615 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9508B2D9201103B400F94D89 /* AddGuestViewController.swift */,
 				959F5BC5200FB273006AB02F /* PartyOwnerViewController.swift */,
 				956F1CC2200B60290003B8C4 /* NewContactViewController.swift */,
 				950E626A200779F200B6411C /* NewPartyViewController.swift */,
@@ -405,6 +408,7 @@
 				95A137331FBEE57F00451954 /* StartViewController.swift in Sources */,
 				959F5BC6200FB273006AB02F /* PartyOwnerViewController.swift in Sources */,
 				950E626B200779F200B6411C /* NewPartyViewController.swift in Sources */,
+				9508B2DA201103B400F94D89 /* AddGuestViewController.swift in Sources */,
 				9561DE721FDFE21C007FDBAE /* User.swift in Sources */,
 				956F1CC3200B60290003B8C4 /* NewContactViewController.swift in Sources */,
 				3989D3D31FBF49C40012081B /* EventsViewController.swift in Sources */,
