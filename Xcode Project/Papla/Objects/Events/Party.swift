@@ -17,7 +17,7 @@ class Party: Codable {
     let endDate: String?
     let location: String?
     let ersteller: Gast
-    let gäste: [Gast]?
+    let guests: [Invitation]?
 }
 
 class Gast: Codable {
@@ -27,4 +27,11 @@ class Gast: Codable {
     let birthdate: String?
     let gender: Int
     let loginAt: String?
+}
+
+class Invitation: Codable {
+    let id: Int
+    let user_id: Int
+    let status: Int
+    let User: Gast 
 }

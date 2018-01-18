@@ -8,13 +8,15 @@
 
 import UIKit
 
-class PartyOwnerViewController: UIViewController {
+class PartyOwnerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var partyNameLabel: UILabel!
     @IBOutlet weak var ownerlabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
+    
+    @IBOutlet weak var guestTable: UITableView!
     
     var party: Party!
     var event: Event!
@@ -76,7 +78,9 @@ class PartyOwnerViewController: UIViewController {
                     let decoder = JSONDecoder()
                     let downloadedParty = try decoder.decode(Party.self, from: data)
                     self.party = downloadedParty
-                    print(self.party.name)
+                    DispatchQueue.main.async {
+                        self.guestTable.reloadData()
+                    }
                     
                 } catch {
                     print("something wrong after downloaded")
@@ -86,14 +90,46 @@ class PartyOwnerViewController: UIViewController {
             
     }
     
-    /*
+    
+    func tableView(_ guestTable: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(party == nil) {
+            return 0
+        }
+        return party.guests!.count
+    }
+    
+    /**
+     Fuellt die TableView Zellen mit Inhalt
+     */
+    func tableView(_ guestTable: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("Hier")
+        guard let cell = guestTable.dequeueReusableCell(withIdentifier: "GuestCell") as? GuestCell else {return UITableViewCell()}
+        print("fb")
+        print(party.guests![indexPath.row].User.name)
+        cell.nameLabel.text = party.guests![indexPath.row].User.name
+        
+        return cell
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        super.prepare(for: segue, sender: sender)
+ 
+         switch(segue.identifier ?? "") {
+         case "addGuest":
+             guard let AddGuestViewController = segue.destination as? AddGuestViewController else {
+             fatalError("Unexpected destination: \(segue.destination)")
+             }
+             
+            
+             AddGuestViewController.party = party
+            
+            
+         default:
+            break
+         }
+ }
 
 }
