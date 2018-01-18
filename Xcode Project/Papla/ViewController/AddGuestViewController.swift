@@ -132,40 +132,88 @@ class AddGuestViewController: UIViewController, UITableViewDataSource, UITableVi
         print("section: \(indexPath.section)")
         print("row: \(indexPath.row)")
         
+        for invitation in party.guests! {
+            if(invitation.user_id == contacts[indexPath.row].id) {
+                deleteGuest(userId: indexPath.row)
+                return
+            }
+        }
+        addGuest(userId: indexPath.row)
+    }
+    
+    func deleteGuest(userId: Int) {
         let headers = [
             "Content-Type": "application/json",
             "Cache-Control": "no-cache",
             "Postman-Token": "8cd4055a-e5b7-ea24-e432-07122ed838d8"
         ]
         let parameters = [
-            "userid": contacts[indexPath.row].id,
+            "userid": userId,
             "partyid": party.id
             ] as [String : Any]
         do {
-        let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
-        
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            
             let urlString: String = "http://api.dleunig.de/party/guest?api=" + myUser.key!
-        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = headers
-        request.httpBody = postData as Data
-        
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+            let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "DELETE"
+            request.allHTTPHeaderFields = headers
+            request.httpBody = postData as Data
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    print(error)
+                } else {
+                    let httpResponse = response as? HTTPURLResponse
+                    print(httpResponse)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
-            }
-        })
-        
-        dataTask.resume()
+            })
+            
+            dataTask.resume()
+        }catch{return}
+    }
+    
+    func addGuest(userId: Int) {
+        let headers = [
+            "Content-Type": "application/json",
+            "Cache-Control": "no-cache",
+            "Postman-Token": "8cd4055a-e5b7-ea24-e432-07122ed838d8"
+        ]
+        let parameters = [
+            "userid": userId,
+            "partyid": party.id
+            ] as [String : Any]
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            
+            let urlString: String = "http://api.dleunig.de/party/guest?api=" + myUser.key!
+            let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "POST"
+            request.allHTTPHeaderFields = headers
+            request.httpBody = postData as Data
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    print(error)
+                } else {
+                    let httpResponse = response as? HTTPURLResponse
+                    print(httpResponse)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            })
+            
+            dataTask.resume()
         }catch{return}
     }
     /*
