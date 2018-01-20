@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     @IBOutlet weak var profilImage: UIImageView!
     
+    @IBOutlet weak var uploadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         if(myUser.birthdate != nil) {
             birthTextField.text = myUser.birthdate
         }
+        
+        uploadButton.isHidden = true
+        
         if(myUser.gender != nil) {
             print("hier")
             print(myUser.gender!)
@@ -220,13 +224,21 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
 
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        profilImage.image = info[UIImagePickerControllerEditedImage] as? UIImage
-        picker.dismiss(animated: true, completion:nil)
+    @IBAction func uploadPicture(_ sender: Any) {
         let data = UIImageJPEGRepresentation(profilImage.image!, 1.0)
         let strBase64: String = (data?.base64EncodedString())!
         
         putProfilePicture(profilepicture: strBase64)
+        uploadButton.isHidden = true
+        
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        profilImage.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        picker.dismiss(animated: true, completion:nil)
+        uploadButton.isHidden = false
+
     }
     
     func putProfilePicture(profilepicture: String) {

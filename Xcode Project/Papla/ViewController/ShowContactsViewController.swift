@@ -16,6 +16,8 @@ class ShowContactsViewController: UIViewController {
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
+    @IBOutlet weak var profilePicture: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +41,9 @@ class ShowContactsViewController: UIViewController {
             break
         }
         
+        if(contact.profilepicture != nil) {
+            setProfilePicture(pictureId: contact.profilepicture!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +51,49 @@ class ShowContactsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func setProfilePicture(pictureId: String) {
+        let headers = [
+            "Cache-Control": "no-cache",
+            "Postman-Token": "e342f642-1863-4f89-6eb6-933b8609ca24"
+        ]
+        
+        var urlString: String = "http://api.dleunig.de/image/" + pictureId + "?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            guard let data = data, error == nil, response != nil else {
+                print("something is wrong")
+                return
+            }
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            print("downloaded")
+            var picture: String = ""
+            do {
+                let decoder = JSONDecoder()
+                let downloadedPicture = try decoder.decode(Picture.self, from: data)
+                picture = downloadedPicture.data
+                
+            }catch {
+                print("JSON Error")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let dataDecoded : Data = Data(base64Encoded: picture, options: .ignoreUnknownCharacters)!
+                let decodedimage = UIImage(data: dataDecoded)
+                self.profilePicture.image = decodedimage
+            }
+        })
+        
+        dataTask.resume()
+    }
+    
     @IBAction func deleteKontakt(_ sender: Any) {
         let headers = [
             "Content-Type": "application/json",

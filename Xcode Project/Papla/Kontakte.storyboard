@@ -196,6 +196,7 @@
                         <outlet property="emailLabel" destination="mxV-Ko-eTV" id="NvI-01-mh3"/>
                         <outlet property="genderLabel" destination="kfj-gE-ItM" id="HBE-Ti-v42"/>
                         <outlet property="nameLabel" destination="Qa2-UX-NcP" id="zGd-h0-8Aw"/>
+                        <outlet property="profilePicture" destination="6qc-E4-Uc8" id="szT-nU-ujX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNd-RD-g8n" userLabel="First Responder" sceneMemberID="firstResponder"/>

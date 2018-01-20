@@ -15,6 +15,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var leadingContraint: NSLayoutConstraint!
+    @IBOutlet weak var profilePicture: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -66,10 +67,57 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         setCustomBackImage()
         self.tableView.addSubview(self.refreshControl)
         downloadJSON()
+        
+        if(myUser.profilepicture != nil) {
+            setProfilePicture(pictureId: myUser.profilepicture!)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         userNameLabel.text = myUser.name
+    }
+    
+    func setProfilePicture(pictureId: String) {
+        let headers = [
+            "Cache-Control": "no-cache",
+            "Postman-Token": "e342f642-1863-4f89-6eb6-933b8609ca24"
+        ]
+        
+        var urlString: String = "http://api.dleunig.de/image/" + pictureId + "?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            guard let data = data, error == nil, response != nil else {
+                print("something is wrong")
+                return
+            }
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            print("downloaded")
+            var picture: String = ""
+            do {
+                let decoder = JSONDecoder()
+                let downloadedPicture = try decoder.decode(Picture.self, from: data)
+                picture = downloadedPicture.data
+                
+            }catch {
+                print("JSON Error")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let dataDecoded : Data = Data(base64Encoded: picture, options: .ignoreUnknownCharacters)!
+                let decodedimage = UIImage(data: dataDecoded)
+                self.profilePicture.image = decodedimage
+            }
+        })
+        
+        dataTask.resume()
     }
     
     /**
