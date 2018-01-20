@@ -41,3 +41,7 @@ class User: Codable {
     }
     
 }
+
+class Picture: Codable {
+    var data: String
+}

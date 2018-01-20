@@ -239,6 +239,14 @@
                                     <action selector="changeProfilePicture:" destination="IG2-h7-6Xt" eventType="touchUpInside" id="Doh-Ej-KSC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOn-a5-My5">
+                                <rect key="frame" x="307" y="228" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Hochladen"/>
+                                <connections>
+                                    <action selector="uploadPicture:" destination="IG2-h7-6Xt" eventType="touchUpInside" id="dQG-ud-fxM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -302,6 +310,7 @@
                         <outlet property="emailTextField" destination="T2N-xg-hKZ" id="Heh-5c-eiX"/>
                         <outlet property="genderTextField" destination="klx-j9-gJF" id="Gsc-B3-v9E"/>
                         <outlet property="profilImage" destination="ENK-Kh-6F0" id="8ix-jO-K7H"/>
+                        <outlet property="uploadButton" destination="cOn-a5-My5" id="qfC-Vv-oyy"/>
                         <outlet property="usernameTextField" destination="yG9-tA-4AN" id="y3c-5g-cjR"/>
                     </connections>
                 </viewController>

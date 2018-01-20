@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     
     @IBOutlet weak var profilImage: UIImageView!
     
+    @IBOutlet weak var uploadButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +34,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         if(myUser.birthdate != nil) {
             birthTextField.text = myUser.birthdate
         }
+        
+        uploadButton.isHidden = true
+        
         if(myUser.gender != nil) {
             print("hier")
             print(myUser.gender!)
@@ -48,10 +53,51 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
         
         if(myUser.profilepicture != nil) {
-            let dataDecoded : Data = Data(base64Encoded: myUser.profilepicture!, options: .ignoreUnknownCharacters)!
-            let decodedimage = UIImage(data: dataDecoded)
-            profilImage.image = decodedimage
+            setProfilePicture(pictureId: myUser.profilepicture!)
         }
+    }
+    
+    func setProfilePicture(pictureId: String) {
+        let headers = [
+            "Cache-Control": "no-cache",
+            "Postman-Token": "e342f642-1863-4f89-6eb6-933b8609ca24"
+        ]
+        
+        var urlString: String = "http://api.dleunig.de/image/" + myUser.profilepicture! + "?api=" + myUser.key!
+        let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+            guard let data = data, error == nil, response != nil else {
+                print("something is wrong")
+                return
+            }
+            let httpResponse = response as? HTTPURLResponse
+            print(httpResponse)
+            print("downloaded")
+            var picture: String = ""
+            do {
+                let decoder = JSONDecoder()
+                let downloadedPicture = try decoder.decode(Picture.self, from: data)
+                picture = downloadedPicture.data
+                
+            }catch {
+                print("JSON Error")
+                return
+            }
+    
+            DispatchQueue.main.async {
+                let dataDecoded : Data = Data(base64Encoded: picture, options: .ignoreUnknownCharacters)!
+                let decodedimage = UIImage(data: dataDecoded)
+                self.profilImage.image = decodedimage
+            }
+        })
+        
+        dataTask.resume()
     }
     
     /**
@@ -174,17 +220,25 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(picker, animated: true, completion: nil)
-        
+    
+
+    }
+    
+    @IBAction func uploadPicture(_ sender: Any) {
         let data = UIImageJPEGRepresentation(profilImage.image!, 1.0)
         let strBase64: String = (data?.base64EncodedString())!
         
         putProfilePicture(profilepicture: strBase64)
-
+        uploadButton.isHidden = true
+        
     }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         profilImage.image = info[UIImagePickerControllerEditedImage] as? UIImage
         picker.dismiss(animated: true, completion:nil)
+        uploadButton.isHidden = false
+
     }
     
     func putProfilePicture(profilepicture: String) {
@@ -194,14 +248,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             "Postman-Token": "38503a8b-f705-d9db-d953-794f81fcce15"
         ]
     
-        let postDataString = "{\"profilepicture\":\"" + profilepicture + "\"}"
+        let postDataString = "{\"data\":\"" + profilepicture + "\"}"
         let postData = NSData(data: postDataString.data(using: String.Encoding.utf8)!)
     
-        let myurlString = "http://api.dleunig.de/user/" + String(myUser.id) + "?api=" + myUser.key!
+        let myurlString = "http://api.dleunig.de/image" + "?api=" + myUser.key!
         let request = NSMutableURLRequest(url: NSURL(string: myurlString)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
-        request.httpMethod = "PUT"
+        request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = postData as Data
     
