@@ -18,6 +18,8 @@ class Party: Codable {
     let location: String?
     let ersteller: Gast
     let guests: [Invitation]?
+    let tasks: [Task]
+    let ratingAverage: Int?
 }
 
 class Gast: Codable {
@@ -34,4 +36,11 @@ class Invitation: Codable {
     let user_id: Int
     let status: Int
     let User: Gast 
+}
+
+class Task: Codable {
+    let id: Int
+    let text: String
+    let status: Int
+    let User: Gast
 }
