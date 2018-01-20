@@ -180,13 +180,15 @@ class NewPartyViewController: UIViewController, UITextFieldDelegate{
             } else {
                 let httpResponse = response as? HTTPURLResponse
                 print(httpResponse)
-                self.nameTextField.text = ""
-                self.startDateTextField.text = ""
-                self.startTimeTextField.text = ""
-                self.locationTextField.text = ""
-                self.endDateTextField.text = ""
-                self.endTimeTextField.text = ""
-                self.descriptionTextField.text = ""
+                DispatchQueue.main.async {
+                    self.nameTextField.text = ""
+                    self.startDateTextField.text = ""
+                    self.startTimeTextField.text = ""
+                    self.locationTextField.text = ""
+                    self.endDateTextField.text = ""
+                    self.endTimeTextField.text = ""
+                    self.descriptionTextField.text = ""
+                }
                 
             }
         })

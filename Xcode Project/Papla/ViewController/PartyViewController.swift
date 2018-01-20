@@ -16,6 +16,7 @@ class PartyViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
     
+    @IBOutlet weak var guestList: UITextView!
     @IBOutlet weak var taskList: UITextView!
     
     @IBOutlet weak var ratingTextField: UITextField!
@@ -60,7 +61,13 @@ class PartyViewController: UIViewController, UITableViewDataSource, UITableViewD
         } else {
             descriptionText.text = ""
         }
-        
+        guestList.text = ""
+        var guestListString: String = ""
+        for user in party.guests! {
+            guestListString += user.User.name
+            guestListString += "\n"
+        }
+        guestList.text = guestListString
         
         taskList.text = ""
         var taskListString: String = ""
