@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Papla
 
 class PaplaUITests: XCTestCase {
         
@@ -453,4 +454,335 @@ class PaplaUITests: XCTestCase {
         XCTAssertFalse(app.navigationBars["Dashboard"].buttons["Item"].exists, "Text field doesn't exist")
         
     }
+    
+    func testDeleteProfileDoubleCheck() {
+        
+        
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        
+        let itemButton = app.navigationBars["Übersicht"].buttons["Item"]
+        itemButton.tap()
+        itemButton.tap()
+        app.tables["Empty list"].swipeDown()
+        itemButton.tap()
+        app.buttons["Mein Profil"].tap()
+        
+        app.textFields["JJJJ-MM-TT"]
+        
+        let mWNTextField = app.textFields["m/w/n"]
+        mWNTextField.tap()
+        mWNTextField.tap()
+        mWNTextField.typeText("ghj")
+        
+        let profildatenSpeichernButton = app.buttons["Profildaten speichern"]
+        profildatenSpeichernButton.tap()
+        mWNTextField.typeText("m")
+        profildatenSpeichernButton.tap()
+        app.buttons["Konto löschen"].tap()
+        XCTAssertTrue(app.buttons["Abbrechen"].exists)
+        
+    }
+    
+    func testEnterWrongBirthday() {
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        
+        let itemButton = app.navigationBars["Übersicht"].buttons["Item"]
+        itemButton.tap()
+        itemButton.tap()
+        app.tables["Empty list"].swipeDown()
+        itemButton.tap()
+        app.buttons["Mein Profil"].tap()
+        
+        app.textFields["JJJJ-MM-TT"]
+        
+        let jjjjMmTtTextField = XCUIApplication().textFields["JJJJ-MM-TT"]
+        jjjjMmTtTextField.tap()
+        jjjjMmTtTextField.typeText("fghfh")
+        
+        let profildatenSpeichernButton = app.buttons["Profildaten speichern"]
+        profildatenSpeichernButton.tap()
+        
+        XCTAssertEqual(jjjjMmTtTextField.description, "\"1997-04-29\" TextField")
+        
+    }
+    
+    func testEnterWrongGender() {
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        
+        let itemButton = app.navigationBars["Übersicht"].buttons["Item"]
+        itemButton.tap()
+        itemButton.tap()
+        app.tables["Empty list"].swipeDown()
+        itemButton.tap()
+        app.buttons["Mein Profil"].tap()
+        
+        let mWNTextField = app.textFields["m/w/n"]
+        mWNTextField.tap()
+        mWNTextField.typeText("sdfgh")
+        app.buttons["Profildaten speichern"].tap()
+        
+        XCTAssertEqual(mWNTextField.description, "\"m\" TextField")
+        
+    }
+    
+    func testLogout(){
+        
+        let eMailTextField = XCUIApplication().otherElements.containing(.button, identifier:"Passwort vergessen").children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let app = XCUIApplication()
+        let passwortSecureTextField = app.otherElements.containing(.button, identifier:"Passwort vergessen").children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Ausloggen"].tap()
+        
+        XCTAssertTrue(eMailTextField.exists)
+        
+    }
+    
+    func testShowKontaktPapla() {
+        
+        let passwortVergessenElementsQuery = XCUIApplication().otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let app = XCUIApplication()
+        let passwortSecureTextField = app.otherElements.containing(.button, identifier:"Passwort vergessen").children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Kontakt"].tap()
+        
+        let textField = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .textField).element(boundBy: 0)
+        textField.tap()
+        textField.typeText("gjh")
+        
+        XCTAssertTrue(textField.exists)
+        
+        
+    }
+    
+    func testnewPartyNameTextField() {
+        
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Eigene Veranstaltungen"].tap()
+        app.navigationBars["Eigene Veranstaltungen"].buttons["Add"].tap()
+        
+        let nameTextField = app.textFields["Name"]
+        nameTextField.tap()
+        nameTextField.typeText("asdf")
+        
+        
+        
+        XCTAssertTrue(true)
+    }
+    
+    func testnewPartyDescriptionTextFiled() {
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Eigene Veranstaltungen"].tap()
+        app.navigationBars["Eigene Veranstaltungen"].buttons["Add"].tap()
+        
+        let beschreibungTextField = app.textFields["Beschreibung"]
+        beschreibungTextField.tap()
+        beschreibungTextField.tap()
+        beschreibungTextField.typeText("sdf")
+        
+        XCTAssertTrue(true)
+    }
+    
+    func testnewPartyLocationTextField() {
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Eigene Veranstaltungen"].tap()
+        app.navigationBars["Eigene Veranstaltungen"].buttons["Add"].tap()
+        
+        let ortTextField = app.textFields["Ort"]
+        ortTextField.tap()
+        ortTextField.tap()
+        ortTextField.typeText("csdcd")
+        
+        XCTAssertTrue(true)
+
+    }
+    
+    func testaddKontaktWrongEmail() {
+        
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Kontakte"].tap()
+        
+        let kontakteNavigationBar = app.navigationBars["Kontakte"]
+        kontakteNavigationBar.buttons["Add"].tap()
+        
+        let eMailTextField2 = app.textFields["E-Mail"]
+        eMailTextField2.tap()
+        eMailTextField2.typeText("asdfghjkl")
+        
+        let kontaktHinzufGenButton = app.buttons["Kontakt hinzufügen"]
+        kontaktHinzufGenButton.tap()
+        XCTAssertTrue(app.staticTexts["User nicht gefunden"].exists)
+
+    }
+    
+    func testshowKontaks() {
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Kontakte"].tap()
+        
+        let kontakteNavigationBar = app.navigationBars["Kontakte"]
+        
+        XCTAssertTrue(true)
+    }
+    
+    func testshowOwnPartys() {
+        
+        
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Eigene Veranstaltungen"].tap()
+        
+        XCTAssertTrue(true)
+    }
+    
+    func testshowImpressum () {
+        
+        
+        let app = XCUIApplication()
+        let passwortVergessenElementsQuery = app.otherElements.containing(.button, identifier:"Passwort vergessen")
+        let eMailTextField = passwortVergessenElementsQuery.children(matching: .textField)["E-Mail"]
+        eMailTextField.tap()
+        eMailTextField.typeText("fisch")
+        eMailTextField.typeText("@")
+        eMailTextField.typeText("fisch.de")
+        
+        let passwortSecureTextField = passwortVergessenElementsQuery.children(matching: .secureTextField)["Passwort"]
+        passwortSecureTextField.tap()
+        passwortSecureTextField.tap()
+        passwortSecureTextField.typeText("test")
+        app.buttons["ANMELDEN"].tap()
+        app.navigationBars["Übersicht"].buttons["Item"].tap()
+        app.buttons["Impressum"].tap()
+        
+        XCTAssertTrue(true)
+    }
 }
+
