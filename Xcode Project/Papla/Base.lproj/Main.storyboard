@@ -539,18 +539,19 @@
             <objects>
                 <viewController title="Impressum" id="qpk-ob-pbZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0hs-1E-TPE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voG-dh-ztM">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voG-dh-ztM">
+                                <rect key="frame" x="0.0" y="64" width="414" height="1436"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="idA-a7-THd">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1102"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="idA-a7-THd">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">Impressum
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1500" id="V3S-mb-egV"/>
+                                        </constraints>
+                                        <string key="text">Impressum
 Andre Matutat
 Limbreede 10
 32289 Rödinghausen
@@ -573,16 +574,30 @@ Die Darstellung dieser Website in fremden Frames ist nur mit schriftlicher Erlau
 
 § 4 Besondere Nutzungsbedingungen
 Soweit besondere Bedingungen für einzelne Nutzungen dieser Website von den vorgenannten Paragraphen abweichen, wird an entsprechender Stelle ausdrücklich darauf hingewiesen. In diesem Falle gelten im jeweiligen Einzelfall die besonderen Nutzungsbedingungen.
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="idA-a7-THd" firstAttribute="top" secondItem="voG-dh-ztM" secondAttribute="top" id="2lx-Wy-Nfn"/>
+                                    <constraint firstAttribute="bottom" secondItem="idA-a7-THd" secondAttribute="bottom" id="aZX-E4-ynu"/>
+                                    <constraint firstAttribute="trailing" secondItem="idA-a7-THd" secondAttribute="trailing" id="eRt-Vs-tx7"/>
+                                    <constraint firstItem="idA-a7-THd" firstAttribute="leading" secondItem="voG-dh-ztM" secondAttribute="leading" id="r8X-em-phZ"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="idA-a7-THd" firstAttribute="width" secondItem="0hs-1E-TPE" secondAttribute="width" id="0e7-u0-Tu8"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="trailing" secondItem="BwJ-0a-BjI" secondAttribute="trailing" id="3Ol-17-hAt"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="leading" secondItem="BwJ-0a-BjI" secondAttribute="leading" id="69Z-IR-CGi"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="bottom" secondItem="BwJ-0a-BjI" secondAttribute="bottom" id="aLk-ib-6VR"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="top" secondItem="BwJ-0a-BjI" secondAttribute="top" id="poc-6m-Lbg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BwJ-0a-BjI"/>
                     </view>
+                    <size key="freeformSize" width="414" height="1500"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3p-aE-lEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
