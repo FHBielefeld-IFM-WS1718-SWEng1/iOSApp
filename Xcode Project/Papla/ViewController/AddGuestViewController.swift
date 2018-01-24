@@ -118,6 +118,9 @@ class AddGuestViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell") as? ContactCell else {return UITableViewCell()}
         var title: String = contacts[indexPath.row].name!
+        if( party.guests == nil) {
+            return UITableViewCell()
+        }
         for invitation in party.guests! {
             if(invitation.user_id == contacts[indexPath.row].id) {
                 title += "👍"
