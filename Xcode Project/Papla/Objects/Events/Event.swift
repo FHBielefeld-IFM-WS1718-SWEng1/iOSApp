@@ -34,7 +34,7 @@ class Event: Codable {
     let createdAt: String?
     let updatedAt: String?
     let deletedAt: String?
-    let user_id: Int
+    let user_id: Int?
     
     
     init(id: Int, name: String, description: String, startDate: String, endDate: String, location: String, createdAt: String, updatedAt: String, deletedAt: String, user_id: Int) {
