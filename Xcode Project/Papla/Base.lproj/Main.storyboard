@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -266,7 +266,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zo9-z3-rqd">
-                                                    <rect key="frame" x="15" y="38" width="50" height="50"/>
+                                                    <rect key="frame" x="8" y="38" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="GVP-di-9j9"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="s6T-E2-2qF"/>
@@ -275,7 +275,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZKB-Mc-3CL">
-                                                    <rect key="frame" x="15" y="104" width="384" height="67"/>
+                                                    <rect key="frame" x="8" y="104" width="398" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="fKu-UD-f2l"/>
@@ -539,58 +539,69 @@
             <objects>
                 <viewController title="Impressum" id="qpk-ob-pbZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0hs-1E-TPE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8p-Za-agr">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" rowHeight="96" id="1yw-6M-mGz" customClass="ContactCell">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="96"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1yw-6M-mGz" id="pKu-Mu-FlV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="95.666666666666671"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ld-Ur-F15">
-                                                    <rect key="frame" x="30" y="21" width="50" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="PNd-Kg-siH"/>
-                                                        <constraint firstAttribute="height" constant="50" id="hxt-g0-gIa"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZI-KW-7sm">
-                                                    <rect key="frame" x="110" y="36" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="5Ld-Ur-F15" firstAttribute="leading" secondItem="pKu-Mu-FlV" secondAttribute="leadingMargin" constant="15" id="HSw-hR-MjB"/>
-                                                <constraint firstItem="5Ld-Ur-F15" firstAttribute="top" secondItem="pKu-Mu-FlV" secondAttribute="topMargin" constant="10" id="Ro9-im-Lyx"/>
-                                                <constraint firstItem="SZI-KW-7sm" firstAttribute="leading" secondItem="5Ld-Ur-F15" secondAttribute="trailing" constant="30" id="jyL-sA-YMb"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SZI-KW-7sm" secondAttribute="trailing" constant="20" symbolic="YES" id="pyh-zf-9Kv"/>
-                                                <constraint firstItem="SZI-KW-7sm" firstAttribute="centerY" secondItem="5Ld-Ur-F15" secondAttribute="centerY" id="s9e-eD-okp"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="imgView" destination="5Ld-Ur-F15" id="kCZ-tA-PtD"/>
-                                            <outlet property="nameLbl" destination="SZI-KW-7sm" id="KJc-Dm-TPe"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voG-dh-ztM">
+                                <rect key="frame" x="0.0" y="64" width="414" height="1436"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="idA-a7-THd">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1500" id="V3S-mb-egV"/>
+                                        </constraints>
+                                        <string key="text">Impressum
+Andre Matutat
+Limbreede 10
+32289 Rödinghausen
+
+Telefon: 015161418956
+E-Mail: AMatutat@fh-bielefeld.de
+
+
+Disclaimer – rechtliche Hinweise
+§ 1 Warnhinweis zu Inhalten
+Die kostenlosen und frei zugänglichen Inhalte dieser Webseite wurden mit größtmöglicher Sorgfalt erstellt. Der Anbieter dieser Webseite übernimmt jedoch keine Gewähr für die Richtigkeit und Aktualität der bereitgestellten kostenlosen und frei zugänglichen journalistischen Ratgeber und Nachrichten. Namentlich gekennzeichnete Beiträge geben die Meinung des jeweiligen Autors und nicht immer die Meinung des Anbieters wieder. Allein durch den Aufruf der kostenlosen und frei zugänglichen Inhalte kommt keinerlei Vertragsverhältnis zwischen dem Nutzer und dem Anbieter zustande, insoweit fehlt es am Rechtsbindungswillen des Anbieters.
+
+§ 2 Externe Links
+Diese Website enthält Verknüpfungen zu Websites Dritter ("externe Links"). Diese Websites unterliegen der Haftung der jeweiligen Betreiber. Der Anbieter hat bei der erstmaligen Verknüpfung der externen Links die fremden Inhalte daraufhin überprüft, ob etwaige Rechtsverstöße bestehen. Zu dem Zeitpunkt waren keine Rechtsverstöße ersichtlich. Der Anbieter hat keinerlei Einfluss auf die aktuelle und zukünftige Gestaltung und auf die Inhalte der verknüpften Seiten. Das Setzen von externen Links bedeutet nicht, dass sich der Anbieter die hinter dem Verweis oder Link liegenden Inhalte zu Eigen macht. Eine ständige Kontrolle der externen Links ist für den Anbieter ohne konkrete Hinweise auf Rechtsverstöße nicht zumutbar. Bei Kenntnis von Rechtsverstößen werden jedoch derartige externe Links unverzüglich gelöscht.
+
+§ 3 Urheber- und Leistungsschutzrechte
+Die auf dieser Website veröffentlichten Inhalte unterliegen dem deutschen Urheber- und Leistungsschutzrecht. Jede vom deutschen Urheber- und Leistungsschutzrecht nicht zugelassene Verwertung bedarf der vorherigen schriftlichen Zustimmung des Anbieters oder jeweiligen Rechteinhabers. Dies gilt insbesondere für Vervielfältigung, Bearbeitung, Übersetzung, Einspeicherung, Verarbeitung bzw. Wiedergabe von Inhalten in Datenbanken oder anderen elektronischen Medien und Systemen. Inhalte und Rechte Dritter sind dabei als solche gekennzeichnet. Die unerlaubte Vervielfältigung oder Weitergabe einzelner Inhalte oder kompletter Seiten ist nicht gestattet und strafbar. Lediglich die Herstellung von Kopien und Downloads für den persönlichen, privaten und nicht kommerziellen Gebrauch ist erlaubt.
+
+Die Darstellung dieser Website in fremden Frames ist nur mit schriftlicher Erlaubnis zulässig.
+
+§ 4 Besondere Nutzungsbedingungen
+Soweit besondere Bedingungen für einzelne Nutzungen dieser Website von den vorgenannten Paragraphen abweichen, wird an entsprechender Stelle ausdrücklich darauf hingewiesen. In diesem Falle gelten im jeweiligen Einzelfall die besonderen Nutzungsbedingungen.
+</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="idA-a7-THd" firstAttribute="top" secondItem="voG-dh-ztM" secondAttribute="top" id="2lx-Wy-Nfn"/>
+                                    <constraint firstAttribute="bottom" secondItem="idA-a7-THd" secondAttribute="bottom" id="aZX-E4-ynu"/>
+                                    <constraint firstAttribute="trailing" secondItem="idA-a7-THd" secondAttribute="trailing" id="eRt-Vs-tx7"/>
+                                    <constraint firstItem="idA-a7-THd" firstAttribute="leading" secondItem="voG-dh-ztM" secondAttribute="leading" id="r8X-em-phZ"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="idA-a7-THd" firstAttribute="width" secondItem="0hs-1E-TPE" secondAttribute="width" id="0e7-u0-Tu8"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="trailing" secondItem="BwJ-0a-BjI" secondAttribute="trailing" id="3Ol-17-hAt"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="leading" secondItem="BwJ-0a-BjI" secondAttribute="leading" id="69Z-IR-CGi"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="bottom" secondItem="BwJ-0a-BjI" secondAttribute="bottom" id="aLk-ib-6VR"/>
+                            <constraint firstItem="voG-dh-ztM" firstAttribute="top" secondItem="BwJ-0a-BjI" secondAttribute="top" id="poc-6m-Lbg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BwJ-0a-BjI"/>
                     </view>
+                    <size key="freeformSize" width="414" height="1500"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3p-aE-lEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="1084"/>
+            <point key="canvasLocation" x="947.82608695652186" y="1082.608695652174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yOV-9Q-7rs">
@@ -623,13 +634,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefon:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afm-v5-fiE">
-                                <rect key="frame" x="19.999999999999996" y="242" width="57.666666666666657" height="19.333333333333314"/>
+                                <rect key="frame" x="20" y="242" width="57.666666666666671" height="19.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbD-22-eu8">
-                                <rect key="frame" x="19.999999999999996" y="282" width="50.666666666666657" height="19.333333333333314"/>
+                                <rect key="frame" x="20" y="282" width="50.666666666666671" height="19.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -677,7 +688,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Betreff:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEZ-KA-bTu">
-                                <rect key="frame" x="20.000000000000004" y="121.99999999999999" width="54.333333333333343" height="19.333333333333329"/>
+                                <rect key="frame" x="20" y="122.00000000000001" width="54.333333333333329" height="19.333333333333357"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -696,7 +707,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nX-WD-TBw">
-                                <rect key="frame" x="152.66666666666666" y="661" width="108.99999999999997" height="30"/>
+                                <rect key="frame" x="152.66666666666669" y="661" width="109.00000000000006" height="30"/>
                                 <state key="normal" title="Anfrage senden"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail wdh.:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARr-CR-UNs">
