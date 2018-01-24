@@ -64,7 +64,7 @@ class PartyOwnerViewController: UIViewController, UITableViewDataSource, UITable
         guestList.text = ""
         var guestListString: String = ""
         for user in party.guests! {
-            guestListString += user.User.name
+            guestListString += user.User.name!
             guestListString += "\n"
         }
         guestList.text = guestListString
@@ -72,8 +72,8 @@ class PartyOwnerViewController: UIViewController, UITableViewDataSource, UITable
         taskList.text = ""
         var taskListString: String = ""
         for task in party.tasks {
-            taskListString += task.text + "  "
-            taskListString += task.User.name
+            taskListString += task.text! + "  "
+            taskListString += task.User.name!
             taskListString += "\n"
         }
         taskList.text = taskListString

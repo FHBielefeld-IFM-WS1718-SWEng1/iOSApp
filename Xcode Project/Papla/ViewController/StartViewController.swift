@@ -11,7 +11,7 @@ import QuartzCore
 
 
 ///Representiert einen User, der von der API zurück gegeben wird
-var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilepicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
+var myUser = User(id: 0, email: "", name: "", birthdate: "", gender: 0, profilePicture: "", loginAt: "", createdAt: "", updatedAt: "", deletedAt: "", key: "")
 
 
 class StartViewController: UIViewController, UITextFieldDelegate {

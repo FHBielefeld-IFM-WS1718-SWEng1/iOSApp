@@ -24,23 +24,23 @@ class Party: Codable {
 
 class Gast: Codable {
     let id: Int
-    let name: String
-    let email: String
+    let name: String?
+    let email: String?
     let birthdate: String?
-    let gender: Int
+    let gender: Int?
     let loginAt: String?
 }
 
 class Invitation: Codable {
     let id: Int
-    let user_id: Int
-    let status: Int
+    let user_id: Int?
+    let status: Int?
     let User: Gast 
 }
 
 class Task: Codable {
     let id: Int
-    let text: String
-    let status: Int
+    let text: String?
+    let status: Int?
     let User: Gast
 }

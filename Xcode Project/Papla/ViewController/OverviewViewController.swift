@@ -68,8 +68,8 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         self.tableView.addSubview(self.refreshControl)
         downloadJSON()
         
-        if(myUser.profilepicture != nil) {
-            setProfilePicture(pictureId: myUser.profilepicture!)
+        if(myUser.profilePicture != nil) {
+            setProfilePicture(pictureId: myUser.profilePicture!)
         }
     }
     

@@ -52,8 +52,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             }
         }
         
-        if(myUser.profilepicture != nil) {
-            setProfilePicture(pictureId: myUser.profilepicture!)
+        if(myUser.profilePicture != nil) {
+            setProfilePicture(pictureId: myUser.profilePicture!)
         }
     }
     
@@ -62,8 +62,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             "Cache-Control": "no-cache",
             "Postman-Token": "e342f642-1863-4f89-6eb6-933b8609ca24"
         ]
-        
-        var urlString: String = "http://api.dleunig.de/image/" + myUser.profilepicture! + "?api=" + myUser.key!
+        print(myUser.profilePicture!)
+        var urlString: String = "http://api.dleunig.de/image/" + myUser.profilePicture! + "?api=" + myUser.key!
         let request = NSMutableURLRequest(url: NSURL(string: urlString)! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)

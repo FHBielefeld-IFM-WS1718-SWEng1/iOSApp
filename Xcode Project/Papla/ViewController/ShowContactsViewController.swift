@@ -41,8 +41,8 @@ class ShowContactsViewController: UIViewController {
             break
         }
         
-        if(contact.profilepicture != nil) {
-            setProfilePicture(pictureId: contact.profilepicture!)
+        if(contact.profilePicture != nil) {
+            setProfilePicture(pictureId: contact.profilePicture!)
         }
     }
 
