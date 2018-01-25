@@ -137,11 +137,11 @@ class AddGuestViewController: UIViewController, UITableViewDataSource, UITableVi
         
         for invitation in party.guests! {
             if(invitation.user_id == contacts[indexPath.row].id) {
-                deleteGuest(userId: indexPath.row)
+                deleteGuest(userId: contacts[indexPath.row].id)
                 return
             }
         }
-        addGuest(userId: indexPath.row)
+        addGuest(userId: contacts[indexPath.row].id)
     }
     
     func deleteGuest(userId: Int) {
