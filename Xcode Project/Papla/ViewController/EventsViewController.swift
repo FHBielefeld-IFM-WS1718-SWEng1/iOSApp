@@ -60,6 +60,13 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     /**
+     Wird ausgeführt wenn view angezeigt wird hat
+     */
+    override func viewDidAppear(_ animated: Bool) {
+        downloadJSON()
+    }
+    
+    /**
         # downloadJSON
         Laedt JSON herrunter und parsed den Inhalt in Objekte
      */

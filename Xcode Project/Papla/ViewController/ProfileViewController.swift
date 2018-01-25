@@ -144,6 +144,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             if(matches.count == 1) {
                 putBirthdate(birthdate: birthTextField.text!)
             }else {
+                birthTextField.layer.borderColor = myColor.cgColor
                 birthTextField.layer.borderWidth = 1.0
             }
         }

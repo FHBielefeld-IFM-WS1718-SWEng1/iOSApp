@@ -55,10 +55,20 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
         refreshControl.endRefreshing()
     }
     
+    /**
+        Wird ausgeführt wenn view geladen hat
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.addSubview(self.refreshControl)
+        downloadJSON()
+    }
+    
+    /**
+     Wird ausgeführt wenn view angezeigt wird hat
+     */
+    override func viewDidAppear(_ animated: Bool) {
         downloadJSON()
     }
     

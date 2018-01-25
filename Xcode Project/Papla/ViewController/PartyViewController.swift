@@ -79,7 +79,7 @@ class PartyViewController: UIViewController, UITableViewDataSource, UITableViewD
         taskList.text = taskListString
         
         if(party.ratingAverage != nil) {
-            ratingLabel.text = String(describing: party.ratingAverage) + "/10"
+            ratingLabel.text = String(describing: party.ratingAverage!) + "/10"
         }
     }
     

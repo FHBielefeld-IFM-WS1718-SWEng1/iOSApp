@@ -75,6 +75,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidAppear(_ animated: Bool) {
         userNameLabel.text = myUser.name
+        downloadJSON()
     }
     
     func setProfilePicture(pictureId: String) {
