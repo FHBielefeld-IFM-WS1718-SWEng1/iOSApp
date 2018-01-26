@@ -17,7 +17,7 @@ class EventsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
     
-    final let url = URL(string: "http://api.dleunig.de/party?creator=true&api=\(String(describing: myUser.key!))")
+    final let url = URL(string: "http://api.dleunig.de/party?creator=true&guest=false&api=\(String(describing: myUser.key!))")
 
     private var events = [Event]()
     
