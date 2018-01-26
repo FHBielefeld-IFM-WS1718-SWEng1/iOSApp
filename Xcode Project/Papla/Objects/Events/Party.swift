@@ -41,5 +41,5 @@ class Task: Codable {
     let id: Int
     let text: String?
     let status: Int?
-    let User: Gast
+    let User: Gast?
 }

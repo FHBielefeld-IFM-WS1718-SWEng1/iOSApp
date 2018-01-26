@@ -73,7 +73,9 @@ class PartyOwnerViewController: UIViewController, UITableViewDataSource, UITable
         var taskListString: String = ""
         for task in party.tasks {
             taskListString += task.text! + "  "
-            taskListString += task.User.name!
+            if(task.User != nil) {
+            taskListString += task.User!.name!
+            }
             taskListString += "\n"
         }
         taskList.text = taskListString
